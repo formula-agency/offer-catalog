@@ -156,13 +156,9 @@ finally {
     $hashAlgorithm.Dispose()
 }
 
-$latestWriteTime = $processedFiles |
-    Sort-Object LastWriteTime -Descending |
-    Select-Object -First 1 -ExpandProperty LastWriteTime
-
 $catalog = [ordered]@{
     generatedAt = (Get-Date).ToString('yyyy-MM-ddTHH:mm:ssK')
-    updatedAt   = if ($latestWriteTime) { $latestWriteTime.ToString('yyyy-MM-dd') } else { $null }
+    updatedAt   = (Get-Date).ToString('yyyy-MM-dd')
     count       = $offers.Count
     offers      = @($offers)
 }
