@@ -114,16 +114,30 @@
               <p class="results-count" id="results-count" aria-live="polite">Загружаем офферы…</p>
               <div class="active-filters" id="active-filters" aria-label="Выбранные фильтры"></div>
             </div>
-            <label class="sort-control">
-              <span>Сортировка:</span>
-              <select id="sort-select" aria-label="Сортировка офферов">
-                <option value="complex">по ЖК</option>
-                <option value="district">по району</option>
-                <option value="room">по комнатности</option>
-                <option value="type">по типу оффера</option>
-              </select>
-            </label>
+            <div class="results-controls">
+              <div class="status-tabs" role="tablist" aria-label="Раздел каталога">
+                <button class="status-tab is-active" type="button" role="tab" aria-selected="true" data-status-view="active">
+                  Актуальные
+                  <span id="active-offers-count">0</span>
+                </button>
+                <button class="status-tab" type="button" role="tab" aria-selected="false" data-status-view="inactive" title="Метки сохраняются в этом браузере">
+                  Не актуально
+                  <span id="inactive-offers-count">0</span>
+                </button>
+              </div>
+              <label class="sort-control">
+                <span>Сортировка:</span>
+                <select id="sort-select" aria-label="Сортировка офферов">
+                  <option value="complex">по ЖК</option>
+                  <option value="district">по району</option>
+                  <option value="room">по комнатности</option>
+                  <option value="type">по типу оффера</option>
+                </select>
+              </label>
+            </div>
           </div>
+
+          <p class="status-storage-note">Метки «Не актуально» сохраняются в этом браузере и остаются после обновления каталога.</p>
 
           <div class="offers-grid" id="offers-grid"></div>
 
@@ -131,8 +145,8 @@
             <div class="empty-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="m20 20-4.2-4.2m2.2-5A7.2 7.2 0 1 1 3.6 10.8 7.2 7.2 0 0 1 18 10.8Z"/><path d="M9 9.5h3.6M9 12.5h2"/></svg>
             </div>
-            <h2>Ничего не нашлось</h2>
-            <p>Попробуйте изменить запрос или убрать часть фильтров.</p>
+            <h2 id="empty-title">Ничего не нашлось</h2>
+            <p id="empty-description">Попробуйте изменить запрос или убрать часть фильтров.</p>
             <button class="secondary-button" id="empty-reset" type="button">Сбросить фильтры</button>
           </div>
 
@@ -174,6 +188,7 @@
         <h2 id="modal-title"></h2>
         <p class="modal-offer-title" id="modal-offer-title"></p>
         <p class="modal-district" id="modal-district"></p>
+        <button class="modal-status-button" id="modal-status-toggle" type="button"></button>
         <a class="download-button modal-download" id="modal-download" href="" download>
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
           Скачать оффер
@@ -181,6 +196,8 @@
       </div>
     </div>
   </div>
+
+  <div class="catalog-toast" id="catalog-toast" role="status" aria-live="polite" hidden></div>
 
   <noscript>
     <div class="noscript-message">Для работы фильтров необходимо включить JavaScript в браузере.</div>

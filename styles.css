@@ -577,6 +577,69 @@ h1 {
   font-weight: 650;
 }
 
+.results-controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.status-tabs {
+  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid #ded8e7;
+  border-radius: 12px;
+  background: #f2eef7;
+}
+
+.status-tab {
+  min-height: 32px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 9px;
+  color: #746d7d;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 740;
+  white-space: nowrap;
+}
+
+.status-tab span {
+  min-width: 19px;
+  height: 19px;
+  padding-inline: 5px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #7f7788;
+  background: rgba(39, 23, 85, 0.08);
+  font-size: 9px;
+}
+
+.status-tab.is-active {
+  color: var(--purple);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(31, 20, 55, 0.09);
+}
+
+.status-tab.is-active span {
+  color: #fff;
+  background: var(--purple);
+}
+
+.status-storage-note {
+  margin: -7px 0 16px;
+  color: #9992a1;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
 .active-filters {
   margin-top: 10px;
   display: flex;
@@ -660,6 +723,20 @@ h1 {
   border-color: rgba(76, 43, 145, 0.2);
   box-shadow: 0 16px 40px rgba(31, 20, 55, 0.12);
   transform: translateY(-4px);
+}
+
+.offer-card.is-inactive {
+  border-color: rgba(137, 119, 104, 0.2);
+  background: #fbfaf9;
+}
+
+.offer-card.is-inactive .offer-preview img {
+  filter: grayscale(0.42) saturate(0.72);
+  opacity: 0.9;
+}
+
+.offer-card.is-inactive:hover .offer-preview img {
+  filter: grayscale(0.25) saturate(0.82) brightness(0.93);
 }
 
 .offer-preview {
@@ -815,6 +892,47 @@ h1 {
   line-height: 1.45;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.card-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.status-toggle-button,
+.modal-status-button {
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid #ddd7e5;
+  border-radius: 10px;
+  color: #7a5560;
+  background: #fff;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 740;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.status-toggle-button:hover,
+.modal-status-button:hover {
+  border-color: #c9aeb6;
+  color: #9a3e54;
+  background: #fff7f8;
+}
+
+.status-toggle-button.is-restore,
+.modal-status-button.is-restore {
+  border-color: #cfc3df;
+  color: var(--purple-2);
+  background: #f8f5fc;
+}
+
+.status-toggle-button.is-restore:hover,
+.modal-status-button.is-restore:hover {
+  border-color: #aa98c6;
+  color: var(--purple);
+  background: #f1ebf8;
 }
 
 .download-button {
@@ -1115,9 +1233,40 @@ h1 {
 }
 
 .modal-download {
-  margin-top: auto;
+  margin-top: 8px;
   min-height: 50px;
   font-size: 13px;
+}
+
+.modal-status-button {
+  min-height: 44px;
+  margin-top: auto;
+  font-size: 12px;
+}
+
+.catalog-toast {
+  position: fixed;
+  z-index: 180;
+  right: 22px;
+  bottom: 22px;
+  max-width: min(390px, calc(100vw - 32px));
+  padding: 14px 17px;
+  border: 1px solid rgba(39, 23, 85, 0.13);
+  border-radius: 13px;
+  color: #fff;
+  background: var(--purple);
+  box-shadow: 0 14px 40px rgba(25, 15, 47, 0.26);
+  font-size: 12px;
+  font-weight: 680;
+  line-height: 1.45;
+}
+
+.catalog-toast.is-error {
+  background: #8f3346;
+}
+
+.catalog-toast[hidden] {
+  display: none;
 }
 
 .noscript-message {
@@ -1304,6 +1453,12 @@ h1 {
     margin-bottom: 14px;
   }
 
+  .results-controls {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 7px;
+  }
+
   .modal {
     padding: 14px;
   }
@@ -1337,6 +1492,10 @@ h1 {
   }
 
   .modal-download {
+    margin-top: 8px;
+  }
+
+  .modal-status-button {
     margin-top: 16px;
   }
 
@@ -1394,6 +1553,20 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     gap: 7px;
+  }
+
+  .results-controls {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .status-tabs {
+    width: 100%;
+  }
+
+  .status-tab {
+    flex: 1 1 50%;
+    justify-content: center;
   }
 
   .sort-control {

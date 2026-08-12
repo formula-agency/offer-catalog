@@ -1,25 +1,36 @@
 [CmdletBinding()]
 param(
-    [string]$OffersRoot = (Join-Path $PSScriptRoot 'Офферы Новостройки'),
+    [string[]]$OffersRoots = @(
+        (Join-Path $PSScriptRoot 'Офферы Новостройки'),
+        (Join-Path $PSScriptRoot 'Офферы Новостройки 2'),
+        (Join-Path $PSScriptRoot 'Офферы Новостройки 3')
+    ),
     [string]$OutputPath = (Join-Path $PSScriptRoot 'offers-data.js')
 )
 
 $ErrorActionPreference = 'Stop'
 
-if (-not (Test-Path -LiteralPath $OffersRoot -PathType Container)) {
-    throw "Папка с офферами не найдена: $OffersRoot"
+foreach ($offersRoot in $OffersRoots) {
+    if (-not (Test-Path -LiteralPath $offersRoot -PathType Container)) {
+        throw "Папка с офферами не найдена: $offersRoot"
+    }
 }
 
 $typeLabels = @{
     'Акции, скидки'     = 'Акции и скидки'
+    'Сниженная цена'    = 'Акции и скидки'
+    'С ремонтом'        = 'Акции и скидки'
     'БЕЗ ПВ и ЧПВ'      = 'Без ПВ и ЧПВ'
+    'БЕЗ ПВ, ЧПВ'       = 'Без ПВ и ЧПВ'
     'СУБСИДИЯ СЕМЕЙКА'  = 'Субсидия «Семейка»'
+    'Семейка субсидия'  = 'Субсидия «Семейка»'
     'СУБСИДИЯ СТАНДАРТ' = 'Субсидия «Стандарт»'
 }
 
 $districtLabels = @{
     '5 ЗАРЕЧНЫЙ'                          = '5-й Заречный'
     'ДОК'                                 = 'ДОК'
+    'Дом обороны'                         = 'Оборона'
     'ЗАРЕКА'                              = 'Зарека'
     'Заречный'                            = 'Заречный'
     'КПД'                                 = 'КПД'
@@ -27,9 +38,11 @@ $districtLabels = @{
     'Московский тракт, Плеханово'         = 'Плеханово, Московский тракт'
     'Московский, Плеханово'               = 'Плеханово, Московский тракт'
     'МЫС'                                 = 'Мыс'
+    'Новопатрушева'                       = 'Новопатрушево'
     'Оборона'                             = 'Оборона'
     'ПЛЕХАНОВО, МОСКОВСКИЙ ТРАКТ'         = 'Плеханово, Московский тракт'
     'Плеханово, Московский, Рощино'       = 'Плеханово, Московский тракт, Рощино'
+    'Рощино'                              = 'Рощино'
     'ТЮМЕНСКАЯ СЛОБОДА'                   = 'Тюменская слобода'
     'ЦЕНТР'                               = 'Центр'
     'Червишевский тракт'                  = 'Червишевский тракт'
@@ -88,19 +101,45 @@ $roomLabels = @{
     'other'  = 'Не указано'
 }
 
-$rootPath = (Resolve-Path -LiteralPath $OffersRoot).Path
-$processedFiles = @(
-    Get-ChildItem -LiteralPath $rootPath -Recurse -File |
-        Where-Object { $_.Directory.Name -eq 'Обработанные' } |
-        Sort-Object FullName
+# У этих исходников технические GUID-имена, поэтому комнатность нельзя
+# определить по имени файла. Значения взяты с самих макетов.
+$roomOverrides = @{
+    'b266723d-3446-40cb-b796-212c3bd2c62e' = '2'
+    'abcaaeed-c9fa-4c83-88b0-f7f036b727bf' = 'studio'
+    'ea3640a4-f1db-4de5-b4f6-198063a78182' = '2'
+}
+
+$rootEntries = @(
+    foreach ($offersRoot in $OffersRoots) {
+        $resolvedRoot = (Resolve-Path -LiteralPath $offersRoot).Path
+        [pscustomobject]@{
+            Path = $resolvedRoot
+            Name = Split-Path -Leaf $resolvedRoot
+        }
+    }
 )
+
+$processedFiles = @(
+    foreach ($rootEntry in $rootEntries) {
+        Get-ChildItem -LiteralPath $rootEntry.Path -Recurse -File |
+            Where-Object { $_.Directory.Name -eq 'Обработанные' } |
+            ForEach-Object {
+                [pscustomobject]@{
+                    File     = $_
+                    RootPath = $rootEntry.Path
+                    RootName = $rootEntry.Name
+                }
+            }
+    }
+) | Sort-Object { $_.File.FullName }
 
 $hashAlgorithm = [System.Security.Cryptography.SHA256]::Create()
 $utf8 = [System.Text.UTF8Encoding]::new($false)
 
 try {
-    $offers = foreach ($file in $processedFiles) {
-        $relativePath = [System.IO.Path]::GetRelativePath($rootPath, $file.FullName)
+    $offers = foreach ($record in $processedFiles) {
+        $file = $record.File
+        $relativePath = [System.IO.Path]::GetRelativePath($record.RootPath, $file.FullName)
         $parts = $relativePath -split '[\\/]'
 
         if ($parts.Count -lt 5) {
@@ -111,7 +150,12 @@ try {
         $typeRaw = $parts[0]
         $districtRaw = $parts[1]
         $complexRaw = $parts[2]
-        $roomCode = Get-RoomCode -Name $file.BaseName
+        $roomCode = if ($roomOverrides.ContainsKey($file.BaseName)) {
+            $roomOverrides[$file.BaseName]
+        }
+        else {
+            Get-RoomCode -Name $file.BaseName
+        }
 
         if (-not $roomCode) {
             $complexDirectory = $file.Directory.Parent
@@ -128,11 +172,17 @@ try {
 
         if (-not $roomCode) { $roomCode = 'other' }
 
-        $webPath = './Офферы Новостройки/' + (($relativePath -split '[\\/]' | ForEach-Object {
+        $webPath = './' + [System.Uri]::EscapeDataString($record.RootName) + '/' + (($relativePath -split '[\\/]' | ForEach-Object {
             [System.Uri]::EscapeDataString($_)
         }) -join '/')
 
-        $idBytes = $hashAlgorithm.ComputeHash($utf8.GetBytes($relativePath.ToLowerInvariant()))
+        $idSeed = if ($record.RootName -eq 'Офферы Новостройки') {
+            $relativePath
+        }
+        else {
+            "$($record.RootName)/$relativePath"
+        }
+        $idBytes = $hashAlgorithm.ComputeHash($utf8.GetBytes($idSeed.ToLowerInvariant()))
         $id = -join ($idBytes[0..7] | ForEach-Object { $_.ToString('x2') })
 
         [ordered]@{

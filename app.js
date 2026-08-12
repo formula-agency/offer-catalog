@@ -11,6 +11,7 @@
   }
 
   const PAGE_SIZE = 24;
+  const INACTIVE_STORAGE_KEY = 'formula-offer-catalog-inactive-v1';
   const TYPE_COLORS = {
     'Акции и скидки': '#e85d12',
     'Без ПВ и ЧПВ': '#7b3fc4',
@@ -39,23 +40,29 @@
     room: new Set(),
     district: new Set(),
     complex: new Set(),
-    sort: 'complex'
+    sort: 'complex',
+    statusView: 'active'
   };
 
   let visibleCount = PAGE_SIZE;
   let filteredOffers = [];
   let modalOfferId = null;
   let lastFocusedElement = null;
+  let toastTimer = null;
 
   const elements = {
     search: document.getElementById('catalog-search'),
     typeOptions: document.getElementById('type-options'),
     roomOptions: document.getElementById('room-options'),
     resultsCount: document.getElementById('results-count'),
+    activeOffersCount: document.getElementById('active-offers-count'),
+    inactiveOffersCount: document.getElementById('inactive-offers-count'),
     activeFilters: document.getElementById('active-filters'),
     reset: document.getElementById('reset-filters'),
     emptyReset: document.getElementById('empty-reset'),
     empty: document.getElementById('empty-state'),
+    emptyTitle: document.getElementById('empty-title'),
+    emptyDescription: document.getElementById('empty-description'),
     sort: document.getElementById('sort-select'),
     loadMoreWrap: document.getElementById('load-more-wrap'),
     loadMore: document.getElementById('load-more'),
@@ -73,9 +80,11 @@
     modalTitle: document.getElementById('modal-title'),
     modalOfferTitle: document.getElementById('modal-offer-title'),
     modalDistrict: document.getElementById('modal-district'),
+    modalStatusToggle: document.getElementById('modal-status-toggle'),
     modalDownload: document.getElementById('modal-download'),
     modalPrev: document.getElementById('modal-prev'),
-    modalNext: document.getElementById('modal-next')
+    modalNext: document.getElementById('modal-next'),
+    toast: document.getElementById('catalog-toast')
   };
 
   const normalize = (value) => String(value || '')
@@ -97,6 +106,56 @@
       offer.title
     ].join(' '))
   }));
+
+  function loadInactiveOfferIds() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(INACTIVE_STORAGE_KEY) || '[]');
+      const ids = Array.isArray(stored) ? stored : stored.offerIds;
+      return new Set(Array.isArray(ids) ? ids.filter((id) => typeof id === 'string') : []);
+    } catch (error) {
+      return new Set();
+    }
+  }
+
+  const inactiveOfferIds = loadInactiveOfferIds();
+  const currentOfferIds = new Set(offers.map((offer) => offer.id));
+  const hadRemovedOffers = [...inactiveOfferIds].some((id) => !currentOfferIds.has(id));
+  [...inactiveOfferIds].forEach((id) => {
+    if (!currentOfferIds.has(id)) inactiveOfferIds.delete(id);
+  });
+
+  function persistInactiveOfferIds() {
+    try {
+      localStorage.setItem(INACTIVE_STORAGE_KEY, JSON.stringify({
+        version: 1,
+        savedAt: new Date().toISOString(),
+        offerIds: [...inactiveOfferIds]
+      }));
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  if (hadRemovedOffers) persistInactiveOfferIds();
+
+  function showToast(message, isError) {
+    clearTimeout(toastTimer);
+    elements.toast.textContent = message;
+    elements.toast.classList.toggle('is-error', Boolean(isError));
+    elements.toast.hidden = false;
+    toastTimer = setTimeout(() => {
+      elements.toast.hidden = true;
+    }, 3600);
+  }
+
+  function isInactive(offer) {
+    return inactiveOfferIds.has(offer.id);
+  }
+
+  function isInCurrentStatusView(offer) {
+    return state.statusView === 'inactive' ? isInactive(offer) : !isInactive(offer);
+  }
 
   const uniqueSorted = (key) => [...new Set(offers.map((offer) => offer[key]))]
     .sort((a, b) => a.localeCompare(b, 'ru'));
@@ -135,7 +194,7 @@
   function getOptionCount(filter, value) {
     const offerKey = filter === 'room' ? 'roomCode' : filter;
     return offers.reduce((count, offer) => {
-      return count + (matchesFilters(offer, filter) && offer[offerKey] === value ? 1 : 0);
+      return count + (isInCurrentStatusView(offer) && matchesFilters(offer, filter) && offer[offerKey] === value ? 1 : 0);
     }, 0);
   }
 
@@ -262,6 +321,7 @@
     const card = document.createElement('article');
     card.className = 'offer-card';
     card.dataset.offerId = offer.id;
+    card.classList.toggle('is-inactive', isInactive(offer));
 
     const preview = document.createElement('button');
     preview.type = 'button';
@@ -323,7 +383,21 @@
     download.append(document.createTextNode('Скачать оффер'));
     download.setAttribute('aria-label', `Скачать оффер ${complexTitle(offer.complex)}: ${offer.title}`);
 
-    body.append(meta, heading, offerName, download);
+    const statusToggle = document.createElement('button');
+    statusToggle.type = 'button';
+    statusToggle.className = 'status-toggle-button';
+    statusToggle.dataset.toggleOfferStatus = offer.id;
+    statusToggle.classList.toggle('is-restore', isInactive(offer));
+    statusToggle.textContent = isInactive(offer) ? 'Вернуть в актуальные' : 'Не актуально';
+    statusToggle.setAttribute('aria-label', isInactive(offer)
+      ? `Вернуть оффер ${complexTitle(offer.complex)} в актуальные`
+      : `Пометить оффер ${complexTitle(offer.complex)} как неактуальный`);
+
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+    actions.append(download, statusToggle);
+
+    body.append(meta, heading, offerName, actions);
     card.append(preview, body);
     return card;
   }
@@ -378,8 +452,33 @@
 
   function renderSummary() {
     const count = filteredOffers.length;
-    elements.resultsCount.textContent = `Найдено ${count} ${plural(count, ['оффер', 'оффера', 'офферов'])}`;
+    const inactiveCount = inactiveOfferIds.size;
+    const activeCount = offers.length - inactiveCount;
+    const sectionLabel = state.statusView === 'inactive' ? 'Не актуально:' : 'Найдено';
+    elements.resultsCount.textContent = `${sectionLabel} ${count} ${plural(count, ['оффер', 'оффера', 'офферов'])}`;
+    elements.activeOffersCount.textContent = activeCount;
+    elements.inactiveOffersCount.textContent = inactiveCount;
     elements.reset.disabled = !hasAnyFilters();
+
+    document.querySelectorAll('[data-status-view]').forEach((button) => {
+      const selected = button.dataset.statusView === state.statusView;
+      button.classList.toggle('is-active', selected);
+      button.setAttribute('aria-selected', String(selected));
+    });
+
+    if (!count && state.statusView === 'inactive' && !hasAnyFilters()) {
+      elements.emptyTitle.textContent = 'Нет неактуальных офферов';
+      elements.emptyDescription.textContent = 'Помеченные менеджерами офферы появятся в этом разделе.';
+      elements.emptyReset.hidden = true;
+    } else if (!count && state.statusView === 'active' && !hasAnyFilters()) {
+      elements.emptyTitle.textContent = 'Все офферы помечены как неактуальные';
+      elements.emptyDescription.textContent = 'Откройте раздел «Не актуально», чтобы вернуть нужные материалы.';
+      elements.emptyReset.hidden = true;
+    } else {
+      elements.emptyTitle.textContent = 'Ничего не нашлось';
+      elements.emptyDescription.textContent = 'Попробуйте изменить запрос или убрать часть фильтров.';
+      elements.emptyReset.hidden = false;
+    }
 
     const selected = selectedFilterCount();
     elements.mobileFilterCount.hidden = selected === 0;
@@ -388,7 +487,7 @@
   }
 
   function renderAll() {
-    filteredOffers = sortOffers(offers.filter((offer) => matchesFilters(offer)));
+    filteredOffers = sortOffers(offers.filter((offer) => isInCurrentStatusView(offer) && matchesFilters(offer)));
     renderTypeOptions();
     renderRoomOptions();
     renderDropdown('district');
@@ -396,6 +495,26 @@
     renderActiveFilters();
     renderSummary();
     renderCards();
+    renderCatalogMeta();
+  }
+
+  function toggleOfferStatus(id) {
+    const offer = offers.find((item) => item.id === id);
+    if (!offer) return;
+
+    const markInactive = !isInactive(offer);
+    if (markInactive) inactiveOfferIds.add(id);
+    else inactiveOfferIds.delete(id);
+
+    const saved = persistInactiveOfferIds();
+    if (modalOfferId === id) closeModal();
+    visibleCount = PAGE_SIZE;
+    renderAll();
+
+    const successMessage = markInactive
+      ? 'Оффер перенесён в раздел «Не актуально».'
+      : 'Оффер возвращён в актуальные.';
+    showToast(saved ? successMessage : `${successMessage} Не удалось сохранить метку в браузере.`, !saved);
   }
 
   function toggleSetValue(set, value) {
@@ -456,6 +575,9 @@
     elements.modalTitle.textContent = complexTitle(offer.complex);
     elements.modalOfferTitle.textContent = offer.title;
     elements.modalDistrict.textContent = `Район: ${offer.district}`;
+    elements.modalStatusToggle.textContent = isInactive(offer) ? 'Вернуть в актуальные' : 'Пометить «Не актуально»';
+    elements.modalStatusToggle.classList.toggle('is-restore', isInactive(offer));
+    elements.modalStatusToggle.dataset.toggleOfferStatus = offer.id;
     elements.modalDownload.href = offer.path;
     elements.modalDownload.download = offer.fileName;
 
@@ -538,6 +660,14 @@
     renderAll();
   });
 
+  document.querySelector('.status-tabs').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-status-view]');
+    if (!button || button.dataset.statusView === state.statusView) return;
+    state.statusView = button.dataset.statusView;
+    visibleCount = PAGE_SIZE;
+    renderAll();
+  });
+
   elements.activeFilters.addEventListener('click', (event) => {
     const button = event.target.closest('[data-remove-group]');
     if (!button) return;
@@ -554,6 +684,11 @@
   });
 
   grid.addEventListener('click', (event) => {
+    const statusToggle = event.target.closest('[data-toggle-offer-status]');
+    if (statusToggle) {
+      toggleOfferStatus(statusToggle.dataset.toggleOfferStatus);
+      return;
+    }
     const preview = event.target.closest('[data-open-offer]');
     if (preview) openModal(preview.dataset.openOffer, preview);
   });
@@ -568,6 +703,11 @@
   });
   elements.modalPrev.addEventListener('click', () => navigateModal(-1));
   elements.modalNext.addEventListener('click', () => navigateModal(1));
+  elements.modalStatusToggle.addEventListener('click', () => {
+    if (elements.modalStatusToggle.dataset.toggleOfferStatus) {
+      toggleOfferStatus(elements.modalStatusToggle.dataset.toggleOfferStatus);
+    }
+  });
 
   document.addEventListener('click', () => closeDropdowns());
   document.addEventListener('keydown', (event) => {
@@ -589,8 +729,9 @@
   });
 
   function renderCatalogMeta() {
-    const total = offers.length;
-    const complexes = new Set(offers.map((offer) => offer.complex)).size;
+    const activeOffers = offers.filter((offer) => !isInactive(offer));
+    const total = activeOffers.length;
+    const complexes = new Set(activeOffers.map((offer) => offer.complex)).size;
     document.getElementById('offers-total').textContent = total;
     document.getElementById('complexes-total').textContent = complexes;
     if (catalog.updatedAt) {
@@ -602,6 +743,5 @@
     }
   }
 
-  renderCatalogMeta();
   renderAll();
 }());
