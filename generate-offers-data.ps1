@@ -107,6 +107,23 @@ $roomOverrides = @{
     'b266723d-3446-40cb-b796-212c3bd2c62e' = '2'
     'abcaaeed-c9fa-4c83-88b0-f7f036b727bf' = 'studio'
     'ea3640a4-f1db-4de5-b4f6-198063a78182' = '2'
+    'i (16)'                               = '1'
+    'i (17)'                               = 'studio'
+    'i (18)'                               = '1'
+    'i (19)'                               = '1'
+    'i (20)'                               = 'studio'
+    'i (21)'                               = '2'
+    'i (22)'                               = 'studio'
+}
+
+$titleOverrides = @{
+    'i (16)' = '1-комнатная 40,3 м²'
+    'i (17)' = 'Студия 33,8 м²'
+    'i (18)' = '1-комнатная 34,84 м²'
+    'i (19)' = '1-комнатная 36,2 м²'
+    'i (20)' = 'Студия 32,0 м²'
+    'i (21)' = '2-комнатная 54,0 м²'
+    'i (22)' = 'Студия 24,68 м²'
 }
 
 $rootEntries = @(
@@ -195,7 +212,12 @@ try {
             complexRaw  = $complexRaw
             room        = $roomLabels[$roomCode]
             roomCode    = $roomCode
-            title       = ConvertTo-DisplayText -Text $file.BaseName
+            title       = if ($titleOverrides.ContainsKey($file.BaseName)) {
+                $titleOverrides[$file.BaseName]
+            }
+            else {
+                ConvertTo-DisplayText -Text $file.BaseName
+            }
             fileName    = $file.Name
             path        = $webPath
             extension   = $file.Extension.TrimStart('.').ToLowerInvariant()
