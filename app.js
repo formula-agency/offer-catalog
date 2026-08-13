@@ -15,12 +15,14 @@
   const TYPE_COLORS = {
     'Акции и скидки': '#e85d12',
     'Без ПВ и ЧПВ': '#7b3fc4',
+    'С ремонтом': '#a45b2a',
     'Субсидия «Семейка»': '#19866e',
     'Субсидия «Стандарт»': '#405cc9'
   };
   const TYPE_ORDER = [
     'Акции и скидки',
     'Без ПВ и ЧПВ',
+    'С ремонтом',
     'Субсидия «Семейка»',
     'Субсидия «Стандарт»'
   ];
@@ -93,19 +95,26 @@
     .replace(/\s+/g, ' ')
     .trim();
 
-  const offers = catalog.offers.map((offer) => ({
-    ...offer,
-    searchText: normalize([
-      offer.type,
-      offer.typeRaw,
-      offer.district,
-      offer.districtRaw,
-      offer.complex,
-      offer.complexRaw,
-      offer.room,
-      offer.title
-    ].join(' '))
-  }));
+  const offers = catalog.offers.map((offer) => {
+    const types = Array.isArray(offer.types) && offer.types.length
+      ? [...new Set(offer.types)]
+      : [offer.type];
+
+    return {
+      ...offer,
+      types,
+      searchText: normalize([
+        ...types,
+        offer.typeRaw,
+        offer.district,
+        offer.districtRaw,
+        offer.complex,
+        offer.complexRaw,
+        offer.room,
+        offer.title
+      ].join(' '))
+    };
+  });
 
   function loadInactiveOfferIds() {
     try {
@@ -161,7 +170,7 @@
     .sort((a, b) => a.localeCompare(b, 'ru'));
 
   const filterValues = {
-    type: [...new Set(offers.map((offer) => offer.type))]
+    type: [...new Set(offers.flatMap((offer) => offer.types))]
       .sort((a, b) => TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b)),
     room: [...new Set(offers.map((offer) => offer.roomCode))]
       .sort((a, b) => ROOM_ORDER.indexOf(a) - ROOM_ORDER.indexOf(b)),
@@ -184,7 +193,7 @@
 
   function matchesFilters(offer, except) {
     if (state.search && !offer.searchText.includes(normalize(state.search))) return false;
-    if (except !== 'type' && state.type.size && !state.type.has(offer.type)) return false;
+    if (except !== 'type' && state.type.size && !offer.types.some((type) => state.type.has(type))) return false;
     if (except !== 'room' && state.room.size && !state.room.has(offer.roomCode)) return false;
     if (except !== 'district' && state.district.size && !state.district.has(offer.district)) return false;
     if (except !== 'complex' && state.complex.size && !state.complex.has(offer.complex)) return false;
@@ -194,7 +203,8 @@
   function getOptionCount(filter, value) {
     const offerKey = filter === 'room' ? 'roomCode' : filter;
     return offers.reduce((count, offer) => {
-      return count + (isInCurrentStatusView(offer) && matchesFilters(offer, filter) && offer[offerKey] === value ? 1 : 0);
+      const hasValue = filter === 'type' ? offer.types.includes(value) : offer[offerKey] === value;
+      return count + (isInCurrentStatusView(offer) && matchesFilters(offer, filter) && hasValue ? 1 : 0);
     }, 0);
   }
 
@@ -343,8 +353,9 @@
 
     const badge = document.createElement('span');
     badge.className = 'type-badge';
-    badge.textContent = offer.type;
-    badge.style.setProperty('--type-color', TYPE_COLORS[offer.type] || '#4c2b91');
+    const visibleType = TYPE_ORDER.find((type) => state.type.has(type) && offer.types.includes(type)) || offer.type;
+    badge.textContent = visibleType;
+    badge.style.setProperty('--type-color', TYPE_COLORS[visibleType] || '#4c2b91');
 
     const overlay = document.createElement('span');
     overlay.className = 'preview-overlay';
@@ -569,8 +580,9 @@
 
     elements.modalImage.src = offer.path;
     elements.modalImage.alt = `${complexTitle(offer.complex)} — ${offer.room}, ${offer.title}`;
-    elements.modalType.textContent = offer.type;
-    elements.modalType.style.setProperty('--type-color', TYPE_COLORS[offer.type] || '#4c2b91');
+    const visibleType = TYPE_ORDER.find((type) => state.type.has(type) && offer.types.includes(type)) || offer.type;
+    elements.modalType.textContent = visibleType;
+    elements.modalType.style.setProperty('--type-color', TYPE_COLORS[visibleType] || '#4c2b91');
     elements.modalRoom.textContent = offer.room;
     elements.modalTitle.textContent = complexTitle(offer.complex);
     elements.modalOfferTitle.textContent = offer.title;

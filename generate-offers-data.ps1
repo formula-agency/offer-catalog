@@ -167,6 +167,13 @@ try {
         $typeRaw = $parts[0]
         $districtRaw = $parts[1]
         $complexRaw = $parts[2]
+        $primaryType = if ($typeLabels.ContainsKey($typeRaw)) { $typeLabels[$typeRaw] } else { $typeRaw }
+        $offerTypes = @($primaryType)
+        $hasRenovation = $typeRaw -ieq 'С ремонтом' -or
+            $file.BaseName -match '(?i)(?:с\s+ремонтом|с\s+отделкой)'
+        if ($hasRenovation -and 'С ремонтом' -notin $offerTypes) {
+            $offerTypes += 'С ремонтом'
+        }
         $roomCode = if ($roomOverrides.ContainsKey($file.BaseName)) {
             $roomOverrides[$file.BaseName]
         }
@@ -204,7 +211,8 @@ try {
 
         [ordered]@{
             id          = $id
-            type        = if ($typeLabels.ContainsKey($typeRaw)) { $typeLabels[$typeRaw] } else { $typeRaw }
+            type        = $primaryType
+            types       = @($offerTypes)
             typeRaw     = $typeRaw
             district    = if ($districtLabels.ContainsKey($districtRaw)) { $districtLabels[$districtRaw] } else { $districtRaw }
             districtRaw = $districtRaw
