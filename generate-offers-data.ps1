@@ -3,7 +3,8 @@ param(
     [string[]]$OffersRoots = @(
         (Join-Path $PSScriptRoot 'Офферы Новостройки'),
         (Join-Path $PSScriptRoot 'Офферы Новостройки 2'),
-        (Join-Path $PSScriptRoot 'Офферы Новостройки 3')
+        (Join-Path $PSScriptRoot 'Офферы Новостройки 3'),
+        (Join-Path $PSScriptRoot 'Рассрочка')
     ),
     [string]$OutputPath = (Join-Path $PSScriptRoot 'offers-data.js')
 )
@@ -25,6 +26,7 @@ $typeLabels = @{
     'СУБСИДИЯ СЕМЕЙКА'  = 'Субсидия «Семейка»'
     'Семейка субсидия'  = 'Субсидия «Семейка»'
     'СУБСИДИЯ СТАНДАРТ' = 'Субсидия «Стандарт»'
+    'Рассрочка'          = 'Рассрочка'
 }
 
 $districtLabels = @{
@@ -46,6 +48,11 @@ $districtLabels = @{
     'ТЮМЕНСКАЯ СЛОБОДА'                   = 'Тюменская слобода'
     'ЦЕНТР'                               = 'Центр'
     'Червишевский тракт'                  = 'Червишевский тракт'
+    'Червишеский тракт'                   = 'Червишевский тракт'
+}
+
+$complexLabels = @{
+    'ЖК беринг' = 'ЖК Беринг'
 }
 
 function ConvertTo-DisplayText {
@@ -60,6 +67,10 @@ function ConvertTo-ComplexName {
 
     $clean = ($Name -replace '\s+', ' ').Trim()
     $clean = $clean -replace '^(?i:жк)\s+', 'ЖК '
+
+    if ($complexLabels.ContainsKey($clean)) {
+        return $complexLabels[$clean]
+    }
 
     if ($clean -cmatch '^ЖК\s') {
         $tail = $clean.Substring(3)
@@ -126,12 +137,23 @@ $titleOverrides = @{
     'i (22)' = 'Студия 24,68 м²'
 }
 
+# Точечные исключения для макетов, где важные признаки указаны внутри
+# изображения, но не отражены в имени файла.
+$roomPathOverrides = @{
+    'Рассрочка/Московский тракт/ЖК Домашний/Обработанные/1+.jpg' = '2'
+}
+
+$renovationPathOverrides = @(
+    'Рассрочка/Тюменская слобода/ЖК Символ/Обработанные/1+.jpg'
+)
+
 $rootEntries = @(
     foreach ($offersRoot in $OffersRoots) {
         $resolvedRoot = (Resolve-Path -LiteralPath $offersRoot).Path
         [pscustomobject]@{
-            Path = $resolvedRoot
-            Name = Split-Path -Leaf $resolvedRoot
+            Path       = $resolvedRoot
+            Name       = Split-Path -Leaf $resolvedRoot
+            TypePrefix = if ((Split-Path -Leaf $resolvedRoot) -ieq 'Рассрочка') { 'Рассрочка' } else { $null }
         }
     }
 )
@@ -145,6 +167,7 @@ $processedFiles = @(
                     File     = $_
                     RootPath = $rootEntry.Path
                     RootName = $rootEntry.Name
+                    TypePrefix = $rootEntry.TypePrefix
                 }
             }
     }
@@ -157,7 +180,13 @@ try {
     $offers = foreach ($record in $processedFiles) {
         $file = $record.File
         $relativePath = [System.IO.Path]::GetRelativePath($record.RootPath, $file.FullName)
-        $parts = $relativePath -split '[\\/]'
+        $relativeParts = @($relativePath -split '[\\/]')
+        $parts = if ($record.TypePrefix) {
+            @($record.TypePrefix) + $relativeParts
+        }
+        else {
+            $relativeParts
+        }
 
         if ($parts.Count -lt 5) {
             Write-Warning "Пропущен файл с неожиданной структурой: $relativePath"
@@ -167,14 +196,19 @@ try {
         $typeRaw = $parts[0]
         $districtRaw = $parts[1]
         $complexRaw = $parts[2]
+        $catalogPathKey = ($record.RootName + '/' + ($relativePath -replace '\\', '/'))
         $primaryType = if ($typeLabels.ContainsKey($typeRaw)) { $typeLabels[$typeRaw] } else { $typeRaw }
         $offerTypes = @($primaryType)
         $hasRenovation = $typeRaw -ieq 'С ремонтом' -or
-            $file.BaseName -match '(?i)(?:с\s+ремонтом|с\s+отделкой)'
+            $file.BaseName -match '(?i)(?:с\s+ремонтом|с\s+отделкой)' -or
+            $catalogPathKey -in $renovationPathOverrides
         if ($hasRenovation -and 'С ремонтом' -notin $offerTypes) {
             $offerTypes += 'С ремонтом'
         }
-        $roomCode = if ($roomOverrides.ContainsKey($file.BaseName)) {
+        $roomCode = if ($roomPathOverrides.ContainsKey($catalogPathKey)) {
+            $roomPathOverrides[$catalogPathKey]
+        }
+        elseif ($roomOverrides.ContainsKey($file.BaseName)) {
             $roomOverrides[$file.BaseName]
         }
         else {
