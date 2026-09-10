@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21134d">
+  <meta name="description" content="Каталог готовых офферов по новостройкам с фильтрами по типу, комнатности, району и жилому комплексу.">
+  <title>Каталог офферов — Формула</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero container" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">База готовых материалов</p>
+        <h1 id="page-title">Каталог офферов</h1>
+        <p class="hero-description">Найдите подходящий оффер по условиям, району или ЖК и скачайте готовый макет для клиента.</p>
+      </div>
+      <div class="hero-stats" aria-label="Статистика каталога">
+        <div class="hero-stat">
+          <strong id="offers-total">—</strong>
+          <span>офферов</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <strong id="complexes-total">—</strong>
+          <span>жилых комплексов</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog container" aria-label="Каталог офферов">
+      <div class="catalog-searchbar">
+        <label class="search-field" for="catalog-search">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.4A7.75 7.75 0 1 1 3.5 11.25a7.75 7.75 0 0 1 15.5 0Z"/></svg>
+          <input id="catalog-search" type="search" autocomplete="off" placeholder="Поиск по ЖК, району или названию оффера">
+          <span class="search-shortcut" aria-hidden="true">Ctrl K</span>
+        </label>
+        <button class="mobile-filter-button" id="mobile-filter-open" type="button" aria-controls="filters-panel" aria-expanded="false">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10m-7 5h4"/></svg>
+          Фильтры
+          <span class="mobile-filter-count" id="mobile-filter-count" hidden>0</span>
+        </button>
+      </div>
+
+      <div class="catalog-layout">
+        <div class="filter-backdrop" id="filter-backdrop" hidden></div>
+        <aside class="filters" id="filters-panel" aria-label="Фильтры">
+          <div class="filters-mobile-head">
+            <div>
+              <span class="filters-mobile-kicker">Подбор офферов</span>
+              <h2>Фильтры</h2>
+            </div>
+            <button class="icon-button" id="mobile-filter-close" type="button" aria-label="Закрыть фильтры">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+
+          <div class="filters-heading">
+            <h2>Фильтры</h2>
+            <button class="reset-link" id="reset-filters" type="button" disabled>Сбросить</button>
+          </div>
+
+          <fieldset class="filter-section">
+            <legend>Тип оффера</legend>
+            <div class="type-options" id="type-options"></div>
+          </fieldset>
+
+          <fieldset class="filter-section">
+            <legend>Комнатность</legend>
+            <div class="room-options" id="room-options"></div>
+          </fieldset>
+
+          <div class="filter-section">
+            <span class="filter-label">Район</span>
+            <div class="filter-dropdown" data-filter="district">
+              <button class="dropdown-trigger" type="button" aria-expanded="false">
+                <span class="dropdown-value">Все районы</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+              </button>
+              <div class="dropdown-panel" hidden>
+                <label class="dropdown-search">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m20 20-3.8-3.8m1.8-5A6.8 6.8 0 1 1 4.4 11.2 6.8 6.8 0 0 1 18 11.2Z"/></svg>
+                  <input type="search" placeholder="Найти район" autocomplete="off" aria-label="Найти район">
+                </label>
+                <div class="dropdown-options" role="group" aria-label="Районы"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <span class="filter-label">Жилой комплекс</span>
+            <div class="filter-dropdown" data-filter="complex">
+              <button class="dropdown-trigger" type="button" aria-expanded="false">
+                <span class="dropdown-value">Все ЖК</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
+              </button>
+              <div class="dropdown-panel" hidden>
+                <label class="dropdown-search">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m20 20-3.8-3.8m1.8-5A6.8 6.8 0 1 1 4.4 11.2 6.8 6.8 0 0 1 18 11.2Z"/></svg>
+                  <input type="search" placeholder="Найти ЖК" autocomplete="off" aria-label="Найти жилой комплекс">
+                </label>
+                <div class="dropdown-options" role="group" aria-label="Жилые комплексы"></div>
+              </div>
+            </div>
+          </div>
+
+          <button class="mobile-apply-button" id="mobile-apply" type="button">Показать офферы</button>
+        </aside>
+
+        <div class="results">
+          <div class="results-topline">
+            <div>
+              <p class="results-count" id="results-count" aria-live="polite">Загружаем офферы…</p>
+              <div class="active-filters" id="active-filters" aria-label="Выбранные фильтры"></div>
+            </div>
+            <div class="results-controls">
+              <div class="status-tabs" role="tablist" aria-label="Раздел каталога">
+                <button class="status-tab is-active" type="button" role="tab" aria-selected="true" data-status-view="active">
+                  Актуальные
+                  <span id="active-offers-count">0</span>
+                </button>
+                <button class="status-tab" type="button" role="tab" aria-selected="false" data-status-view="inactive" title="Метки сохраняются в этом браузере">
+                  Не актуально
+                  <span id="inactive-offers-count">0</span>
+                </button>
+              </div>
+              <label class="sort-control">
+                <span>Сортировка:</span>
+                <select id="sort-select" aria-label="Сортировка офферов">
+                  <option value="complex">по ЖК</option>
+                  <option value="district">по району</option>
+                  <option value="room">по комнатности</option>
+                  <option value="type">по типу оффера</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <p class="status-storage-note">Метки «Не актуально» сохраняются в этом браузере и остаются после обновления каталога.</p>
+
+          <div class="offers-grid" id="offers-grid"></div>
+
+          <div class="empty-state" id="empty-state" hidden>
+            <div class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m20 20-4.2-4.2m2.2-5A7.2 7.2 0 1 1 3.6 10.8 7.2 7.2 0 0 1 18 10.8Z"/><path d="M9 9.5h3.6M9 12.5h2"/></svg>
+            </div>
+            <h2 id="empty-title">Ничего не нашлось</h2>
+            <p id="empty-description">Попробуйте изменить запрос или убрать часть фильтров.</p>
+            <button class="secondary-button" id="empty-reset" type="button">Сбросить фильтры</button>
+          </div>
+
+          <div class="load-more-wrap" id="load-more-wrap" hidden>
+            <button class="load-more" id="load-more" type="button">Показать ещё</button>
+            <span id="load-more-caption"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p id="catalog-updated"></p>
+    </div>
+  </footer>
+
+  <div class="modal" id="offer-modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close icon-button" type="button" data-close-modal aria-label="Закрыть просмотр">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="modal-preview">
+        <button class="modal-nav modal-prev" id="modal-prev" type="button" aria-label="Предыдущий оффер">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"/></svg>
+        </button>
+        <img id="modal-image" src="" alt="">
+        <button class="modal-nav modal-next" id="modal-next" type="button" aria-label="Следующий оффер">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m10 7 5 5-5 5"/></svg>
+        </button>
+      </div>
+      <div class="modal-details">
+        <div class="modal-badges">
+          <span class="type-badge" id="modal-type"></span>
+          <span class="room-badge" id="modal-room"></span>
+        </div>
+        <h2 id="modal-title"></h2>
+        <p class="modal-offer-title" id="modal-offer-title"></p>
+        <p class="modal-district" id="modal-district"></p>
+        <button class="modal-status-button" id="modal-status-toggle" type="button"></button>
+        <a class="download-button modal-download" id="modal-download" href="" download>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
+          Скачать оффер
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="catalog-toast" id="catalog-toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript>
+    <div class="noscript-message">Для работы фильтров необходимо включить JavaScript в браузере.</div>
+  </noscript>
+  <script src="offers-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
