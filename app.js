@@ -174,18 +174,6 @@
     container.append(item);
   }
 
-  function addCardScoutFact(container, label, value, className = '') {
-    if (value === undefined || value === null || value === '') return;
-    const item = document.createElement('div');
-    item.className = `scout-card-fact${className ? ` ${className}` : ''}`;
-    const term = document.createElement('dt');
-    term.textContent = label;
-    const description = document.createElement('dd');
-    description.textContent = value;
-    item.append(term, description);
-    container.append(item);
-  }
-
   function scoutFloorLabel(scout) {
     if (scout.floor === undefined || scout.floor === null || scout.floor === '') return null;
     return scout.total_floors ? `${scout.floor} из ${scout.total_floors}` : String(scout.floor);
@@ -198,6 +186,158 @@
     } catch (error) {
       return '';
     }
+  }
+
+  function parseIsoDate(value) {
+    if (typeof value !== 'string') return null;
+    const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return null;
+    const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function isoDate(date) {
+    return date.toISOString().slice(0, 10);
+  }
+
+  function twoYearPriceWindow(history) {
+    const end = new Date();
+    end.setUTCHours(0, 0, 0, 0);
+    const cutoff = new Date(end);
+    cutoff.setUTCFullYear(cutoff.getUTCFullYear() - 2);
+
+    const valid = history
+      .map((point) => ({ ...point, date: parseIsoDate(point.effective_from), price: Number(point.price_rub) }))
+      .filter((point) => point.date && Number.isFinite(point.price) && point.price > 0 && point.date <= end)
+      .sort((left, right) => left.date - right.date);
+
+    const beforeCutoff = valid.filter((point) => point.date < cutoff).at(-1);
+    const points = valid.filter((point) => point.date >= cutoff);
+    if (beforeCutoff) {
+      points.unshift({
+        ...beforeCutoff,
+        effective_from: isoDate(cutoff),
+        date: new Date(cutoff),
+        isWindowBaseline: true
+      });
+    }
+
+    const compact = points.filter((point, index) => index === 0 || point.price !== points[index - 1].price);
+    return {
+      cutoff,
+      end,
+      points: compact,
+      changes: Math.max(0, compact.length - 1)
+    };
+  }
+
+  function svgElement(name, attributes = {}) {
+    const element = document.createElementNS('http://www.w3.org/2000/svg', name);
+    Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+    return element;
+  }
+
+  function formatChartMoney(value) {
+    return `${decimalFormatter.format(value / 1000000)} млн`;
+  }
+
+  function createPriceChart(priceWindow) {
+    if (!priceWindow.points.length) return null;
+
+    const figure = document.createElement('figure');
+    figure.className = 'scout-price-chart';
+    const caption = document.createElement('figcaption');
+    const captionTitle = document.createElement('strong');
+    captionTitle.textContent = 'Динамика цены за 2 года';
+    const captionMeta = document.createElement('span');
+    captionMeta.textContent = `${priceWindow.changes} ${priceWindow.changes === 1 ? 'изменение' : priceWindow.changes < 5 ? 'изменения' : 'изменений'}`;
+    caption.append(captionTitle, captionMeta);
+
+    const width = 720;
+    const height = 250;
+    const padding = { top: 24, right: 18, bottom: 34, left: 82 };
+    const plotWidth = width - padding.left - padding.right;
+    const plotHeight = height - padding.top - padding.bottom;
+    const prices = priceWindow.points.map((point) => point.price);
+    let minPrice = Math.min(...prices);
+    let maxPrice = Math.max(...prices);
+    const pricePadding = Math.max((maxPrice - minPrice) * 0.16, maxPrice * 0.025, 100000);
+    minPrice = Math.max(0, minPrice - pricePadding);
+    maxPrice += pricePadding;
+    const timeSpan = Math.max(1, priceWindow.end - priceWindow.cutoff);
+    const x = (date) => padding.left + ((date - priceWindow.cutoff) / timeSpan) * plotWidth;
+    const y = (price) => padding.top + ((maxPrice - price) / (maxPrice - minPrice)) * plotHeight;
+
+    const chart = svgElement('svg', {
+      viewBox: `0 0 ${width} ${height}`,
+      role: 'img',
+      'aria-label': `График изменения цены с ${formatDate(isoDate(priceWindow.cutoff))} по ${formatDate(isoDate(priceWindow.end))}`
+    });
+
+    for (let index = 0; index < 4; index += 1) {
+      const ratio = index / 3;
+      const gridY = padding.top + plotHeight * ratio;
+      const value = maxPrice - (maxPrice - minPrice) * ratio;
+      chart.append(svgElement('line', {
+        x1: padding.left,
+        y1: gridY,
+        x2: width - padding.right,
+        y2: gridY,
+        class: 'price-chart-grid'
+      }));
+      const label = svgElement('text', {
+        x: padding.left - 10,
+        y: gridY + 4,
+        class: 'price-chart-y-label',
+        'text-anchor': 'end'
+      });
+      label.textContent = formatChartMoney(value);
+      chart.append(label);
+    }
+
+    let pathData = '';
+    priceWindow.points.forEach((point, index) => {
+      const pointX = x(point.date);
+      const pointY = y(point.price);
+      if (index === 0) {
+        pathData = `M ${pointX} ${pointY}`;
+      } else {
+        pathData += ` H ${pointX} V ${pointY}`;
+      }
+    });
+    pathData += ` H ${x(priceWindow.end)}`;
+    chart.append(svgElement('path', { d: pathData, class: 'price-chart-line' }));
+
+    priceWindow.points.forEach((point) => {
+      const dot = svgElement('circle', {
+        cx: x(point.date),
+        cy: y(point.price),
+        r: point.isWindowBaseline ? 4 : 5,
+        class: `price-chart-dot${point.isWindowBaseline ? ' is-baseline' : ''}`
+      });
+      const tooltip = svgElement('title');
+      tooltip.textContent = `${formatDate(point.effective_from)} — ${formatMoney(point.price)}`;
+      dot.append(tooltip);
+      chart.append(dot);
+    });
+
+    const startLabel = svgElement('text', {
+      x: padding.left,
+      y: height - 9,
+      class: 'price-chart-x-label',
+      'text-anchor': 'start'
+    });
+    startLabel.textContent = formatDate(isoDate(priceWindow.cutoff));
+    const endLabel = svgElement('text', {
+      x: width - padding.right,
+      y: height - 9,
+      class: 'price-chart-x-label',
+      'text-anchor': 'end'
+    });
+    endLabel.textContent = formatDate(isoDate(priceWindow.end));
+    chart.append(startLabel, endLabel);
+    figure.append(caption, chart);
+    return figure;
   }
 
   function renderScoutDetails(offer) {
@@ -238,10 +378,15 @@
     addDefinition(facts, 'Этаж', floor);
     addDefinition(facts, 'Площадь', formatArea(scout.area_sqm));
     addDefinition(facts, 'Цена за м²', formatMoney(scout.current_price_per_sqm_rub));
-    addDefinition(facts, 'Стартовая цена', formatMoney(scout.start_price_rub));
     addDefinition(facts, 'Секция', scout.section);
     addDefinition(facts, 'Комнатность Scout', scout.rooms_real);
     addDefinition(facts, 'В экспозиции с', formatDate(scout.first_seen_date));
+
+    const history = Array.isArray(scout.price_history) ? scout.price_history : [];
+    const priceWindow = twoYearPriceWindow(history);
+    if (priceWindow.points.length) {
+      addDefinition(facts, 'Цена в начале периода', formatMoney(priceWindow.points[0].price));
+    }
 
     container.append(head, facts);
 
@@ -252,18 +397,23 @@
       container.append(house);
     }
 
-    const change = Number(scout.price_change_rub);
-    if (Number.isFinite(change)) {
+    if (priceWindow.points.length) {
+      const firstPrice = priceWindow.points[0].price;
+      const lastPrice = priceWindow.points.at(-1).price;
+      const change = lastPrice - firstPrice;
       const trend = document.createElement('div');
       trend.className = `scout-trend ${change < 0 ? 'is-down' : change > 0 ? 'is-up' : 'is-flat'}`;
       const trendLabel = document.createElement('span');
-      trendLabel.textContent = 'Изменение с первой публикации';
+      trendLabel.textContent = 'Изменение за последние 2 года';
       const trendValue = document.createElement('strong');
-      const percent = Number(scout.price_change_percent);
+      const percent = firstPrice > 0 ? (lastPrice / firstPrice - 1) * 100 : null;
       trendValue.textContent = `${formatChange(change)}${Number.isFinite(percent) ? ` · ${formatChange(percent, '%')}` : ''}`;
       trend.append(trendLabel, trendValue);
       container.append(trend);
     }
+
+    const chart = createPriceChart(priceWindow);
+    if (chart) container.append(chart);
 
     const sourceUrl = safeExternalUrl(scout.price_source && scout.price_source.url);
     if (sourceUrl) {
@@ -277,14 +427,14 @@
       container.append(source);
     }
 
-    const history = Array.isArray(scout.price_history) ? scout.price_history : [];
-    if (history.length) {
+    if (priceWindow.points.length) {
       const details = document.createElement('details');
       details.className = 'scout-history';
       const summary = document.createElement('summary');
-      summary.textContent = `История цены · ${history.length} ${history.length === 1 ? 'точка' : history.length < 5 ? 'точки' : 'точек'}`;
+      const pointCount = priceWindow.points.length;
+      summary.textContent = `История за 2 года · ${pointCount} ${pointCount === 1 ? 'точка' : pointCount < 5 ? 'точки' : 'точек'}`;
       const list = document.createElement('ol');
-      history.forEach((point) => {
+      priceWindow.points.forEach((point, index) => {
         const item = document.createElement('li');
         const date = document.createElement('time');
         date.dateTime = point.effective_from || '';
@@ -292,9 +442,12 @@
         const pointPrice = document.createElement('strong');
         pointPrice.textContent = formatMoney(point.price_rub);
         const pointChange = document.createElement('span');
-        pointChange.textContent = point.change_from_previous_rub === undefined
-          ? 'Стартовая цена'
-          : `К предыдущей: ${formatChange(point.change_from_previous_rub)}`;
+        const previous = priceWindow.points[index - 1];
+        pointChange.textContent = point.isWindowBaseline
+          ? 'Цена на начало двухлетнего периода'
+          : previous
+            ? `К предыдущей: ${formatChange(point.price - previous.price)}`
+            : 'Первая цена в двухлетнем периоде';
         item.append(date, pointPrice, pointChange);
         list.append(item);
       });
@@ -563,49 +716,6 @@
     offerName.className = 'offer-name';
     offerName.textContent = offer.title;
 
-    let scoutSummary = null;
-    if (offer.scout) {
-      const scout = offer.scout;
-      scoutSummary = document.createElement('div');
-      scoutSummary.className = 'scout-card-summary';
-      const summaryLabel = document.createElement('span');
-      summaryLabel.textContent = 'Рыночная стоимость · Scout';
-      const summaryPrice = document.createElement('strong');
-      summaryPrice.textContent = formatMoney(scout.current_price_rub);
-
-      const scoutFacts = document.createElement('dl');
-      scoutFacts.className = 'scout-card-facts';
-      addCardScoutFact(scoutFacts, 'Дом', scout.house, 'is-wide');
-      addCardScoutFact(scoutFacts, 'Секция', scout.section);
-      addCardScoutFact(scoutFacts, 'Этаж', scoutFloorLabel(scout));
-      addCardScoutFact(scoutFacts, 'Площадь', formatArea(scout.area_sqm));
-      addCardScoutFact(scoutFacts, 'Комнатность', scout.rooms_real);
-      addCardScoutFact(scoutFacts, 'Источник цены', scout.price_source && scout.price_source.type);
-      addCardScoutFact(scoutFacts, 'Первое появление', formatDate(scout.first_seen_date));
-      addCardScoutFact(scoutFacts, 'Стартовая цена', formatMoney(scout.start_price_rub));
-      addCardScoutFact(scoutFacts, 'Текущая цена', formatMoney(scout.current_price_rub));
-      addCardScoutFact(scoutFacts, 'Изменение цены', formatChange(scout.price_change_rub));
-      addCardScoutFact(scoutFacts, 'Изменение, %', formatChange(scout.price_change_percent, '%'));
-      addCardScoutFact(scoutFacts, 'Старт за м²', formatMoney(scout.start_price_per_sqm_rub));
-      addCardScoutFact(scoutFacts, 'Сейчас за м²', formatMoney(scout.current_price_per_sqm_rub));
-      addCardScoutFact(scoutFacts, 'Изменение за м²', formatChange(scout.price_per_sqm_change_rub));
-      scoutSummary.append(summaryLabel, summaryPrice, scoutFacts);
-    } else {
-      scoutSummary = document.createElement('div');
-      scoutSummary.className = 'scout-card-summary is-unmatched';
-      const summaryLabel = document.createElement('span');
-      summaryLabel.textContent = 'Scout · проверено';
-      const summaryStatus = document.createElement('strong');
-      summaryStatus.textContent = offer.areaSqm
-        ? 'Нет точного официального совпадения'
-        : 'Не удалось распознать площадь';
-      const summaryHint = document.createElement('p');
-      summaryHint.textContent = offer.areaSqm
-        ? `Распознана площадь ${formatArea(offer.areaSqm)}`
-        : 'Проверьте исходное изображение оффера';
-      scoutSummary.append(summaryLabel, summaryStatus, summaryHint);
-    }
-
     const download = document.createElement('a');
     download.className = 'download-button';
     download.href = offer.path;
@@ -629,7 +739,6 @@
     actions.append(download, statusToggle);
 
     body.append(meta, heading, offerName);
-    body.append(scoutSummary);
     body.append(actions);
     card.append(preview, body);
     return card;

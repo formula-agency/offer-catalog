@@ -894,84 +894,6 @@ h1 {
   -webkit-line-clamp: 2;
 }
 
-.scout-card-summary {
-  margin: -2px 0 13px;
-  padding: 11px 12px;
-  display: grid;
-  gap: 3px;
-  border: 1px solid rgba(76, 43, 145, 0.12);
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f7f3fc, #fffaf4);
-}
-
-.scout-card-summary span {
-  color: var(--purple-2);
-  font-size: 8px;
-  font-weight: 820;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.scout-card-summary strong {
-  color: var(--purple);
-  font-size: 17px;
-  line-height: 1.15;
-}
-
-.scout-card-summary.is-unmatched {
-  background: #f8f7f9;
-  border-color: #e7e2ea;
-}
-
-.scout-card-summary.is-unmatched span {
-  color: #88818f;
-}
-
-.scout-card-summary.is-unmatched strong {
-  color: #5f5866;
-  font-size: 11px;
-  line-height: 1.35;
-}
-
-.scout-card-summary.is-unmatched p {
-  margin: 3px 0 0;
-  color: #96909b;
-  font-size: 9px;
-  line-height: 1.35;
-}
-
-.scout-card-facts {
-  margin: 8px 0 0;
-  padding-top: 8px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px 10px;
-  border-top: 1px solid rgba(76, 43, 145, 0.1);
-}
-
-.scout-card-fact {
-  min-width: 0;
-}
-
-.scout-card-fact.is-wide {
-  grid-column: 1 / -1;
-}
-
-.scout-card-fact dt {
-  color: #928b99;
-  font-size: 7px;
-  line-height: 1.2;
-}
-
-.scout-card-fact dd {
-  margin: 2px 0 0;
-  overflow-wrap: anywhere;
-  color: #4b4454;
-  font-size: 9px;
-  font-weight: 720;
-  line-height: 1.25;
-}
-
 .card-actions {
   display: grid;
   gap: 8px;
@@ -1164,10 +1086,10 @@ h1 {
 
 .modal-dialog {
   position: relative;
-  width: min(100%, 980px);
+  width: min(100%, 1100px);
   height: min(92vh, 900px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 24px;
@@ -1440,6 +1362,69 @@ h1 {
 .scout-source-link svg {
   width: 14px;
   height: 14px;
+}
+
+.scout-price-chart {
+  margin: 14px 0 0;
+  padding: 12px 12px 8px;
+  border: 1px solid rgba(76, 43, 145, 0.1);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.scout-price-chart figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.scout-price-chart figcaption strong {
+  color: var(--purple);
+  font-size: 11px;
+}
+
+.scout-price-chart figcaption span {
+  color: #918a98;
+  font-size: 8px;
+}
+
+.scout-price-chart svg {
+  width: 100%;
+  height: auto;
+  margin-top: 7px;
+  display: block;
+  overflow: visible;
+}
+
+.price-chart-grid {
+  stroke: rgba(76, 43, 145, 0.1);
+  stroke-width: 1;
+}
+
+.price-chart-line {
+  fill: none;
+  stroke: var(--purple);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 6;
+}
+
+.price-chart-dot {
+  fill: var(--orange);
+  stroke: #fff;
+  stroke-width: 3;
+}
+
+.price-chart-dot.is-baseline {
+  fill: var(--purple-2);
+}
+
+.price-chart-y-label,
+.price-chart-x-label {
+  fill: #918a98;
+  font-family: inherit;
+  font-size: 18px;
 }
 
 .scout-history {
