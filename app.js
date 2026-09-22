@@ -84,6 +84,7 @@
     modalTitle: document.getElementById('modal-title'),
     modalOfferTitle: document.getElementById('modal-offer-title'),
     modalDistrict: document.getElementById('modal-district'),
+    modalScout: document.getElementById('modal-scout'),
     modalStatusToggle: document.getElementById('modal-status-toggle'),
     modalDownload: document.getElementById('modal-download'),
     modalPrev: document.getElementById('modal-prev'),
@@ -113,7 +114,13 @@
         offer.complex,
         offer.complexRaw,
         offer.room,
-        offer.title
+        offer.title,
+        offer.areaSqm,
+        offer.scout && offer.scout.house,
+        offer.scout && offer.scout.section,
+        offer.scout && offer.scout.floor,
+        offer.scout && offer.scout.rooms_real,
+        offer.scout && offer.scout.current_price_rub
       ].join(' '))
     };
   });
@@ -125,6 +132,174 @@
       return new Set(Array.isArray(ids) ? ids.filter((id) => typeof id === 'string') : []);
     } catch (error) {
       return new Set();
+    }
+  }
+
+  const moneyFormatter = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
+  const decimalFormatter = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 });
+
+  function formatMoney(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? `${moneyFormatter.format(number)} ₽` : '—';
+  }
+
+  function formatArea(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? `${decimalFormatter.format(number)} м²` : '—';
+  }
+
+  function formatDate(value) {
+    if (!value) return '—';
+    const date = new Date(`${value}T00:00:00`);
+    return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat('ru-RU').format(date);
+  }
+
+  function formatChange(value, suffix = ' ₽') {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return '—';
+    const sign = number > 0 ? '+' : '';
+    const formatter = suffix === '%' ? decimalFormatter : moneyFormatter;
+    return `${sign}${formatter.format(number)}${suffix}`;
+  }
+
+  function addDefinition(container, label, value, className = '') {
+    if (value === undefined || value === null || value === '') return;
+    const item = document.createElement('div');
+    item.className = `scout-fact${className ? ` ${className}` : ''}`;
+    const term = document.createElement('dt');
+    term.textContent = label;
+    const description = document.createElement('dd');
+    description.textContent = value;
+    item.append(term, description);
+    container.append(item);
+  }
+
+  function addCardScoutFact(container, label, value, className = '') {
+    if (value === undefined || value === null || value === '') return;
+    const item = document.createElement('div');
+    item.className = `scout-card-fact${className ? ` ${className}` : ''}`;
+    const term = document.createElement('dt');
+    term.textContent = label;
+    const description = document.createElement('dd');
+    description.textContent = value;
+    item.append(term, description);
+    container.append(item);
+  }
+
+  function scoutFloorLabel(scout) {
+    if (scout.floor === undefined || scout.floor === null || scout.floor === '') return null;
+    return scout.total_floors ? `${scout.floor} из ${scout.total_floors}` : String(scout.floor);
+  }
+
+  function safeExternalUrl(value) {
+    try {
+      const url = new URL(value);
+      return ['https:', 'http:'].includes(url.protocol) ? url.href : '';
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function renderScoutDetails(offer) {
+    const container = elements.modalScout;
+    container.replaceChildren();
+
+    if (!offer.scout) {
+      container.className = 'scout-details is-empty';
+      const title = document.createElement('strong');
+      title.textContent = 'Данные Scout не найдены';
+      const message = document.createElement('p');
+      message.textContent = offer.areaSqm
+        ? `Распознана площадь ${formatArea(offer.areaSqm)}, но точного активного совпадения по ЖК и площади пока нет.`
+        : 'На макете не удалось уверенно определить общую площадь для автоматического поиска.';
+      container.append(title, message);
+      return;
+    }
+
+    container.className = 'scout-details';
+    const scout = offer.scout;
+    const head = document.createElement('div');
+    head.className = 'scout-head';
+    const titleWrap = document.createElement('div');
+    const eyebrow = document.createElement('span');
+    eyebrow.className = 'scout-eyebrow';
+    eyebrow.textContent = 'Scout · официальный источник';
+    const title = document.createElement('h3');
+    title.textContent = 'Параметры квартиры';
+    titleWrap.append(eyebrow, title);
+    const price = document.createElement('strong');
+    price.className = 'scout-main-price';
+    price.textContent = formatMoney(scout.current_price_rub);
+    head.append(titleWrap, price);
+
+    const facts = document.createElement('dl');
+    facts.className = 'scout-facts';
+    const floor = scoutFloorLabel(scout);
+    addDefinition(facts, 'Этаж', floor);
+    addDefinition(facts, 'Площадь', formatArea(scout.area_sqm));
+    addDefinition(facts, 'Цена за м²', formatMoney(scout.current_price_per_sqm_rub));
+    addDefinition(facts, 'Стартовая цена', formatMoney(scout.start_price_rub));
+    addDefinition(facts, 'Секция', scout.section);
+    addDefinition(facts, 'Комнатность Scout', scout.rooms_real);
+    addDefinition(facts, 'В экспозиции с', formatDate(scout.first_seen_date));
+
+    container.append(head, facts);
+
+    if (scout.house) {
+      const house = document.createElement('p');
+      house.className = 'scout-house';
+      house.textContent = scout.house;
+      container.append(house);
+    }
+
+    const change = Number(scout.price_change_rub);
+    if (Number.isFinite(change)) {
+      const trend = document.createElement('div');
+      trend.className = `scout-trend ${change < 0 ? 'is-down' : change > 0 ? 'is-up' : 'is-flat'}`;
+      const trendLabel = document.createElement('span');
+      trendLabel.textContent = 'Изменение с первой публикации';
+      const trendValue = document.createElement('strong');
+      const percent = Number(scout.price_change_percent);
+      trendValue.textContent = `${formatChange(change)}${Number.isFinite(percent) ? ` · ${formatChange(percent, '%')}` : ''}`;
+      trend.append(trendLabel, trendValue);
+      container.append(trend);
+    }
+
+    const sourceUrl = safeExternalUrl(scout.price_source && scout.price_source.url);
+    if (sourceUrl) {
+      const source = document.createElement('a');
+      source.className = 'scout-source-link';
+      source.href = sourceUrl;
+      source.target = '_blank';
+      source.rel = 'noopener noreferrer';
+      source.textContent = 'Открыть квартиру в источнике';
+      source.append(svg('m9 15 6-6|M10 8h6v6|M14 13v5H6V10h5'));
+      container.append(source);
+    }
+
+    const history = Array.isArray(scout.price_history) ? scout.price_history : [];
+    if (history.length) {
+      const details = document.createElement('details');
+      details.className = 'scout-history';
+      const summary = document.createElement('summary');
+      summary.textContent = `История цены · ${history.length} ${history.length === 1 ? 'точка' : history.length < 5 ? 'точки' : 'точек'}`;
+      const list = document.createElement('ol');
+      history.forEach((point) => {
+        const item = document.createElement('li');
+        const date = document.createElement('time');
+        date.dateTime = point.effective_from || '';
+        date.textContent = formatDate(point.effective_from);
+        const pointPrice = document.createElement('strong');
+        pointPrice.textContent = formatMoney(point.price_rub);
+        const pointChange = document.createElement('span');
+        pointChange.textContent = point.change_from_previous_rub === undefined
+          ? 'Стартовая цена'
+          : `К предыдущей: ${formatChange(point.change_from_previous_rub)}`;
+        item.append(date, pointPrice, pointChange);
+        list.append(item);
+      });
+      details.append(summary, list);
+      container.append(details);
     }
   }
 
@@ -388,6 +563,49 @@
     offerName.className = 'offer-name';
     offerName.textContent = offer.title;
 
+    let scoutSummary = null;
+    if (offer.scout) {
+      const scout = offer.scout;
+      scoutSummary = document.createElement('div');
+      scoutSummary.className = 'scout-card-summary';
+      const summaryLabel = document.createElement('span');
+      summaryLabel.textContent = 'Рыночная стоимость · Scout';
+      const summaryPrice = document.createElement('strong');
+      summaryPrice.textContent = formatMoney(scout.current_price_rub);
+
+      const scoutFacts = document.createElement('dl');
+      scoutFacts.className = 'scout-card-facts';
+      addCardScoutFact(scoutFacts, 'Дом', scout.house, 'is-wide');
+      addCardScoutFact(scoutFacts, 'Секция', scout.section);
+      addCardScoutFact(scoutFacts, 'Этаж', scoutFloorLabel(scout));
+      addCardScoutFact(scoutFacts, 'Площадь', formatArea(scout.area_sqm));
+      addCardScoutFact(scoutFacts, 'Комнатность', scout.rooms_real);
+      addCardScoutFact(scoutFacts, 'Источник цены', scout.price_source && scout.price_source.type);
+      addCardScoutFact(scoutFacts, 'Первое появление', formatDate(scout.first_seen_date));
+      addCardScoutFact(scoutFacts, 'Стартовая цена', formatMoney(scout.start_price_rub));
+      addCardScoutFact(scoutFacts, 'Текущая цена', formatMoney(scout.current_price_rub));
+      addCardScoutFact(scoutFacts, 'Изменение цены', formatChange(scout.price_change_rub));
+      addCardScoutFact(scoutFacts, 'Изменение, %', formatChange(scout.price_change_percent, '%'));
+      addCardScoutFact(scoutFacts, 'Старт за м²', formatMoney(scout.start_price_per_sqm_rub));
+      addCardScoutFact(scoutFacts, 'Сейчас за м²', formatMoney(scout.current_price_per_sqm_rub));
+      addCardScoutFact(scoutFacts, 'Изменение за м²', formatChange(scout.price_per_sqm_change_rub));
+      scoutSummary.append(summaryLabel, summaryPrice, scoutFacts);
+    } else {
+      scoutSummary = document.createElement('div');
+      scoutSummary.className = 'scout-card-summary is-unmatched';
+      const summaryLabel = document.createElement('span');
+      summaryLabel.textContent = 'Scout · проверено';
+      const summaryStatus = document.createElement('strong');
+      summaryStatus.textContent = offer.areaSqm
+        ? 'Нет точного официального совпадения'
+        : 'Не удалось распознать площадь';
+      const summaryHint = document.createElement('p');
+      summaryHint.textContent = offer.areaSqm
+        ? `Распознана площадь ${formatArea(offer.areaSqm)}`
+        : 'Проверьте исходное изображение оффера';
+      scoutSummary.append(summaryLabel, summaryStatus, summaryHint);
+    }
+
     const download = document.createElement('a');
     download.className = 'download-button';
     download.href = offer.path;
@@ -410,7 +628,9 @@
     actions.className = 'card-actions';
     actions.append(download, statusToggle);
 
-    body.append(meta, heading, offerName, actions);
+    body.append(meta, heading, offerName);
+    body.append(scoutSummary);
+    body.append(actions);
     card.append(preview, body);
     return card;
   }
@@ -589,6 +809,7 @@
     elements.modalTitle.textContent = complexTitle(offer.complex);
     elements.modalOfferTitle.textContent = offer.title;
     elements.modalDistrict.textContent = `Район: ${offer.district}`;
+    renderScoutDetails(offer);
     elements.modalStatusToggle.textContent = isInactive(offer) ? 'Вернуть в актуальные' : 'Пометить «Не актуально»';
     elements.modalStatusToggle.classList.toggle('is-restore', isInactive(offer));
     elements.modalStatusToggle.dataset.toggleOfferStatus = offer.id;

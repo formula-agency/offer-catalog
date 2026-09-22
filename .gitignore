@@ -17,3 +17,10 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# Локальные секреты Scout и технический отчёт синхронизации.
+scout.env
+.env
+.env.*
+scout-sync-report.json
+.scout-cache/
