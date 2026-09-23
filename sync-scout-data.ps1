@@ -4,6 +4,7 @@ param(
     [string]$CatalogPath = (Join-Path $PSScriptRoot 'offers-data.js'),
     [string]$ScoutDataPath = (Join-Path $PSScriptRoot 'scout-data.json'),
     [string]$ScoutOverridesPath = (Join-Path $PSScriptRoot 'scout-manual-overrides.json'),
+    [string]$ScoutAliasesPath = (Join-Path $PSScriptRoot 'scout-project-aliases.json'),
     [string]$ReportPath = (Join-Path $PSScriptRoot 'scout-sync-report.json'),
     [string]$ApiCacheDirectory = (Join-Path $PSScriptRoot '.scout-cache'),
     [int]$ApiCacheMaxAgeHours = 6,
@@ -13,6 +14,13 @@ param(
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'scout-integration.ps1')
 $script:ScoutPayloadMemory = @{}
+$script:ScoutPayloadAsOf = @{}
+
+$scoutAliases = $null
+if (Test-Path -LiteralPath $ScoutAliasesPath -PathType Leaf) {
+    $scoutAliases = Get-Content -LiteralPath $ScoutAliasesPath -Raw -Encoding UTF8 | ConvertFrom-Json
+}
+Set-ScoutProjectAliases -Aliases $scoutAliases
 
 $scoutOverrides = $null
 if (Test-Path -LiteralPath $ScoutOverridesPath -PathType Leaf) {
@@ -55,7 +63,7 @@ function Write-JsonUtf8 {
 function Get-ScoutMatchKey {
     param([string]$ProjectName, [double]$Area)
     $areaKey = $Area.ToString('0.00', [Globalization.CultureInfo]::InvariantCulture)
-    return "$(Normalize-ScoutProjectName $ProjectName)|$areaKey"
+    return "$(Resolve-ScoutProjectName $ProjectName)|$areaKey"
 }
 
 function Get-ScoutApiPayload {
@@ -97,6 +105,7 @@ function Get-ScoutApiPayload {
     Write-Host "Разбираю JSON Scout: $Name"
     $payload = Get-Content -LiteralPath $cachePath -Raw -Encoding UTF8 | ConvertFrom-Json
     $script:ScoutPayloadMemory[$cachePath] = $payload
+    $script:ScoutPayloadAsOf[$Name] = (Get-Item -LiteralPath $cachePath).LastWriteTime.ToString('yyyy-MM-ddTHH:mm:ssK')
     return $payload
 }
 
@@ -105,7 +114,7 @@ function Get-ScoutHistoryItemById {
         [Parameter(Mandatory)][long]$ApartmentId,
         [Parameter(Mandatory)][long]$TotalCount,
         [Parameter(Mandatory)][hashtable]$Headers,
-        [int]$PageSize = 100
+        [int]$PageSize = 1000
     )
 
     $low = 1
@@ -160,6 +169,11 @@ finally {
 
 $expositions = @(Get-ScoutItems -Payload $expositionPayload)
 $historyItems = @(Get-ScoutItems -Payload $historyPayload)
+$dataAsOf = if ($script:ScoutPayloadAsOf.ContainsKey('expositions')) {
+    $script:ScoutPayloadAsOf['expositions']
+} else {
+    (Get-Date).ToString('yyyy-MM-ddTHH:mm:ssK')
+}
 $catalogText = Get-Content -LiteralPath $CatalogPath -Raw -Encoding UTF8
 $catalogJson = $catalogText -replace '^\s*window\.OFFERS_CATALOG\s*=\s*', '' -replace ';\s*$', ''
 $catalog = $catalogJson | ConvertFrom-Json
@@ -174,30 +188,38 @@ $groups = @($catalog.offers | Where-Object {
 })
 
 Write-Host "Индексирую экспозицию Scout для $($groups.Count) сочетаний ЖК + площадь..."
-$targetKeys = @{}
-foreach ($group in $groups) { $targetKeys[$group.Name] = $true }
-$candidateIndex = @{}
+$projectIndex = @{}
 foreach ($item in $expositions) {
     if (-not (Test-ScoutActive -Item $item)) { continue }
-    $projectName = Get-ScoutProperty -InputObject $item -Names @('project_name')
-    $area = ConvertTo-ScoutNumber (Get-ScoutProperty -InputObject $item -Names @('square'))
-    if ([string]::IsNullOrWhiteSpace("$projectName") -or $null -eq $area) { continue }
-    $key = Get-ScoutMatchKey -ProjectName "$projectName" -Area $area
-    if (-not $targetKeys.ContainsKey($key)) { continue }
-    if (-not $candidateIndex.ContainsKey($key)) {
-        $candidateIndex[$key] = [Collections.ArrayList]::new()
+    foreach ($projectKey in @(Get-ScoutItemProjectNames -Item $item)) {
+        if (-not $projectIndex.ContainsKey($projectKey)) {
+            $projectIndex[$projectKey] = [Collections.ArrayList]::new()
+        }
+        $null = $projectIndex[$projectKey].Add($item)
     }
-    $null = $candidateIndex[$key].Add($item)
 }
 
 $selectionByGroup = @{}
 foreach ($group in $groups) {
+    $sample = $group.Group[0]
+    $projectKey = Resolve-ScoutProjectName -Name $sample.complex
+    $area = [double]$sample.areaSqm
+    [object[]]$projectCandidates = @()
+    if ($projectIndex.ContainsKey($projectKey)) {
+        $projectCandidates = @($projectIndex[$projectKey])
+    }
     $candidates = @()
-    if ($candidateIndex.ContainsKey($group.Name)) { $candidates = @($candidateIndex[$group.Name]) }
+    if ($projectCandidates.Count -gt 0) {
+        $candidates = @($projectCandidates | Where-Object {
+            $candidateArea = ConvertTo-ScoutNumber (Get-ScoutProperty -InputObject $_ -Names @('square'))
+            $null -ne $candidateArea -and [Math]::Abs($candidateArea - $area) -le 0.0100001
+        })
+    }
     $selected = Select-ScoutApartment -Candidates $candidates
     $selectionByGroup[$group.Name] = [pscustomobject]@{
         Candidates = $candidates
         Selected = $selected
+        ProjectFound = $projectCandidates.Count -gt 0
     }
 }
 
@@ -228,7 +250,7 @@ foreach ($group in $groups) {
     $selection = $selectionByGroup[$group.Name]
     $candidates = @($selection.Candidates)
     $selected = $selection.Selected
-    $publicResult = if ($selected) { New-ScoutPublicResult -Selected $selected -HistoryItems $historyItems } else { $null }
+    $publicResult = if ($selected) { New-ScoutPublicResult -Selected $selected -HistoryItems $historyItems -DataAsOf $dataAsOf } else { $null }
     if ($publicResult -and $scoutOverrides) {
         $overrideProperty = $scoutOverrides.PSObject.Properties | Where-Object Name -CEQ $group.Name | Select-Object -First 1
         $override = if ($overrideProperty) { $overrideProperty.Value } else { $null }
@@ -253,17 +275,21 @@ foreach ($group in $groups) {
         offer_ids = @($group.Group.id)
         matched = [bool]$publicResult
         candidates = @($candidates | ForEach-Object { Get-ScoutCandidateSummary -Item $_ })
-        reason = if ($publicResult) { $null } elseif ($candidates.Count -eq 0) { 'Нет активных кандидатов по ЖК и площади' } elseif (-not $selected) { 'Нет официального/неопределённого кандидата с валидной ценой' } else { 'История не прошла проверку source_id и параметров квартиры' }
+        reason = if ($publicResult) { $null } elseif (-not $selection.ProjectFound) { 'project_not_found' } elseif ($candidates.Count -eq 0) { 'area_not_found' } elseif (-not $selected) { 'Нет кандидата official или aggregator с валидной ценой' } else { 'История не прошла проверку source_id и параметров квартиры' }
+        message = if ($publicResult) { $null } else { 'Проект или квартира с указанной площадью не найдены в Scout ни в официальных источниках, ни в агрегаторах.' }
+        data_as_of = $dataAsOf
     }
 }
 
 $now = (Get-Date).ToString('yyyy-MM-ddTHH:mm:ssK')
 $publicCache = [ordered]@{
     generatedAt = $now
+    dataAsOf = $dataAsOf
     offers = $publicOffers
 }
 $report = [ordered]@{
     generatedAt = $now
+    dataAsOf = $dataAsOf
     expositionCount = $expositions.Count
     historyCount = $historyItems.Count
     groupsChecked = $groups.Count

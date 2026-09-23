@@ -1,5 +1,7 @@
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'scout-integration.ps1')
+$aliases = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'scout-project-aliases.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+Set-ScoutProjectAliases -Aliases $aliases
 
 function Assert-Equal {
     param($Actual, $Expected, [string]$Message)
@@ -23,7 +25,7 @@ $expositions = @(
         rooms_real = '2E'; effective_from = '2026-09-01'; item_url = 'https://example.com/2'; deleted_flg = 'N'
     },
     [pscustomobject]@{
-        project_name = 'Тест'; square = 41.06; source_type = 'official'; price = 9000000
+        project_name = 'Тест'; square = 41.07; source_type = 'official'; price = 9000000
         section = 8; floor = 8; source_id = 'wrong-area'; deleted_flg = 'N'
     },
     [pscustomobject]@{
@@ -48,7 +50,7 @@ $historyItems = @(
 
 $candidates = @(Find-ScoutCandidates -Expositions $expositions -ProjectName 'ЖК Тест' -Area 41.05)
 $selected = Select-ScoutApartment -Candidates $candidates
-$result = New-ScoutPublicResult -Selected $selected -HistoryItems $historyItems
+$result = New-ScoutPublicResult -Selected $selected -HistoryItems $historyItems -DataAsOf '2026-09-23T10:00:00+05:00'
 
 Assert-Equal $candidates.Count 3 'Фильтр активных кандидатов или площади работает неверно'
 Assert-Equal $selected.source_id 'off-2' 'Приоритет официального источника или tie-breaker работает неверно'
@@ -57,6 +59,21 @@ Assert-Equal $result.current_price_rub 5850000 'Текущая цена расс
 Assert-Equal $result.price_change_rub -150000 'Изменение цены рассчитано неверно'
 Assert-Equal $result.price_history.Count 2 'История не удалила только версии/последовательные дубли'
 Assert-Equal ($result.price_history.price_rub -join ',') '6000000,5850000' 'Промежуточная история сформирована неверно'
+Assert-Equal $result.data_as_of '2026-09-23T10:00:00+05:00' 'Свежесть экспозиции не попала в публичный результат'
 Assert-Equal (Select-ScoutApartment -Candidates @()) $null 'Пустой список кандидатов должен возвращать null'
+
+$aliasCandidates = @(Find-ScoutCandidates -Expositions @(
+    [pscustomobject]@{
+        project_name = 'Внутреннее имя'; raw_project = 'Умный квартал UNO'; square = 38.2
+        source_type = 'aggregator'; price = 5100000; source_id = 'ETAGI-1'; deleted_flg = 'N'
+    }
+) -ProjectName 'ЖК УНО' -Area 38.20)
+Assert-Equal $aliasCandidates.Count 1 'Поиск по raw_project и реестру алиасов работает неверно'
+Assert-Equal (Select-ScoutApartment -Candidates $aliasCandidates).source_id 'ETAGI-1' 'Aggregator должен использоваться при отсутствии official'
+
+$unknownOnly = @(
+    [pscustomobject]@{ project_name = 'Тест'; square = 41.05; source_type = 'new-feed'; price = 7000000; source_id = 'new-1'; deleted_flg = 'N' }
+)
+Assert-Equal (Select-ScoutApartment -Candidates $unknownOnly) $null 'Unknown нельзя использовать как автоматический fallback'
 
 Write-Host 'Scout integration tests: OK'

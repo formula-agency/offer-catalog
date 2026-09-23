@@ -117,7 +117,7 @@ function Get-OfferArea {
         if (-not [double]::TryParse($numberText, [Globalization.NumberStyles]::Number, [Globalization.CultureInfo]::InvariantCulture, [ref]$value)) {
             continue
         }
-        if ($value -lt 15 -or $value -gt 300) { continue }
+        if ($value -le 17 -or $value -gt 300) { continue }
 
         $tailLength = [Math]::Min(5, $Text.Length - ($match.Index + $match.Length))
         $tail = if ($tailLength -gt 0) { $Text.Substring($match.Index + $match.Length, $tailLength) } else { '' }
@@ -131,6 +131,14 @@ function Get-OfferArea {
 
     $selected = $candidates | Sort-Object @{ Expression = 'HasUnit'; Descending = $true }, Index | Select-Object -First 1
     if ($selected) { return $selected.Value }
+    return $null
+}
+
+function Get-OptionalPropertyValue {
+    param([AllowNull()]$InputObject, [Parameter(Mandatory)][string]$Name)
+    if ($null -eq $InputObject) { return $null }
+    $property = $InputObject.PSObject.Properties | Where-Object { $_.Name -ieq $Name } | Select-Object -First 1
+    if ($property) { return $property.Value }
     return $null
 }
 
@@ -150,13 +158,18 @@ if (Test-Path -LiteralPath $ScoutDataPath -PathType Leaf) {
 }
 
 $areaByCatalogPath = @{}
+$areaMetadataByCatalogPath = @{}
 if (Test-Path -LiteralPath $AreaCachePath -PathType Leaf) {
     try {
         $areaCache = Get-Content -LiteralPath $AreaCachePath -Raw -Encoding UTF8 | ConvertFrom-Json
         if ($areaCache.entries) {
             foreach ($property in $areaCache.entries.PSObject.Properties) {
                 if ($null -ne $property.Value.areaSqm) {
-                    $areaByCatalogPath[$property.Name] = [double]$property.Value.areaSqm
+                    $area = [double]$property.Value.areaSqm
+                    if ($area -gt 17) {
+                        $areaByCatalogPath[$property.Name] = $area
+                        $areaMetadataByCatalogPath[$property.Name] = $property.Value
+                    }
                 }
             }
         }
@@ -313,9 +326,17 @@ try {
             ConvertTo-DisplayText -Text $file.BaseName
         }
         $offerArea = Get-OfferArea -Text $offerTitle
+        $areaExtractionSource = if ($null -ne $offerArea) { 'accompanying_text' } else { $null }
+        $areaExtractionFragment = if ($null -ne $offerArea) { $offerTitle } else { $null }
+        $areaExtractionConfidence = $null
         $projectRelativeKey = ($record.RootName + '/' + ($relativePath -replace '\\', '/'))
         if ($null -eq $offerArea -and $areaByCatalogPath.ContainsKey($projectRelativeKey)) {
             $offerArea = $areaByCatalogPath[$projectRelativeKey]
+            $areaMetadata = $areaMetadataByCatalogPath[$projectRelativeKey]
+            $cachedSource = Get-OptionalPropertyValue -InputObject $areaMetadata -Name 'source'
+            $areaExtractionSource = if ($cachedSource -eq 'manual-override') { 'structured_data' } elseif ($cachedSource) { $cachedSource } else { 'image' }
+            $areaExtractionFragment = Get-OptionalPropertyValue -InputObject $areaMetadata -Name 'sourceFragment'
+            $areaExtractionConfidence = Get-OptionalPropertyValue -InputObject $areaMetadata -Name 'confidence'
         }
 
         $offer = [ordered]@{
@@ -336,6 +357,9 @@ try {
         }
         if ($null -ne $offerArea) {
             $offer.areaSqm = $offerArea
+            $offer.areaExtractionSource = $areaExtractionSource
+            if ($areaExtractionFragment) { $offer.areaExtractionFragment = "$areaExtractionFragment" }
+            if ($null -ne $areaExtractionConfidence) { $offer.areaExtractionConfidence = [int]$areaExtractionConfidence }
         }
         if ($scoutByOfferId.ContainsKey($id)) {
             $offer.scout = $scoutByOfferId[$id]

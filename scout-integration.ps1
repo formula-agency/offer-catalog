@@ -1,4 +1,5 @@
 Set-StrictMode -Version 2.0
+$script:ScoutProjectAliasIndex = @{}
 
 function Get-ScoutProperty {
     param(
@@ -81,6 +82,52 @@ function Normalize-ScoutProjectName {
     return ($value -replace '\s+', ' ').Trim()
 }
 
+function Set-ScoutProjectAliases {
+    param([AllowNull()]$Aliases)
+
+    $script:ScoutProjectAliasIndex = @{}
+    if ($null -eq $Aliases) { return }
+
+    foreach ($property in $Aliases.PSObject.Properties) {
+        $canonical = Normalize-ScoutProjectName -Name $property.Name
+        if ([string]::IsNullOrWhiteSpace($canonical)) { continue }
+
+        $names = @($property.Name)
+        if ($property.Value -is [System.Array]) { $names += @($property.Value) }
+        elseif ($null -ne $property.Value) { $names += @($property.Value) }
+
+        foreach ($name in $names) {
+            $normalized = Normalize-ScoutProjectName -Name "$name"
+            if (-not [string]::IsNullOrWhiteSpace($normalized)) {
+                $script:ScoutProjectAliasIndex[$normalized] = $canonical
+            }
+        }
+    }
+}
+
+function Resolve-ScoutProjectName {
+    param([AllowNull()][string]$Name)
+
+    $normalized = Normalize-ScoutProjectName -Name $Name
+    if ($script:ScoutProjectAliasIndex.ContainsKey($normalized)) {
+        return $script:ScoutProjectAliasIndex[$normalized]
+    }
+    return $normalized
+}
+
+function Get-ScoutItemProjectNames {
+    param([AllowNull()]$Item)
+
+    return @(
+        foreach ($field in @('project_name', 'raw_project')) {
+            $value = Get-ScoutProperty -InputObject $Item -Names @($field)
+            if ($null -eq $value) { continue }
+            $resolved = Resolve-ScoutProjectName -Name "$value"
+            if (-not [string]::IsNullOrWhiteSpace($resolved)) { $resolved }
+        }
+    ) | Sort-Object -Unique
+}
+
 function Get-ScoutEffectivePrice {
     param([AllowNull()]$Item)
 
@@ -136,6 +183,7 @@ function Get-ScoutCandidateSummary {
         source_type = Get-ScoutSourceType -Item $Item
         source_id = Get-ScoutProperty -InputObject $Item -Names @('source_id')
         project_name = Get-ScoutProperty -InputObject $Item -Names @('project_name')
+        raw_project = Get-ScoutProperty -InputObject $Item -Names @('raw_project')
         house = Get-ScoutProperty -InputObject $Item -Names @('house_name', 'gp')
         section = Get-ScoutProperty -InputObject $Item -Names @('section')
         floor = Get-ScoutProperty -InputObject $Item -Names @('floor')
@@ -152,13 +200,13 @@ function Find-ScoutCandidates {
         [Parameter(Mandatory)][double]$Area
     )
 
-    $normalizedProject = Normalize-ScoutProjectName -Name $ProjectName
+    $normalizedProject = Resolve-ScoutProjectName -Name $ProjectName
     return @($Expositions | Where-Object {
         if (-not (Test-ScoutActive -Item $_)) { return $false }
-        $candidateProject = Normalize-ScoutProjectName -Name (Get-ScoutProperty -InputObject $_ -Names @('project_name'))
-        if ($candidateProject -ne $normalizedProject) { return $false }
+        $candidateProjects = @(Get-ScoutItemProjectNames -Item $_)
+        if ($normalizedProject -notin $candidateProjects) { return $false }
         $candidateArea = ConvertTo-ScoutNumber (Get-ScoutProperty -InputObject $_ -Names @('square'))
-        return $null -ne $candidateArea -and [Math]::Abs($candidateArea - $Area) -lt 0.005
+        return $null -ne $candidateArea -and [Math]::Abs($candidateArea - $Area) -le 0.0100001
     })
 }
 
@@ -170,6 +218,9 @@ function Select-ScoutApartment {
 
     $official = @($priced | Where-Object { (Get-ScoutSourceType -Item $_) -eq 'official' })
     $pool = $official
+    if ($pool.Count -eq 0) {
+        $pool = @($priced | Where-Object { (Get-ScoutSourceType -Item $_) -eq 'aggregator' })
+    }
     if ($pool.Count -eq 0) { return $null }
 
     return $pool | Sort-Object `
@@ -195,6 +246,10 @@ function Test-ScoutHistoryIdentity {
     $historySourceId = Get-ScoutProperty -InputObject $HistoryItem -Names @('source_id')
     if ($null -eq $selectedSourceId -or $null -eq $historySourceId -or "$selectedSourceId" -cne "$historySourceId") { return $false }
 
+    $selectedSourceType = Get-ScoutSourceType -Item $Selected
+    $historySourceType = Get-ScoutSourceType -Item $HistoryItem
+    if ($historySourceType -ne 'unknown' -and $historySourceType -ne $selectedSourceType) { return $false }
+
     $checks = @(
         @(@('project_name'), @('project', 'project_name'), 'project'),
         @(@('section'), @('section'), 'text'),
@@ -207,7 +262,7 @@ function Test-ScoutHistoryIdentity {
         $right = Get-ScoutProperty -InputObject $HistoryItem -Names $check[1]
         if ($null -eq $left -or $null -eq $right) { continue }
         if ($check[2] -eq 'project') {
-            if ((Normalize-ScoutProjectName "$left") -ne (Normalize-ScoutProjectName "$right")) { return $false }
+            if ((Resolve-ScoutProjectName "$left") -ne (Resolve-ScoutProjectName "$right")) { return $false }
         }
         elseif ($check[2] -eq 'number') {
             $leftNumber = ConvertTo-ScoutNumber $left
@@ -318,7 +373,8 @@ function Add-ScoutValue {
 function New-ScoutPublicResult {
     param(
         [Parameter(Mandatory)]$Selected,
-        [Parameter(Mandatory)][AllowEmptyCollection()][object[]]$HistoryItems
+        [Parameter(Mandatory)][AllowEmptyCollection()][object[]]$HistoryItems,
+        [AllowNull()][string]$DataAsOf
     )
 
     $area = ConvertTo-ScoutNumber (Get-ScoutProperty -InputObject $Selected -Names @('square'))
@@ -328,6 +384,7 @@ function New-ScoutPublicResult {
     $current = $history[-1]
 
     $result = [ordered]@{}
+    Add-ScoutValue $result 'data_as_of' $DataAsOf
     Add-ScoutValue $result 'residential_complex' (Get-ScoutProperty -InputObject $Selected -Names @('project_name'))
     $houseName = Get-ScoutProperty -InputObject $Selected -Names @('house_name')
     $gp = Get-ScoutProperty -InputObject $Selected -Names @('gp')
@@ -339,7 +396,8 @@ function New-ScoutPublicResult {
     $result.area_sqm = [Math]::Round($area, 2)
     Add-ScoutValue $result 'rooms_real' (Get-ScoutProperty -InputObject $Selected -Names @('rooms_real'))
 
-    $priceSource = [ordered]@{ type = 'Официальный' }
+    $sourceType = Get-ScoutSourceType -Item $Selected
+    $priceSource = [ordered]@{ type = if ($sourceType -eq 'aggregator') { 'Агрегатор' } else { 'Официальный' } }
     $url = Get-ScoutProperty -InputObject $Selected -Names @('item_url')
     if ($url) { $priceSource.url = "$url" }
     $result.price_source = $priceSource

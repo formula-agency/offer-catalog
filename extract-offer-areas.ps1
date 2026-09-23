@@ -61,32 +61,82 @@ function Get-RelativePathCompat {
 }
 
 function Get-AreaCandidates {
-    param([AllowEmptyString()][string]$Text)
+    param(
+        [AllowEmptyString()][string]$Text,
+        [AllowEmptyCollection()][object[]]$Lines = @()
+    )
 
     if ([string]::IsNullOrWhiteSpace($Text)) { return @() }
-    $normalized = $Text -replace [char]0x00A0, ' '
-    $matches = [regex]::Matches($normalized, '(?<!\d)(\d{1,3}(?:[,.]\d{1,2})?)(?!\d)')
-    $values = @()
-    foreach ($match in $matches) {
-        $numberText = $match.Groups[1].Value.Replace(',', '.')
-        $value = 0.0
-        if (-not [double]::TryParse($numberText, [Globalization.NumberStyles]::Number, [Globalization.CultureInfo]::InvariantCulture, [ref]$value)) { continue }
-        if ($value -lt 15 -or $value -gt 300) { continue }
-
-        $tailLength = [Math]::Min(12, $normalized.Length - ($match.Index + $match.Length))
-        $tail = if ($tailLength -gt 0) { $normalized.Substring($match.Index + $match.Length, $tailLength) } else { '' }
-        if ($tail -match '^\s*%') { continue }
-        $hasUnit = $tail -match '^\s*(?:\u043c\s*(?:\u00b2|2)|m\s*(?:\u00b2|2)|\u043a\u0432\.?\s*\u043c)'
-        $hasFraction = $match.Groups[1].Value -match '[,.]'
-        if (-not $hasUnit -and -not $hasFraction) { continue }
-
-        $values += [pscustomobject]@{
-            Value = [Math]::Round($value, 2)
-            HasUnit = $hasUnit
-            Index = $match.Index
-        }
+    $lineItems = if ($Lines.Count) {
+        @($Lines)
+    } else {
+        @($Text -split "`r?`n" | ForEach-Object { [pscustomobject]@{ Text = $_; Height = 0 } })
     }
-    return @($values | Sort-Object Value -Descending -Unique)
+    $positiveHeights = @($lineItems | ForEach-Object { [double]$_.Height } | Where-Object { $_ -gt 0 } | Sort-Object)
+    $medianHeight = if ($positiveHeights.Count) { $positiveHeights[[int][Math]::Floor(($positiveHeights.Count - 1) / 2)] } else { 0 }
+    $values = @()
+    $globalIndex = 0
+    foreach ($lineItem in $lineItems) {
+        $normalized = "$($lineItem.Text)" -replace [char]0x00A0, ' '
+        $matches = [regex]::Matches($normalized, '(?<!\d)(\d{1,3}(?:[,.]\d{1,2})?)(?!\d)')
+        foreach ($match in $matches) {
+            $numberText = $match.Groups[1].Value.Replace(',', '.')
+            $value = 0.0
+            if (-not [double]::TryParse($numberText, [Globalization.NumberStyles]::Number, [Globalization.CultureInfo]::InvariantCulture, [ref]$value)) { continue }
+            # По спецификации 17 м² и меньше нельзя автоматически принимать за общую площадь.
+            if ($value -le 17 -or $value -gt 300) { continue }
+
+            $tailLength = [Math]::Min(14, $normalized.Length - ($match.Index + $match.Length))
+            $tail = if ($tailLength -gt 0) { $normalized.Substring($match.Index + $match.Length, $tailLength) } else { '' }
+            if ($tail -match '^\s*%') { continue }
+            $hasUnit = $tail -match '^\s*(?:\u043c\s*(?:\u00b2|2)|m\s*(?:\u00b2|2)|\u043a\u0432\.?\s*\u043c)'
+            $hasFraction = $match.Groups[1].Value -match '[,.]'
+            if (-not $hasUnit -and -not $hasFraction) { continue }
+
+            $context = $normalized.ToLowerInvariant().Replace([char]0x0451, [char]0x0435)
+            $isExplicit = $context -match '(?:\u043e\u0431\u0449(?:\u0430\u044f|\u0435\u0439)?\s+\u043f\u043b\u043e\u0449\u0430\u0434|\u043f\u043b\u043e\u0449\u0430\u0434[\u044c\u0438]\s+\u043a\u0432\u0430\u0440\u0442\u0438\u0440|s\s*\u043e\u0431\u0449)'
+            $isApartmentLabel = $context -match '(?:\u0441\u0442\u0443\u0434\u0438\u044f|\d+\s*[- ]?\u043a\u043e\u043c\u043d\u0430\u0442\u043d|\u043a\u0432\u0430\u0440\u0442\u0438\u0440[\u0430\u044b]|(?:^|\s)[1-5]\s*[+\u043ae\u0435](?:\s|$))'
+            $isRoomArea = -not $isExplicit -and $context -match '(?:\u043a\u0443\u0445\u043d|\u0441\u043f\u0430\u043b\u044c\u043d|\u0441\u0430\u043d\u0443\u0437|\u0432\u0430\u043d\u043d|\u043a\u043e\u0440\u0438\u0434\u043e\u0440|\u043f\u0440\u0438\u0445\u043e\u0436|\u043b\u043e\u0434\u0436\u0438|\u0431\u0430\u043b\u043a\u043e\u043d|\u0433\u0430\u0440\u0434\u0435\u0440\u043e\u0431|\u043a\u043b\u0430\u0434\u043e\u0432|\u0433\u043e\u0441\u0442\u0438\u043d)'
+            $isMoneyOrTerm = $context -match '(?:\u20bd|\u0440\u0443\u0431|\u043f\u043b\u0430\u0442[\u0435\u0451]\u0436|\u0432\u0437\u043d\u043e\u0441|\u0441\u0442\u0430\u0432\u043a|\u0438\u043f\u043e\u0442\u0435\u043a|\u043c\u0435\u0441\.?|\u0433\u043e\u0434|\u043b\u0435\u0442)'
+            if ($isRoomArea -or $isMoneyOrTerm) { continue }
+
+            $score = 0
+            if ($hasUnit) { $score += 25 }
+            if ($hasFraction) { $score += 10 }
+            if ($isApartmentLabel) { $score += 45 }
+            if ($isExplicit) { $score += 120 }
+            $height = [double]$lineItem.Height
+            if ($medianHeight -gt 0 -and $height -ge ($medianHeight * 1.35)) { $score += 15 }
+
+            $values += [pscustomobject]@{
+                Value = [Math]::Round($value, 2)
+                HasUnit = $hasUnit
+                IsExplicit = $isExplicit
+                Score = $score
+                Index = $globalIndex + $match.Index
+                Fragment = $normalized.Trim()
+            }
+        }
+        $globalIndex += $normalized.Length + 1
+    }
+    return @($values | Sort-Object `
+        @{ Expression = 'Score'; Descending = $true }, `
+        @{ Expression = 'HasUnit'; Descending = $true }, `
+        @{ Expression = 'Index'; Descending = $false }, `
+        @{ Expression = 'Value'; Descending = $false })
+}
+
+function Select-TotalAreaCandidate {
+    param([AllowEmptyCollection()][object[]]$Candidates)
+
+    if (-not $Candidates.Count) { return $null }
+    $top = $Candidates[0]
+    if (-not $top.IsExplicit -and $top.Score -lt 35) { return $null }
+    if ($Candidates.Count -gt 1 -and -not $top.IsExplicit) {
+        $next = $Candidates[1]
+        if ($next.Value -ne $top.Value -and ($top.Score - $next.Score) -lt 15) { return $null }
+    }
+    return $top
 }
 
 function Read-ImageText {
@@ -102,7 +152,14 @@ function Read-ImageText {
         $bitmap = Wait-WinRtOperation ($decoder.GetSoftwareBitmapAsync()) ([Windows.Graphics.Imaging.SoftwareBitmap])
         try {
             $result = Wait-WinRtOperation ($Engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult])
-            return $result.Text
+            $lines = @(
+                foreach ($line in @($result.Lines)) {
+                    $words = @($line.Words)
+                    $height = if ($words.Count) { ($words | ForEach-Object { [double]$_.BoundingRect.Height } | Measure-Object -Maximum).Maximum } else { 0 }
+                    [pscustomobject]@{ Text = $line.Text; Height = $height }
+                }
+            )
+            return [pscustomobject]@{ Text = $result.Text; Lines = $lines }
         }
         finally {
             if ($bitmap) { $bitmap.Dispose() }
@@ -113,11 +170,12 @@ function Read-ImageText {
     }
 }
 
+$cacheVersion = 2
 $existing = @{}
 if (Test-Path -LiteralPath $CachePath -PathType Leaf) {
     try {
         $cache = Get-Content -LiteralPath $CachePath -Raw -Encoding UTF8 | ConvertFrom-Json
-        if ($cache.entries) {
+        if ($cache.version -eq $cacheVersion -and $cache.entries) {
             foreach ($property in $cache.entries.PSObject.Properties) {
                 $existing[$property.Name] = $property.Value
             }
@@ -177,12 +235,15 @@ foreach ($file in $files) {
     }
 
     $nameCandidates = @(Get-AreaCandidates -Text $file.BaseName)
-    if ($nameCandidates.Count) {
+    $nameSelected = Select-TotalAreaCandidate -Candidates $nameCandidates
+    if ($nameSelected) {
         $entries[$key] = [pscustomobject][ordered]@{
             fingerprint = $fingerprint
-            areaSqm = $nameCandidates[0].Value
+            areaSqm = $nameSelected.Value
             candidates = @($nameCandidates | Select-Object -ExpandProperty Value)
-            source = 'filename'
+            source = 'accompanying_text'
+            sourceFragment = $nameSelected.Fragment
+            confidence = $nameSelected.Score
         }
         $recognized++
         continue
@@ -190,20 +251,22 @@ foreach ($file in $files) {
 
     $processed++
     try {
-        $text = Read-ImageText -Path $file.FullName -Engine $engine
-        $candidates = @(Get-AreaCandidates -Text $text)
-        $withUnit = @($candidates | Where-Object HasUnit)
-        $selected = if ($withUnit.Count) { $withUnit | Select-Object -First 1 } else { $candidates | Select-Object -First 1 }
+        $ocr = Read-ImageText -Path $file.FullName -Engine $engine
+        $candidates = @(Get-AreaCandidates -Text $ocr.Text -Lines $ocr.Lines)
+        $selected = Select-TotalAreaCandidate -Candidates $candidates
         $row = [ordered]@{
             fingerprint = $fingerprint
             areaSqm = if ($selected) { $selected.Value } else { $null }
             candidates = @($candidates | Select-Object -ExpandProperty Value)
+            source = if ($selected) { 'image' } else { $null }
+            sourceFragment = if ($selected) { $selected.Fragment } else { $null }
+            confidence = if ($selected) { $selected.Score } else { $null }
         }
         if ($selected) { $recognized++ }
         $entries[$key] = [pscustomobject]$row
         if ($ShowText) {
             Write-Host "[$key] area=$($row.areaSqm) candidates=$($row.candidates -join ', ')"
-            Write-Host $text
+            Write-Host $ocr.Text
         }
         elseif ($processed % 25 -eq 0) {
             Write-Host "OCR: processed $processed new files..."
@@ -222,6 +285,7 @@ foreach ($file in $files) {
 }
 
 $output = [ordered]@{
+    version = $cacheVersion
     generatedAt = (Get-Date).ToString('yyyy-MM-ddTHH:mm:ssK')
     entries = $entries
 }

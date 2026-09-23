@@ -114,13 +114,7 @@
         offer.complex,
         offer.complexRaw,
         offer.room,
-        offer.title,
-        offer.areaSqm,
-        offer.scout && offer.scout.house,
-        offer.scout && offer.scout.section,
-        offer.scout && offer.scout.floor,
-        offer.scout && offer.scout.rooms_real,
-        offer.scout && offer.scout.current_price_rub
+        offer.title
       ].join(' '))
     };
   });
@@ -350,7 +344,7 @@
       title.textContent = 'Данные Scout не найдены';
       const message = document.createElement('p');
       message.textContent = offer.areaSqm
-        ? `Распознана площадь ${formatArea(offer.areaSqm)}, но точного активного совпадения по ЖК и площади пока нет.`
+        ? `Площадь ${formatArea(offer.areaSqm)} подтверждена. Проект или квартира с указанной площадью не найдены в Scout ни в официальных источниках, ни в агрегаторах.`
         : 'На макете не удалось уверенно определить общую площадь для автоматического поиска.';
       container.append(title, message);
       return;
@@ -363,7 +357,8 @@
     const titleWrap = document.createElement('div');
     const eyebrow = document.createElement('span');
     eyebrow.className = 'scout-eyebrow';
-    eyebrow.textContent = 'Scout · официальный источник';
+    const sourceType = scout.price_source && scout.price_source.type;
+    eyebrow.textContent = `Scout · ${sourceType === 'Агрегатор' ? 'агрегатор' : 'официальный источник'}`;
     const title = document.createElement('h3');
     title.textContent = 'Параметры квартиры';
     titleWrap.append(eyebrow, title);
@@ -381,6 +376,7 @@
     addDefinition(facts, 'Секция', scout.section);
     addDefinition(facts, 'Комнатность Scout', scout.rooms_real);
     addDefinition(facts, 'В экспозиции с', formatDate(scout.first_seen_date));
+    addDefinition(facts, 'Данные на', formatDate(String(scout.data_as_of || '').slice(0, 10)));
 
     const history = Array.isArray(scout.price_history) ? scout.price_history : [];
     const priceWindow = twoYearPriceWindow(history);
