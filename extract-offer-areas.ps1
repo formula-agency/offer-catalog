@@ -63,20 +63,24 @@ function Get-RelativePathCompat {
 function Get-AreaCandidates {
     param(
         [AllowEmptyString()][string]$Text,
-        [AllowEmptyCollection()][object[]]$Lines = @()
+        [AllowEmptyCollection()][object[]]$Lines = @(),
+        [double]$ImageWidth = 0,
+        [double]$ImageHeight = 0
     )
 
     if ([string]::IsNullOrWhiteSpace($Text)) { return @() }
     $lineItems = if ($Lines.Count) {
         @($Lines)
     } else {
-        @($Text -split "`r?`n" | ForEach-Object { [pscustomobject]@{ Text = $_; Height = 0 } })
+        @($Text -split "`r?`n" | ForEach-Object { [pscustomobject]@{ Text = $_; X = 0; Y = 0; Width = 0; Height = 0 } })
     }
+    $lineItems = @($lineItems)
     $positiveHeights = @($lineItems | ForEach-Object { [double]$_.Height } | Where-Object { $_ -gt 0 } | Sort-Object)
     $medianHeight = if ($positiveHeights.Count) { $positiveHeights[[int][Math]::Floor(($positiveHeights.Count - 1) / 2)] } else { 0 }
     $values = @()
     $globalIndex = 0
-    foreach ($lineItem in $lineItems) {
+    for ($lineIndex = 0; $lineIndex -lt $lineItems.Count; $lineIndex++) {
+        $lineItem = $lineItems[$lineIndex]
         $normalized = "$($lineItem.Text)" -replace [char]0x00A0, ' '
         $matches = [regex]::Matches($normalized, '(?<!\d)(\d{1,3}(?:[,.]\d{1,2})?)(?!\d)')
         foreach ($match in $matches) {
@@ -94,19 +98,35 @@ function Get-AreaCandidates {
             if (-not $hasUnit -and -not $hasFraction) { continue }
 
             $context = $normalized.ToLowerInvariant().Replace([char]0x0451, [char]0x0435)
+            $neighborStart = [Math]::Max(0, $lineIndex - 1)
+            $neighborEnd = [Math]::Min($lineItems.Count - 1, $lineIndex + 1)
+            $neighborText = (($lineItems[$neighborStart..$neighborEnd] | ForEach-Object { "$($_.Text)" }) -join ' ').ToLowerInvariant().Replace([char]0x0451, [char]0x0435)
             $isExplicit = $context -match '(?:\u043e\u0431\u0449(?:\u0430\u044f|\u0435\u0439)?\s+\u043f\u043b\u043e\u0449\u0430\u0434|\u043f\u043b\u043e\u0449\u0430\u0434[\u044c\u0438]\s+\u043a\u0432\u0430\u0440\u0442\u0438\u0440|s\s*\u043e\u0431\u0449)'
             $isApartmentLabel = $context -match '(?:\u0441\u0442\u0443\u0434\u0438\u044f|\d+\s*[- ]?\u043a\u043e\u043c\u043d\u0430\u0442\u043d|\u043a\u0432\u0430\u0440\u0442\u0438\u0440[\u0430\u044b]|(?:^|\s)[1-5]\s*[+\u043ae\u0435](?:\s|$))'
-            $isRoomArea = -not $isExplicit -and $context -match '(?:\u043a\u0443\u0445\u043d|\u0441\u043f\u0430\u043b\u044c\u043d|\u0441\u0430\u043d\u0443\u0437|\u0432\u0430\u043d\u043d|\u043a\u043e\u0440\u0438\u0434\u043e\u0440|\u043f\u0440\u0438\u0445\u043e\u0436|\u043b\u043e\u0434\u0436\u0438|\u0431\u0430\u043b\u043a\u043e\u043d|\u0433\u0430\u0440\u0434\u0435\u0440\u043e\u0431|\u043a\u043b\u0430\u0434\u043e\u0432|\u0433\u043e\u0441\u0442\u0438\u043d)'
+            $isExplicitNearby = -not $isExplicit -and $neighborText -match '(?:\u043e\u0431\u0449(?:\u0430\u044f|\u0435\u0439)?\s+\u043f\u043b\u043e\u0449\u0430\u0434|\u043f\u043b\u043e\u0449\u0430\u0434[\u044c\u0438]\s+\u043a\u0432\u0430\u0440\u0442\u0438\u0440|s\s*\u043e\u0431\u0449)'
+            $isApartmentLabelNearby = -not $isApartmentLabel -and $neighborText -match '(?:\u0441\u0442\u0443\u0434\u0438\u044f|\d+\s*[- ]?\u043a\u043e\u043c\u043d\u0430\u0442\u043d|\u043a\u0432\u0430\u0440\u0442\u0438\u0440[\u0430\u044b]|(?:^|\s)[1-5]\s*[+\u043ae\u0435](?:\s|$))'
+            $isRoomArea = -not $isExplicit -and $context -match '(?:\u043a\u0443\u0445\u043d|\u0441\u043f\u0430\u043b\u044c\u043d|\u0441\u0430\u043d\u0443\u0437|\u0432\u0430\u043d\u043d|\u043a\u043e\u0440\u0438\u0434\u043e\u0440|\u043f\u0440\u0438\u0445\u043e\u0436|\u043b\u043e\u0434\u0436\u0438|\u0431\u0430\u043b\u043a\u043e\u043d|\u0433\u0430\u0440\u0434\u0435\u0440\u043e\u0431|\u043a\u043b\u0430\u0434\u043e\u0432|\u0433\u043e\u0441\u0442\u0438\u043d|\u0436\u0438\u043b(?:\u0430\u044f|\u043e\u0439)\s+\u043f\u043b\u043e\u0449\u0430\u0434|\u0443\u0447\u0435\u0442\u043d\w*\s+\u043f\u043b\u043e\u0449\u0430\u0434)'
             $isMoneyOrTerm = $context -match '(?:\u20bd|\u0440\u0443\u0431|\u043f\u043b\u0430\u0442[\u0435\u0451]\u0436|\u0432\u0437\u043d\u043e\u0441|\u0441\u0442\u0430\u0432\u043a|\u0438\u043f\u043e\u0442\u0435\u043a|\u043c\u0435\u0441\.?|\u0433\u043e\u0434|\u043b\u0435\u0442)'
-            if ($isRoomArea -or $isMoneyOrTerm) { continue }
+            $isDate = $context -match '(?:^|\D)(?:0?[1-9]|[12]\d|3[01])[.,](?:0?[1-9]|1[0-2])[.,](?:20)?\d{2}(?:\D|$)'
+            if ($isRoomArea -or $isMoneyOrTerm -or $isDate) { continue }
 
             $score = 0
             if ($hasUnit) { $score += 25 }
             if ($hasFraction) { $score += 10 }
             if ($isApartmentLabel) { $score += 45 }
             if ($isExplicit) { $score += 120 }
+            if ($isApartmentLabelNearby) { $score += 30 }
+            if ($isExplicitNearby) { $score += 80 }
             $height = [double]$lineItem.Height
             if ($medianHeight -gt 0 -and $height -ge ($medianHeight * 1.35)) { $score += 15 }
+
+            $x = [double]$lineItem.X
+            $y = [double]$lineItem.Y
+            $width = [double]$lineItem.Width
+            $centerX = if ($ImageWidth -gt 0) { ($x + ($width / 2)) / $ImageWidth } else { $null }
+            $centerY = if ($ImageHeight -gt 0) { ($y + ($height / 2)) / $ImageHeight } else { $null }
+            $isCentral = $null -ne $centerX -and $centerX -ge 0.15 -and $centerX -le 0.85 -and $centerY -ge 0.05 -and $centerY -le 0.86
+            if ($isCentral) { $score += 8 }
 
             $values += [pscustomobject]@{
                 Value = [Math]::Round($value, 2)
@@ -115,6 +135,17 @@ function Get-AreaCandidates {
                 Score = $score
                 Index = $globalIndex + $match.Index
                 Fragment = $normalized.Trim()
+                LineIndex = $lineIndex
+                X = [Math]::Round($x, 1)
+                Y = [Math]::Round($y, 1)
+                Width = [Math]::Round($width, 1)
+                Height = [Math]::Round($height, 1)
+                CenterX = if ($null -ne $centerX) { [Math]::Round($centerX, 4) } else { $null }
+                CenterY = if ($null -ne $centerY) { [Math]::Round($centerY, 4) } else { $null }
+                IsCentral = $isCentral
+                IsApartmentLabel = $isApartmentLabel
+                IsApartmentLabelNearby = $isApartmentLabelNearby
+                IsExplicitNearby = $isExplicitNearby
             }
         }
         $globalIndex += $normalized.Length + 1
@@ -127,14 +158,50 @@ function Get-AreaCandidates {
 }
 
 function Select-TotalAreaCandidate {
-    param([AllowEmptyCollection()][object[]]$Candidates)
+    param(
+        [AllowEmptyCollection()][object[]]$Candidates,
+        [AllowEmptyString()][string]$HintText = ''
+    )
 
     if (-not $Candidates.Count) { return $null }
-    $top = $Candidates[0]
-    if (-not $top.IsExplicit -and $top.Score -lt 35) { return $null }
-    if ($Candidates.Count -gt 1 -and -not $top.IsExplicit) {
-        $next = $Candidates[1]
-        if ($next.Value -ne $top.Value -and ($top.Score - $next.Score) -lt 15) { return $null }
+    $hint = $HintText.ToLowerInvariant().Replace([char]0x0451, [char]0x0435)
+    $minimum = 17.01
+    $maximum = 300.0
+    if ($hint -match '(?:\u0441\u0442\u0443\u0434)') { $maximum = 65 }
+    elseif ($hint -match '(?:^|[^0-9])3\s*(?:\+|\u043a|\u043a\u043e\u043c)') { $minimum = 50; $maximum = 220 }
+    elseif ($hint -match '(?:^|[^0-9])2\s*(?:\+|\u043a|\u043a\u043e\u043c)') { $minimum = 35; $maximum = 150 }
+    elseif ($hint -match '(?:^|[^0-9])1\s*(?:\+|\u043a|\u043a\u043e\u043c)') { $minimum = 24; $maximum = 95 }
+
+    $plausible = @($Candidates | Where-Object { $_.Value -ge $minimum -and $_.Value -le $maximum })
+    if (-not $plausible.Count) { return $null }
+    $groups = @($plausible | Group-Object Value)
+    foreach ($group in $groups) {
+        $repeatBonus = if ($group.Count -gt 1) { [Math]::Min(30, ($group.Count - 1) * 15) } else { 0 }
+        foreach ($candidate in $group.Group) {
+            $candidate.Score += $repeatBonus
+            $candidate | Add-Member -NotePropertyName RepeatCount -NotePropertyValue $group.Count -Force
+        }
+    }
+    $ranked = @($plausible | Sort-Object `
+        @{ Expression = 'Score'; Descending = $true }, `
+        @{ Expression = 'HasUnit'; Descending = $true }, `
+        @{ Expression = 'Index'; Descending = $false })
+    $top = $ranked[0]
+
+    # Одно уникальное правдоподобное значение или одно и то же значение в нескольких
+    # сводных местах считаем подтверждённым. Площади комнат уже исключены контекстом.
+    if ($groups.Count -eq 1 -and ($top.HasUnit -or $top.Value.ToString([Globalization.CultureInfo]::InvariantCulture) -match '\.')) {
+        return $top
+    }
+    $nextDifferent = @($ranked | Where-Object { $_.Value -ne $top.Value } | Select-Object -First 1)
+    if ($top.RepeatCount -gt 1 -and (-not $nextDifferent.Count -or $top.RepeatCount -gt $nextDifferent[0].RepeatCount) -and $top.Score -ge 43) {
+        return $top
+    }
+    if (-not $top.IsExplicit -and -not $top.IsExplicitNearby -and -not $top.IsApartmentLabel -and -not $top.IsApartmentLabelNearby -and $top.Score -lt 43) {
+        return $null
+    }
+    if ($ranked.Count -gt 1 -and -not $top.IsExplicit) {
+        if ($nextDifferent.Count -and ($top.Score - $nextDifferent[0].Score) -lt 15) { return $null }
     }
     return $top
 }
@@ -151,15 +218,26 @@ function Read-ImageText {
         $decoder = Wait-WinRtOperation ([Windows.Graphics.Imaging.BitmapDecoder]::CreateAsync($stream)) ([Windows.Graphics.Imaging.BitmapDecoder])
         $bitmap = Wait-WinRtOperation ($decoder.GetSoftwareBitmapAsync()) ([Windows.Graphics.Imaging.SoftwareBitmap])
         try {
+            $imageWidth = [double]$bitmap.PixelWidth
+            $imageHeight = [double]$bitmap.PixelHeight
             $result = Wait-WinRtOperation ($Engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult])
             $lines = @(
                 foreach ($line in @($result.Lines)) {
                     $words = @($line.Words)
-                    $height = if ($words.Count) { ($words | ForEach-Object { [double]$_.BoundingRect.Height } | Measure-Object -Maximum).Maximum } else { 0 }
-                    [pscustomobject]@{ Text = $line.Text; Height = $height }
+                    if ($words.Count) {
+                        $x = ($words | ForEach-Object { [double]$_.BoundingRect.X } | Measure-Object -Minimum).Minimum
+                        $y = ($words | ForEach-Object { [double]$_.BoundingRect.Y } | Measure-Object -Minimum).Minimum
+                        $right = ($words | ForEach-Object { [double]$_.BoundingRect.X + [double]$_.BoundingRect.Width } | Measure-Object -Maximum).Maximum
+                        $bottom = ($words | ForEach-Object { [double]$_.BoundingRect.Y + [double]$_.BoundingRect.Height } | Measure-Object -Maximum).Maximum
+                        $width = $right - $x
+                        $height = $bottom - $y
+                    } else {
+                        $x = 0; $y = 0; $width = 0; $height = 0
+                    }
+                    [pscustomobject]@{ Text = $line.Text; X = $x; Y = $y; Width = $width; Height = $height }
                 }
             )
-            return [pscustomobject]@{ Text = $result.Text; Lines = $lines }
+            return [pscustomobject]@{ Text = $result.Text; Lines = $lines; Width = $imageWidth; Height = $imageHeight }
         }
         finally {
             if ($bitmap) { $bitmap.Dispose() }
@@ -170,7 +248,7 @@ function Read-ImageText {
     }
 }
 
-$cacheVersion = 2
+$cacheVersion = 3
 $existing = @{}
 if (Test-Path -LiteralPath $CachePath -PathType Leaf) {
     try {
@@ -235,7 +313,7 @@ foreach ($file in $files) {
     }
 
     $nameCandidates = @(Get-AreaCandidates -Text $file.BaseName)
-    $nameSelected = Select-TotalAreaCandidate -Candidates $nameCandidates
+    $nameSelected = Select-TotalAreaCandidate -Candidates $nameCandidates -HintText $file.BaseName
     if ($nameSelected) {
         $entries[$key] = [pscustomobject][ordered]@{
             fingerprint = $fingerprint
@@ -252,12 +330,13 @@ foreach ($file in $files) {
     $processed++
     try {
         $ocr = Read-ImageText -Path $file.FullName -Engine $engine
-        $candidates = @(Get-AreaCandidates -Text $ocr.Text -Lines $ocr.Lines)
-        $selected = Select-TotalAreaCandidate -Candidates $candidates
+        $candidates = @(Get-AreaCandidates -Text $ocr.Text -Lines $ocr.Lines -ImageWidth $ocr.Width -ImageHeight $ocr.Height)
+        $selected = Select-TotalAreaCandidate -Candidates $candidates -HintText $file.BaseName
         $row = [ordered]@{
             fingerprint = $fingerprint
             areaSqm = if ($selected) { $selected.Value } else { $null }
             candidates = @($candidates | Select-Object -ExpandProperty Value)
+            candidateDetails = @($candidates | Select-Object Value, Score, Fragment, RepeatCount, CenterX, CenterY, IsCentral, IsExplicit, IsExplicitNearby, IsApartmentLabel, IsApartmentLabelNearby)
             source = if ($selected) { 'image' } else { $null }
             sourceFragment = if ($selected) { $selected.Fragment } else { $null }
             confidence = if ($selected) { $selected.Score } else { $null }
