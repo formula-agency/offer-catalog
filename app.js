@@ -790,7 +790,7 @@
 
   function renderSummary() {
     const count = filteredOffers.length;
-    const inactiveCount = inactiveOfferIds.size;
+    const inactiveCount = offers.reduce((total, offer) => total + (inactiveOfferIds.has(offer.id) ? 1 : 0), 0);
     const activeCount = offers.length - inactiveCount;
     const sectionLabel = state.statusView === 'inactive' ? 'Не актуально:' : 'Найдено';
     elements.resultsCount.textContent = `${sectionLabel} ${count} ${plural(count, ['оффер', 'оффера', 'офферов'])}`;
@@ -804,7 +804,11 @@
       button.setAttribute('aria-selected', String(selected));
     });
 
-    if (!count && state.statusView === 'inactive' && !hasAnyFilters()) {
+    if (!offers.length && !hasAnyFilters()) {
+      elements.emptyTitle.textContent = 'Каталог пока пуст';
+      elements.emptyDescription.textContent = 'Новые офферы появятся здесь после следующей загрузки.';
+      elements.emptyReset.hidden = true;
+    } else if (!count && state.statusView === 'inactive' && !hasAnyFilters()) {
       elements.emptyTitle.textContent = 'Нет неактуальных офферов';
       elements.emptyDescription.textContent = 'Помеченные менеджерами офферы появятся в этом разделе.';
       elements.emptyReset.hidden = true;

@@ -8,10 +8,26 @@ param(
     ),
     [string]$OutputPath = (Join-Path $PSScriptRoot 'offers-data.js'),
     [string]$ScoutDataPath = (Join-Path $PSScriptRoot 'scout-data.json'),
-    [string]$AreaCachePath = (Join-Path $PSScriptRoot 'offer-area-cache.json')
+    [string]$AreaCachePath = (Join-Path $PSScriptRoot 'offer-area-cache.json'),
+    [string]$ExclusionsPath = (Join-Path $PSScriptRoot 'catalog-exclusions.json')
 )
 
 $ErrorActionPreference = 'Stop'
+
+$excludedCatalogPaths = @{}
+if (Test-Path -LiteralPath $ExclusionsPath -PathType Leaf) {
+    try {
+        $exclusions = Get-Content -LiteralPath $ExclusionsPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($path in @($exclusions.paths)) {
+            if (-not [string]::IsNullOrWhiteSpace("$path")) {
+                $excludedCatalogPaths[("$path" -replace '\\', '/')] = $true
+            }
+        }
+    }
+    catch {
+        throw "Не удалось прочитать список исключённых офферов: $ExclusionsPath"
+    }
+}
 
 foreach ($offersRoot in $OffersRoots) {
     if (-not (Test-Path -LiteralPath $offersRoot -PathType Container)) {
@@ -273,6 +289,7 @@ try {
         $districtRaw = $parts[1]
         $complexRaw = $parts[2]
         $catalogPathKey = ($record.RootName + '/' + ($relativePath -replace '\\', '/'))
+        if ($excludedCatalogPaths.ContainsKey($catalogPathKey)) { continue }
         $primaryType = if ($typeLabels.ContainsKey($typeRaw)) { $typeLabels[$typeRaw] } else { $typeRaw }
         $offerTypes = @($primaryType)
         $hasRenovation = $typeRaw -ieq 'С ремонтом' -or
