@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T14:57:36+05:00",
+  "generatedAt": "2026-10-06T16:32:30+05:00",
   "dataAsOf": "2026-10-06T13:38:53+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -27,6 +27,95 @@
           "effective_from": "2026-09-22",
           "price_rub": 7500000,
           "price_per_sqm_rub": 94423,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "df2cbec04a6aae6a": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Кедровый берег",
+      "house": "ГП-1.1, ГП-1.2, ГП-1.3, ГП-1.4, ул. судостроителей, д. 48",
+      "floor": "14",
+      "area_sqm": 66.52,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80ahefirqxn.xn--p1ai/realty/16730316"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 10180000,
+      "current_price_rub": 10180000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 153037,
+      "current_price_per_sqm_rub": 153037,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 10180000,
+          "price_per_sqm_rub": 153037,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "8c34d761f36ec747": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Концепт",
+      "house": "ГП-1, ул. сергея джанбровского, д. 29",
+      "section": "1",
+      "floor": "11",
+      "area_sqm": 22.88,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn----jtbbqbsgk1a1b.xn--p1ai/flats/6af62dfe-c7af-4fde-aa18-daf5162d8e55"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 4240000,
+      "current_price_rub": 4240000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 185315,
+      "current_price_per_sqm_rub": 185315,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 4240000,
+          "price_per_sqm_rub": 185315,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4ff2c2a8b51ccbe9": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Концепт",
+      "house": "ГП-1, ул. сергея джанбровского, д. 29",
+      "section": "1",
+      "floor": "11",
+      "area_sqm": 32.93,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn----jtbbqbsgk1a1b.xn--p1ai/flats/1a0a542c-c7cd-4823-84df-2d0131635564"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5100000,
+      "current_price_rub": 5100000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 154874,
+      "current_price_per_sqm_rub": 154874,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5100000,
+          "price_per_sqm_rub": 154874,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -62,6 +151,64 @@
         }
       ]
     },
+    "bc51ed234fbe5de6": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-1, ул. владимира абазарова, д. 5",
+      "floor": "6",
+      "area_sqm": 33.31,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/16696"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7700000,
+      "current_price_rub": 7700000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 231162,
+      "current_price_per_sqm_rub": 231162,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7700000,
+          "price_per_sqm_rub": 231162,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cc77af2b03934428": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-1, ул. владимира абазарова, д. 5",
+      "floor": "12",
+      "area_sqm": 35.98,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/16641"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7990000,
+      "current_price_rub": 7990000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 222068,
+      "current_price_per_sqm_rub": 222068,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7990000,
+          "price_per_sqm_rub": 222068,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "cfc0cd74d120e844": {
       "data_as_of": "2026-10-06T13:38:53+05:00",
       "residential_complex": "Сезоны",
@@ -85,6 +232,66 @@
           "effective_from": "2026-10-06",
           "price_rub": 7650000,
           "price_per_sqm_rub": 127713,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "81fcdf9482c6394e": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "6",
+      "floor": "21",
+      "area_sqm": 29.6,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11095156"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 5692700,
+      "current_price_rub": 5692700,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 192321,
+      "current_price_per_sqm_rub": 192321,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 5692700,
+          "price_per_sqm_rub": 192321,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "be670d2012048e52": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "2",
+      "floor": "15",
+      "area_sqm": 34.3,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11094828"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6600000,
+      "current_price_rub": 6600000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 192420,
+      "current_price_per_sqm_rub": 192420,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6600000,
+          "price_per_sqm_rub": 192420,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
