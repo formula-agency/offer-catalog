@@ -13,20 +13,22 @@
   const PAGE_SIZE = 24;
   const INACTIVE_STORAGE_KEY = 'formula-offer-catalog-inactive-v1';
   const TYPE_COLORS = {
-    'Акции и скидки': '#e85d12',
-    'Без ПВ и ЧПВ': '#7b3fc4',
+    'ПВ 0% (семейка)': '#7b3fc4',
+    'ЧПВ + семейка': '#9a4fc4',
+    'ЧПВ + стандарт': '#e17622',
+    'Субсидия «Стандарт» (полный ПВ)': '#6041a6',
     'Рассрочка': '#c97819',
     'С ремонтом': '#a45b2a',
-    'Субсидия «Семейка»': '#19866e',
-    'Субсидия «Стандарт»': '#405cc9'
+    'Застройщик платит ипотеку за клиента': '#81489b'
   };
   const TYPE_ORDER = [
-    'Акции и скидки',
-    'Без ПВ и ЧПВ',
+    'ПВ 0% (семейка)',
+    'ЧПВ + семейка',
+    'ЧПВ + стандарт',
+    'Субсидия «Стандарт» (полный ПВ)',
     'Рассрочка',
-    'С ремонтом',
-    'Субсидия «Семейка»',
-    'Субсидия «Стандарт»'
+    'Застройщик платит ипотеку за клиента',
+    'С ремонтом'
   ];
   const ROOM_ORDER = ['studio', '1', '2', '3', '4', 'other'];
   const ROOM_SHORT = {
@@ -180,6 +182,19 @@
     } catch (error) {
       return '';
     }
+  }
+
+  function appendOfferSourceLink(container, offer, existingUrl = '') {
+    const sourceUrl = safeExternalUrl(offer.sourceUrl);
+    if (!sourceUrl || sourceUrl === existingUrl) return;
+    const source = document.createElement('a');
+    source.className = 'scout-source-link offer-source-link';
+    source.href = sourceUrl;
+    source.target = '_blank';
+    source.rel = 'noopener noreferrer';
+    source.textContent = 'Открыть исходную карточку квартиры';
+    source.append(svg('m9 15 6-6|M10 8h6v6|M14 13v5H6V10h5'));
+    container.append(source);
   }
 
   function parseIsoDate(value) {
@@ -347,6 +362,7 @@
         ? `Площадь ${formatArea(offer.areaSqm)} подтверждена. Проект или квартира с указанной площадью не найдены в Scout ни в официальных источниках, ни в агрегаторах.`
         : 'На макете не удалось уверенно определить общую площадь для автоматического поиска.';
       container.append(title, message);
+      appendOfferSourceLink(container, offer);
       return;
     }
 
@@ -422,6 +438,7 @@
       source.append(svg('m9 15 6-6|M10 8h6v6|M14 13v5H6V10h5'));
       container.append(source);
     }
+    appendOfferSourceLink(container, offer, sourceUrl);
 
     if (priceWindow.points.length) {
       const details = document.createElement('details');

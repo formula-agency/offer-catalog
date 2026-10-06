@@ -1,5 +1,34 @@
 {
-  "generatedAt": "2026-10-02T11:54:17+05:00",
-  "dataAsOf": null,
-  "offers": {}
+  "generatedAt": "2026-10-06T13:41:07+05:00",
+  "dataAsOf": "2026-10-06T13:38:53+05:00",
+  "offers": {
+    "cfc0cd74d120e844": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-6, ул. владимира абазарова, д. 3",
+      "floor": "14",
+      "area_sqm": 59.9,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/17508"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7650000,
+      "current_price_rub": 7650000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 127713,
+      "current_price_per_sqm_rub": 127713,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7650000,
+          "price_per_sqm_rub": 127713,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    }
+  }
 }

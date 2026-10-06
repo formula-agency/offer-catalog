@@ -1,6 +1,6 @@
 {
     "version":  3,
-    "generatedAt":  "2026-09-25T11:34:03+05:00",
+    "generatedAt":  "2026-10-06T13:34:22+05:00",
     "entries":  {
                     "Офферы Новостройки 2/БЕЗ ПВ и ЧПВ/Дом Обороны/ЖК Плей/Обработанные/1+ 36,62 м².png":  {
                                                                                                                "fingerprint":  "1158983:639256537817031721",
@@ -5836,6 +5836,26 @@
                                                                                                                 "sourceFragment":  null,
                                                                                                                 "confidence":  null
                                                                                                             },
+                    "Офферы Новостройки 3/ПВ 0% (семейка)/Тюменская слобода/ЖК Сезоны/Обработанные/01 Студия 31,4 м² — ПВ 0%.png":  {
+                                                                                                                                        "fingerprint":  "1597898:639268709935536820",
+                                                                                                                                        "areaSqm":  31.4,
+                                                                                                                                        "candidates":  [
+                                                                                                                                                           31.4
+                                                                                                                                                       ],
+                                                                                                                                        "source":  "accompanying_text",
+                                                                                                                                        "sourceFragment":  "01 Студия 31,4 м² — ПВ 0%",
+                                                                                                                                        "confidence":  80
+                                                                                                                                    },
+                    "Офферы Новостройки 3/ПВ 0% (семейка)/Тюменская слобода/ЖК Сезоны/Обработанные/02 1-комнатная 40,3 м² — ПВ 0%.png":  {
+                                                                                                                                             "fingerprint":  "1466732:639268698990872382",
+                                                                                                                                             "areaSqm":  40.3,
+                                                                                                                                             "candidates":  [
+                                                                                                                                                                40.3
+                                                                                                                                                            ],
+                                                                                                                                             "source":  "accompanying_text",
+                                                                                                                                             "sourceFragment":  "02 1-комнатная 40,3 м² — ПВ 0%",
+                                                                                                                                             "confidence":  80
+                                                                                                                                         },
                     "Офферы Новостройки 3/с ремонтом/Оборона/ЖК Авторский/Обработанные/1+.jpg":  {
                                                                                                      "fingerprint":  "316016:639220464686358818",
                                                                                                      "areaSqm":  null,
@@ -7268,6 +7288,137 @@
                                                                                                                            "sourceFragment":  "Студия 28,6 м2",
                                                                                                                            "confidence":  118
                                                                                                                        },
+                    "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Сезоны/Обработанные/03 2-комнатная 59,9 м² — 5,4% на 2 года.png":  {
+                                                                                                                                                                    "fingerprint":  "1368212:639268699421085889",
+                                                                                                                                                                    "areaSqm":  59.9,
+                                                                                                                                                                    "candidates":  [
+                                                                                                                                                                                       59.9,
+                                                                                                                                                                                       59.9,
+                                                                                                                                                                                       20.7
+                                                                                                                                                                                   ],
+                                                                                                                                                                    "candidateDetails":  [
+                                                                                                                                                                                             {
+                                                                                                                                                                                                 "Value":  59.9,
+                                                                                                                                                                                                 "Score":  73,
+                                                                                                                                                                                                 "Fragment":  "59,9 м2",
+                                                                                                                                                                                                 "RepeatCount":  2,
+                                                                                                                                                                                                 "CenterX":  0.4707,
+                                                                                                                                                                                                 "CenterY":  0.8258,
+                                                                                                                                                                                                 "IsCentral":  true,
+                                                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                                                 "IsApartmentLabel":  false,
+                                                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                                                             },
+                                                                                                                                                                                             {
+                                                                                                                                                                                                 "Value":  59.9,
+                                                                                                                                                                                                 "Score":  33,
+                                                                                                                                                                                                 "Fragment":  "59.9",
+                                                                                                                                                                                                 "RepeatCount":  2,
+                                                                                                                                                                                                 "CenterX":  0.5312,
+                                                                                                                                                                                                 "CenterY":  0.568,
+                                                                                                                                                                                                 "IsCentral":  true,
+                                                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                                                 "IsApartmentLabel":  false,
+                                                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                                                             },
+                                                                                                                                                                                             {
+                                                                                                                                                                                                 "Value":  20.7,
+                                                                                                                                                                                                 "Score":  18,
+                                                                                                                                                                                                 "Fragment":  "20,7",
+                                                                                                                                                                                                 "RepeatCount":  1,
+                                                                                                                                                                                                 "CenterX":  0.5015,
+                                                                                                                                                                                                 "CenterY":  0.6504,
+                                                                                                                                                                                                 "IsCentral":  true,
+                                                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                                                 "IsApartmentLabel":  false,
+                                                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                                                             }
+                                                                                                                                                                                         ],
+                                                                                                                                                                    "source":  "image",
+                                                                                                                                                                    "sourceFragment":  "59,9 м2",
+                                                                                                                                                                    "confidence":  73
+                                                                                                                                                                },
+                    "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Сезоны/Обработанные/04 1-комнатная 35,9 м² — 5,4% на 2 года.png":  {
+                                                                                                                                                                    "fingerprint":  "1271798:639268700143798818",
+                                                                                                                                                                    "areaSqm":  35.9,
+                                                                                                                                                                    "candidates":  [
+                                                                                                                                                                                       35.9,
+                                                                                                                                                                                       35.9
+                                                                                                                                                                                   ],
+                                                                                                                                                                    "candidateDetails":  [
+                                                                                                                                                                                             {
+                                                                                                                                                                                                 "Value":  35.9,
+                                                                                                                                                                                                 "Score":  85,
+                                                                                                                                                                                                 "Fragment":  "1-комнатная • 35,9 ги2",
+                                                                                                                                                                                                 "RepeatCount":  2,
+                                                                                                                                                                                                 "CenterX":  0.4995,
+                                                                                                                                                                                                 "CenterY":  0.9284,
+                                                                                                                                                                                                 "IsCentral":  false,
+                                                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                                                 "IsApartmentLabel":  true,
+                                                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                                                             },
+                                                                                                                                                                                             {
+                                                                                                                                                                                                 "Value":  35.9,
+                                                                                                                                                                                                 "Score":  33,
+                                                                                                                                                                                                 "Fragment":  "35.9",
+                                                                                                                                                                                                 "RepeatCount":  2,
+                                                                                                                                                                                                 "CenterX":  0.5923,
+                                                                                                                                                                                                 "CenterY":  0.5632,
+                                                                                                                                                                                                 "IsCentral":  true,
+                                                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                                                 "IsApartmentLabel":  false,
+                                                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                                                             }
+                                                                                                                                                                                         ],
+                                                                                                                                                                    "source":  "image",
+                                                                                                                                                                    "sourceFragment":  "1-комнатная • 35,9 ги2",
+                                                                                                                                                                    "confidence":  85
+                                                                                                                                                                },
+                    "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Сезоны/Обработанные/05 Студия 31,1 м² — 5,4% на 2 года.png":  {
+                                                                                                                                                               "fingerprint":  "1352311:639268700681008946",
+                                                                                                                                                               "areaSqm":  31.1,
+                                                                                                                                                               "candidates":  [
+                                                                                                                                                                                  31.1,
+                                                                                                                                                                                  31.1
+                                                                                                                                                                              ],
+                                                                                                                                                               "candidateDetails":  [
+                                                                                                                                                                                        {
+                                                                                                                                                                                            "Value":  31.1,
+                                                                                                                                                                                            "Score":  118,
+                                                                                                                                                                                            "Fragment":  "Студия 31,1 м2",
+                                                                                                                                                                                            "RepeatCount":  2,
+                                                                                                                                                                                            "CenterX":  0.2861,
+                                                                                                                                                                                            "CenterY":  0.6813,
+                                                                                                                                                                                            "IsCentral":  true,
+                                                                                                                                                                                            "IsExplicit":  false,
+                                                                                                                                                                                            "IsExplicitNearby":  false,
+                                                                                                                                                                                            "IsApartmentLabel":  true,
+                                                                                                                                                                                            "IsApartmentLabelNearby":  false
+                                                                                                                                                                                        },
+                                                                                                                                                                                        {
+                                                                                                                                                                                            "Value":  31.1,
+                                                                                                                                                                                            "Score":  33,
+                                                                                                                                                                                            "Fragment":  "31.1",
+                                                                                                                                                                                            "RepeatCount":  2,
+                                                                                                                                                                                            "CenterX":  0.603,
+                                                                                                                                                                                            "CenterY":  0.4007,
+                                                                                                                                                                                            "IsCentral":  true,
+                                                                                                                                                                                            "IsExplicit":  false,
+                                                                                                                                                                                            "IsExplicitNearby":  false,
+                                                                                                                                                                                            "IsApartmentLabel":  false,
+                                                                                                                                                                                            "IsApartmentLabelNearby":  false
+                                                                                                                                                                                        }
+                                                                                                                                                                                    ],
+                                                                                                                                                               "source":  "image",
+                                                                                                                                                               "sourceFragment":  "Студия 31,1 м2",
+                                                                                                                                                               "confidence":  118
+                                                                                                                                                           },
                     "Офферы Новостройки 3/Субсидия стандарт/ДОК/ЖК Октябрьский на Туре/Обработанные/студия.jpeg":  {
                                                                                                                        "fingerprint":  "184609:639220468040140455",
                                                                                                                        "areaSqm":  21,
@@ -8012,6 +8163,31 @@
                                                                                                                        "sourceFragment":  "24,60",
                                                                                                                        "confidence":  78
                                                                                                                    },
+                    "Офферы Новостройки 3/ЧПВ+стандарт/Тюменская слобода/ЖК Сезоны/Обработанные/06 1-комнатная 36,0 м² — ЧПВ 79 900 ₽.png":  {
+                                                                                                                                                 "fingerprint":  "1348129:639268701087830414",
+                                                                                                                                                 "areaSqm":  36,
+                                                                                                                                                 "candidates":  [
+                                                                                                                                                                    36
+                                                                                                                                                                ],
+                                                                                                                                                 "candidateDetails":  [
+                                                                                                                                                                          {
+                                                                                                                                                                              "Value":  36,
+                                                                                                                                                                              "Score":  88,
+                                                                                                                                                                              "Fragment":  "36,0 м2",
+                                                                                                                                                                              "RepeatCount":  1,
+                                                                                                                                                                              "CenterX":  0.7871,
+                                                                                                                                                                              "CenterY":  0.1289,
+                                                                                                                                                                              "IsCentral":  true,
+                                                                                                                                                                              "IsExplicit":  false,
+                                                                                                                                                                              "IsExplicitNearby":  false,
+                                                                                                                                                                              "IsApartmentLabel":  false,
+                                                                                                                                                                              "IsApartmentLabelNearby":  true
+                                                                                                                                                                          }
+                                                                                                                                                                      ],
+                                                                                                                                                 "source":  "image",
+                                                                                                                                                 "sourceFragment":  "36,0 м2",
+                                                                                                                                                 "confidence":  88
+                                                                                                                                             },
                     "Офферы Новостройки/Акции, скидки/5 ЗАРЕЧНЫЙ/Секреты/Обработанные/2+ скидка.png":  {
                                                                                                            "fingerprint":  "1537162:639191461500000000",
                                                                                                            "areaSqm":  66.6,

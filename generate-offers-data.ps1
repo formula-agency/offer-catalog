@@ -9,7 +9,8 @@ param(
     [string]$OutputPath = (Join-Path $PSScriptRoot 'offers-data.js'),
     [string]$ScoutDataPath = (Join-Path $PSScriptRoot 'scout-data.json'),
     [string]$AreaCachePath = (Join-Path $PSScriptRoot 'offer-area-cache.json'),
-    [string]$ExclusionsPath = (Join-Path $PSScriptRoot 'catalog-exclusions.json')
+    [string]$ExclusionsPath = (Join-Path $PSScriptRoot 'catalog-exclusions.json'),
+    [string]$MetadataPath = (Join-Path $PSScriptRoot 'offer-metadata.json')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -36,6 +37,12 @@ foreach ($offersRoot in $OffersRoots) {
 }
 
 $typeLabels = @{
+    'ПВ 0% (семейка)'                  = 'ПВ 0% (семейка)'
+    'ЧПВ+семейка'                      = 'ЧПВ + семейка'
+    'ЧПВ+стандарт'                     = 'ЧПВ + стандарт'
+    'Субсидия стандарт(полный ПВ)'     = 'Субсидия «Стандарт» (полный ПВ)'
+    'Субсидия стандарт (полный ПВ)'    = 'Субсидия «Стандарт» (полный ПВ)'
+    'Застройщик платит ипотеку за клиента' = 'Застройщик платит ипотеку за клиента'
     'Акции, скидки'     = 'Акции и скидки'
     'Сниженная цена'    = 'Акции и скидки'
     'С ремонтом'        = 'С ремонтом'
@@ -45,6 +52,21 @@ $typeLabels = @{
     'Семейка субсидия'  = 'Субсидия «Семейка»'
     'СУБСИДИЯ СТАНДАРТ' = 'Субсидия «Стандарт»'
     'Рассрочка'          = 'Рассрочка'
+}
+
+$offerMetadataByCatalogPath = @{}
+if (Test-Path -LiteralPath $MetadataPath -PathType Leaf) {
+    try {
+        $metadata = Get-Content -LiteralPath $MetadataPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($metadata.offers) {
+            foreach ($property in $metadata.offers.PSObject.Properties) {
+                $offerMetadataByCatalogPath[($property.Name -replace '\\', '/')] = $property.Value
+            }
+        }
+    }
+    catch {
+        throw "Не удалось прочитать метаданные офферов: $MetadataPath"
+    }
 }
 
 $districtLabels = @{
@@ -110,13 +132,13 @@ function Get-RoomCode {
 
     $value = $Name.Trim().ToLowerInvariant()
     if ($value -match '^студ') { return 'studio' }
-    if ($value -match '^1\s*(?:\+|ком|к\b)') { return '1' }
+    if ($value -match '^1\s*(?:[-–—]\s*)?(?:\+|ком|к\b)') { return '1' }
     if ($value -match '^1\s*$') { return '1' }
-    if ($value -match '^2\s*(?:\+|ком|к\b)') { return '2' }
+    if ($value -match '^2\s*(?:[-–—]\s*)?(?:\+|ком|к\b)') { return '2' }
     if ($value -match '^2\s*$') { return '2' }
-    if ($value -match '^3\s*(?:\+|ком|к\b)') { return '3' }
+    if ($value -match '^3\s*(?:[-–—]\s*)?(?:\+|ком|к\b)') { return '3' }
     if ($value -match '^3\s*$') { return '3' }
-    if ($value -match '^4\s*(?:\+|ком|к\b)') { return '4' }
+    if ($value -match '^4\s*(?:[-–—]\s*)?(?:\+|ком|к\b)') { return '4' }
     if ($value -match '^4\s*$') { return '4' }
     return $null
 }
@@ -298,14 +320,15 @@ try {
         if ($hasRenovation -and 'С ремонтом' -notin $offerTypes) {
             $offerTypes += 'С ремонтом'
         }
+        $displayBaseName = $file.BaseName -replace '^\d{1,3}\s+', ''
         $roomCode = if ($roomPathOverrides.ContainsKey($catalogPathKey)) {
             $roomPathOverrides[$catalogPathKey]
         }
-        elseif ($roomOverrides.ContainsKey($file.BaseName)) {
-            $roomOverrides[$file.BaseName]
+        elseif ($roomOverrides.ContainsKey($displayBaseName)) {
+            $roomOverrides[$displayBaseName]
         }
         else {
-            Get-RoomCode -Name $file.BaseName
+            Get-RoomCode -Name $displayBaseName
         }
 
         if (-not $roomCode) {
@@ -336,11 +359,11 @@ try {
         $idBytes = $hashAlgorithm.ComputeHash($utf8.GetBytes($idSeed.ToLowerInvariant()))
         $id = -join ($idBytes[0..7] | ForEach-Object { $_.ToString('x2') })
 
-        $offerTitle = if ($titleOverrides.ContainsKey($file.BaseName)) {
-            $titleOverrides[$file.BaseName]
+        $offerTitle = if ($titleOverrides.ContainsKey($displayBaseName)) {
+            $titleOverrides[$displayBaseName]
         }
         else {
-            ConvertTo-DisplayText -Text $file.BaseName
+            ConvertTo-DisplayText -Text $displayBaseName
         }
         $offerArea = Get-OfferArea -Text $offerTitle
         $areaExtractionSource = if ($null -ne $offerArea) { 'accompanying_text' } else { $null }
@@ -380,6 +403,13 @@ try {
         }
         if ($scoutByOfferId.ContainsKey($id)) {
             $offer.scout = $scoutByOfferId[$id]
+        }
+        if ($offerMetadataByCatalogPath.ContainsKey($projectRelativeKey)) {
+            $metadataEntry = $offerMetadataByCatalogPath[$projectRelativeKey]
+            $sourceUrl = Get-OptionalPropertyValue -InputObject $metadataEntry -Name 'sourceUrl'
+            if (-not [string]::IsNullOrWhiteSpace("$sourceUrl")) {
+                $offer.sourceUrl = "$sourceUrl"
+            }
         }
         $offer
     }
