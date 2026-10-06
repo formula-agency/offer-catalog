@@ -1,6 +1,6 @@
 {
     "version":  3,
-    "generatedAt":  "2026-10-06T13:34:22+05:00",
+    "generatedAt":  "2026-10-06T14:34:53+05:00",
     "entries":  {
                     "Офферы Новостройки 2/БЕЗ ПВ и ЧПВ/Дом Обороны/ЖК Плей/Обработанные/1+ 36,62 м².png":  {
                                                                                                                "fingerprint":  "1158983:639256537817031721",
@@ -5797,6 +5797,36 @@
                                                                                                                      "sourceFragment":  "Студия 26,6 м²",
                                                                                                                      "confidence":  80
                                                                                                                  },
+                    "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/03 3-комнатная 68,4 м² — скидка 22%.png":  {
+                                                                                                                                             "fingerprint":  "1402164:639268751529714293",
+                                                                                                                                             "areaSqm":  68.4,
+                                                                                                                                             "candidates":  [
+                                                                                                                                                                68.4
+                                                                                                                                                            ],
+                                                                                                                                             "source":  "accompanying_text",
+                                                                                                                                             "sourceFragment":  "03 3-комнатная 68,4 м² — скидка 22%",
+                                                                                                                                             "confidence":  80
+                                                                                                                                         },
+                    "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/05 Студия 25,4 м² — ПВ 20%.png":  {
+                                                                                                                                    "fingerprint":  "1501843:639268752822360242",
+                                                                                                                                    "areaSqm":  25.4,
+                                                                                                                                    "candidates":  [
+                                                                                                                                                       25.4
+                                                                                                                                                   ],
+                                                                                                                                    "source":  "accompanying_text",
+                                                                                                                                    "sourceFragment":  "05 Студия 25,4 м² — ПВ 20%",
+                                                                                                                                    "confidence":  80
+                                                                                                                                },
+                    "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/06 2-комнатная 40,9 м² — скидка.png":  {
+                                                                                                                                         "fingerprint":  "1307201:639268753314947308",
+                                                                                                                                         "areaSqm":  40.9,
+                                                                                                                                         "candidates":  [
+                                                                                                                                                            40.9
+                                                                                                                                                        ],
+                                                                                                                                         "source":  "accompanying_text",
+                                                                                                                                         "sourceFragment":  "06 2-комнатная 40,9 м² — скидка",
+                                                                                                                                         "confidence":  80
+                                                                                                                                     },
                     "Офферы Новостройки 3/без ПВ, ЧПВ/Центр/ЖК Сердце Сибири/Обработанные/студия ЧПВ.jpg":  {
                                                                                                                 "fingerprint":  "366290:639220464136402827",
                                                                                                                 "areaSqm":  null,
@@ -5856,6 +5886,45 @@
                                                                                                                                              "sourceFragment":  "02 1-комнатная 40,3 м² — ПВ 0%",
                                                                                                                                              "confidence":  80
                                                                                                                                          },
+                    "Офферы Новостройки 3/Рассрочка/Лесобаза/ЖК Чистые пруды/Обработанные/04 3-комнатная 53,2 м² — ПВ 679 000 ₽.png":  {
+                                                                                                                                           "fingerprint":  "1266279:639268752002044505",
+                                                                                                                                           "areaSqm":  53.2,
+                                                                                                                                           "candidates":  [
+                                                                                                                                                              53.2,
+                                                                                                                                                              53.2
+                                                                                                                                                          ],
+                                                                                                                                           "candidateDetails":  [
+                                                                                                                                                                    {
+                                                                                                                                                                        "Value":  53.2,
+                                                                                                                                                                        "Score":  48,
+                                                                                                                                                                        "Fragment":  "ЗЕ 53,2",
+                                                                                                                                                                        "RepeatCount":  2,
+                                                                                                                                                                        "CenterX":  0.4559,
+                                                                                                                                                                        "CenterY":  0.1905,
+                                                                                                                                                                        "IsCentral":  true,
+                                                                                                                                                                        "IsExplicit":  false,
+                                                                                                                                                                        "IsExplicitNearby":  false,
+                                                                                                                                                                        "IsApartmentLabel":  false,
+                                                                                                                                                                        "IsApartmentLabelNearby":  false
+                                                                                                                                                                    },
+                                                                                                                                                                    {
+                                                                                                                                                                        "Value":  53.2,
+                                                                                                                                                                        "Score":  33,
+                                                                                                                                                                        "Fragment":  "53.2",
+                                                                                                                                                                        "RepeatCount":  2,
+                                                                                                                                                                        "CenterX":  0.4841,
+                                                                                                                                                                        "CenterY":  0.4031,
+                                                                                                                                                                        "IsCentral":  true,
+                                                                                                                                                                        "IsExplicit":  false,
+                                                                                                                                                                        "IsExplicitNearby":  false,
+                                                                                                                                                                        "IsApartmentLabel":  false,
+                                                                                                                                                                        "IsApartmentLabelNearby":  false
+                                                                                                                                                                    }
+                                                                                                                                                                ],
+                                                                                                                                           "source":  "image",
+                                                                                                                                           "sourceFragment":  "ЗЕ 53,2",
+                                                                                                                                           "confidence":  48
+                                                                                                                                       },
                     "Офферы Новостройки 3/с ремонтом/Оборона/ЖК Авторский/Обработанные/1+.jpg":  {
                                                                                                      "fingerprint":  "316016:639220464686358818",
                                                                                                      "areaSqm":  null,
@@ -8163,6 +8232,98 @@
                                                                                                                        "sourceFragment":  "24,60",
                                                                                                                        "confidence":  78
                                                                                                                    },
+                    "Офферы Новостройки 3/ЧПВ+семейка/КПД/ЖК Новатор/Обработанные/01 1-комнатная 35,5 м² — ЧПВ 700 000 ₽.png":  {
+                                                                                                                                    "fingerprint":  "1427228:639268757524071935",
+                                                                                                                                    "areaSqm":  35.5,
+                                                                                                                                    "candidates":  [
+                                                                                                                                                       35.5
+                                                                                                                                                   ],
+                                                                                                                                    "candidateDetails":  [
+                                                                                                                                                             {
+                                                                                                                                                                 "Value":  35.5,
+                                                                                                                                                                 "Score":  58,
+                                                                                                                                                                 "Fragment":  "35,5 м2",
+                                                                                                                                                                 "RepeatCount":  1,
+                                                                                                                                                                 "CenterX":  0.6743,
+                                                                                                                                                                 "CenterY":  0.1602,
+                                                                                                                                                                 "IsCentral":  true,
+                                                                                                                                                                 "IsExplicit":  false,
+                                                                                                                                                                 "IsExplicitNearby":  false,
+                                                                                                                                                                 "IsApartmentLabel":  false,
+                                                                                                                                                                 "IsApartmentLabelNearby":  false
+                                                                                                                                                             }
+                                                                                                                                                         ],
+                                                                                                                                    "source":  "image",
+                                                                                                                                    "sourceFragment":  "35,5 м2",
+                                                                                                                                    "confidence":  58
+                                                                                                                                },
+                    "Офферы Новостройки 3/ЧПВ+семейка/Лесобаза/ЖК Акватория/Обработанные/02 2-комнатная 79,43 м² — ЧПВ 728 000 ₽.png":  {
+                                                                                                                                            "fingerprint":  "1291997:639268751083262945",
+                                                                                                                                            "areaSqm":  79.43,
+                                                                                                                                            "candidates":  [
+                                                                                                                                                               79.43,
+                                                                                                                                                               17.41,
+                                                                                                                                                               79.43,
+                                                                                                                                                               19.93
+                                                                                                                                                           ],
+                                                                                                                                            "candidateDetails":  [
+                                                                                                                                                                     {
+                                                                                                                                                                         "Value":  79.43,
+                                                                                                                                                                         "Score":  118,
+                                                                                                                                                                         "Fragment":  "2-комнатная 79,43 м2",
+                                                                                                                                                                         "RepeatCount":  2,
+                                                                                                                                                                         "CenterX":  0.5032,
+                                                                                                                                                                         "CenterY":  0.1639,
+                                                                                                                                                                         "IsCentral":  true,
+                                                                                                                                                                         "IsExplicit":  false,
+                                                                                                                                                                         "IsExplicitNearby":  false,
+                                                                                                                                                                         "IsApartmentLabel":  true,
+                                                                                                                                                                         "IsApartmentLabelNearby":  false
+                                                                                                                                                                     },
+                                                                                                                                                                     {
+                                                                                                                                                                         "Value":  17.41,
+                                                                                                                                                                         "Score":  43,
+                                                                                                                                                                         "Fragment":  "17,41 м2",
+                                                                                                                                                                         "RepeatCount":  1,
+                                                                                                                                                                         "CenterX":  0.7184,
+                                                                                                                                                                         "CenterY":  0.4901,
+                                                                                                                                                                         "IsCentral":  true,
+                                                                                                                                                                         "IsExplicit":  false,
+                                                                                                                                                                         "IsExplicitNearby":  false,
+                                                                                                                                                                         "IsApartmentLabel":  false,
+                                                                                                                                                                         "IsApartmentLabelNearby":  false
+                                                                                                                                                                     },
+                                                                                                                                                                     {
+                                                                                                                                                                         "Value":  79.43,
+                                                                                                                                                                         "Score":  33,
+                                                                                                                                                                         "Fragment":  "79,43 ма",
+                                                                                                                                                                         "RepeatCount":  2,
+                                                                                                                                                                         "CenterX":  0.6552,
+                                                                                                                                                                         "CenterY":  0.3864,
+                                                                                                                                                                         "IsCentral":  true,
+                                                                                                                                                                         "IsExplicit":  false,
+                                                                                                                                                                         "IsExplicitNearby":  false,
+                                                                                                                                                                         "IsApartmentLabel":  false,
+                                                                                                                                                                         "IsApartmentLabelNearby":  false
+                                                                                                                                                                     },
+                                                                                                                                                                     {
+                                                                                                                                                                         "Value":  19.93,
+                                                                                                                                                                         "Score":  18,
+                                                                                                                                                                         "Fragment":  "19,93",
+                                                                                                                                                                         "RepeatCount":  1,
+                                                                                                                                                                         "CenterX":  0.7816,
+                                                                                                                                                                         "CenterY":  0.4151,
+                                                                                                                                                                         "IsCentral":  true,
+                                                                                                                                                                         "IsExplicit":  false,
+                                                                                                                                                                         "IsExplicitNearby":  false,
+                                                                                                                                                                         "IsApartmentLabel":  false,
+                                                                                                                                                                         "IsApartmentLabelNearby":  false
+                                                                                                                                                                     }
+                                                                                                                                                                 ],
+                                                                                                                                            "source":  "image",
+                                                                                                                                            "sourceFragment":  "2-комнатная 79,43 м2",
+                                                                                                                                            "confidence":  118
+                                                                                                                                        },
                     "Офферы Новостройки 3/ЧПВ+стандарт/Тюменская слобода/ЖК Сезоны/Обработанные/06 1-комнатная 36,0 м² — ЧПВ 79 900 ₽.png":  {
                                                                                                                                                  "fingerprint":  "1348129:639268701087830414",
                                                                                                                                                  "areaSqm":  36,

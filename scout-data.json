@@ -1,7 +1,67 @@
 {
-  "generatedAt": "2026-10-06T13:41:07+05:00",
+  "generatedAt": "2026-10-06T14:57:36+05:00",
   "dataAsOf": "2026-10-06T13:38:53+05:00",
   "offers": {
+    "12ce45db782f2964": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-6, ул. павла никольского, д. 14",
+      "section": "2",
+      "floor": "1",
+      "area_sqm": 79.43,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/77facf7e-2b34-46ea-8938-71bcce2d3a4c/"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7500000,
+      "current_price_rub": 7500000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 94423,
+      "current_price_per_sqm_rub": 94423,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7500000,
+          "price_per_sqm_rub": 94423,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cefdcd61bacdd431": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Новатор",
+      "house": "ГП-1, ул. новаторов, д. 28",
+      "section": "ГП1 - 6 секция",
+      "floor": "9",
+      "area_sqm": 35.54,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80adulgeccss.xn--p1ai/flats/1-komnatnaya-kvartira-35.54m-355"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5145000,
+      "current_price_rub": 5145000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 144766,
+      "current_price_per_sqm_rub": 144766,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5145000,
+          "price_per_sqm_rub": 144766,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "cfc0cd74d120e844": {
       "data_as_of": "2026-10-06T13:38:53+05:00",
       "residential_complex": "Сезоны",
@@ -25,6 +85,206 @@
           "effective_from": "2026-10-06",
           "price_rub": 7650000,
           "price_per_sqm_rub": 127713,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "527ddef67b443462": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.2",
+      "floor": "9",
+      "area_sqm": 25.4,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15283827&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-01-09",
+      "start_price_rub": 4060000,
+      "current_price_rub": 4480000,
+      "price_change_rub": 420000,
+      "price_change_percent": 10.34,
+      "start_price_per_sqm_rub": 159843,
+      "current_price_per_sqm_rub": 176378,
+      "price_per_sqm_change_rub": 16535,
+      "price_history": [
+        {
+          "effective_from": "2025-01-09",
+          "price_rub": 4060000,
+          "price_per_sqm_rub": 159843,
+          "effective_to": "2025-02-05",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-02-06",
+          "price_rub": 4100000,
+          "price_per_sqm_rub": 161417,
+          "effective_to": "2025-02-27",
+          "change_from_previous_rub": 40000,
+          "change_from_previous_percent": 0.99,
+          "change_from_start_rub": 40000,
+          "change_from_start_percent": 0.99
+        },
+        {
+          "effective_from": "2025-02-28",
+          "price_rub": 4110000,
+          "price_per_sqm_rub": 161811,
+          "effective_to": "2025-03-13",
+          "change_from_previous_rub": 10000,
+          "change_from_previous_percent": 0.24,
+          "change_from_start_rub": 50000,
+          "change_from_start_percent": 1.23
+        },
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 4780000,
+          "price_per_sqm_rub": 188189,
+          "effective_to": "2025-09-02",
+          "change_from_previous_rub": 670000,
+          "change_from_previous_percent": 16.3,
+          "change_from_start_rub": 720000,
+          "change_from_start_percent": 17.73
+        },
+        {
+          "effective_from": "2025-09-03",
+          "price_rub": 5250000,
+          "price_per_sqm_rub": 206693,
+          "effective_to": "2025-09-24",
+          "change_from_previous_rub": 470000,
+          "change_from_previous_percent": 9.83,
+          "change_from_start_rub": 1190000,
+          "change_from_start_percent": 29.31
+        },
+        {
+          "effective_from": "2025-09-25",
+          "price_rub": 4800000,
+          "price_per_sqm_rub": 188976,
+          "effective_to": "2025-10-21",
+          "change_from_previous_rub": -450000,
+          "change_from_previous_percent": -8.57,
+          "change_from_start_rub": 740000,
+          "change_from_start_percent": 18.23
+        },
+        {
+          "effective_from": "2025-10-22",
+          "price_rub": 4390000,
+          "price_per_sqm_rub": 172835,
+          "effective_to": "2026-02-04",
+          "change_from_previous_rub": -410000,
+          "change_from_previous_percent": -8.54,
+          "change_from_start_rub": 330000,
+          "change_from_start_percent": 8.13
+        },
+        {
+          "effective_from": "2026-02-05",
+          "price_rub": 4136000,
+          "price_per_sqm_rub": 162835,
+          "effective_to": "2026-06-18",
+          "change_from_previous_rub": -254000,
+          "change_from_previous_percent": -5.79,
+          "change_from_start_rub": 76000,
+          "change_from_start_percent": 1.87
+        },
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 4480000,
+          "price_per_sqm_rub": 176378,
+          "change_from_previous_rub": 344000,
+          "change_from_previous_percent": 8.32,
+          "change_from_start_rub": 420000,
+          "change_from_start_percent": 10.34
+        }
+      ]
+    },
+    "ec2586366f5681d2": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.5",
+      "floor": "22",
+      "area_sqm": 40.9,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15284101&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 6460000,
+      "current_price_rub": 6460000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 157946,
+      "current_price_per_sqm_rub": 157946,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 6460000,
+          "price_per_sqm_rub": 157946,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "429079e229ca0108": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.2",
+      "floor": "13",
+      "area_sqm": 53.2,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15283864&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 7540000,
+      "current_price_rub": 7540000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 141729,
+      "current_price_per_sqm_rub": 141729,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 7540000,
+          "price_per_sqm_rub": 141729,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "269eefb9ff7d101d": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-2, ул. лесопарковая, д. 20",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 68.4,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15295879&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 9090000,
+      "current_price_rub": 9090000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132895,
+      "current_price_per_sqm_rub": 132895,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 9090000,
+          "price_per_sqm_rub": 132895,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
