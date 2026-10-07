@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T16:32:30+05:00",
+  "generatedAt": "2026-10-06T17:06:41+05:00",
   "dataAsOf": "2026-10-06T13:38:53+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -27,6 +27,96 @@
           "effective_from": "2026-09-22",
           "price_rub": 7500000,
           "price_per_sqm_rub": 94423,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "812c99da7e070e6c": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "3",
+      "floor": "14",
+      "area_sqm": 39.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/9999861"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6200000,
+      "current_price_rub": 6200000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156962,
+      "current_price_per_sqm_rub": 156962,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6200000,
+          "price_per_sqm_rub": 156962,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "38f9bd46200c922f": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "1",
+      "floor": "22",
+      "area_sqm": 56.36,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/9999766"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7378942,
+      "current_price_rub": 7378942,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 130925,
+      "current_price_per_sqm_rub": 130925,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7378942,
+          "price_per_sqm_rub": 130925,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "b31b91a0d0d10fa5": {
+      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-75, д. 1827",
+      "section": "5",
+      "floor": "18",
+      "area_sqm": 77.98,
+      "rooms_real": "4E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10000752"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 9025770,
+      "current_price_rub": 9025770,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 115745,
+      "current_price_per_sqm_rub": 115745,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 9025770,
+          "price_per_sqm_rub": 115745,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
