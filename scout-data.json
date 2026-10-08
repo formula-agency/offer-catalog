@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-06T17:06:41+05:00",
-  "dataAsOf": "2026-10-06T13:38:53+05:00",
+  "generatedAt": "2026-10-08T14:33:57+05:00",
+  "dataAsOf": "2026-10-08T13:08:52+05:00",
   "offers": {
     "12ce45db782f2964": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Акватория",
       "house": "ГП-6, ул. павла никольского, д. 14",
       "section": "2",
@@ -33,7 +33,7 @@
       ]
     },
     "812c99da7e070e6c": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Беринг",
       "house": "ГП-76, д. 1826",
       "section": "3",
@@ -63,7 +63,7 @@
       ]
     },
     "38f9bd46200c922f": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Беринг",
       "house": "ГП-76, д. 1826",
       "section": "1",
@@ -93,7 +93,7 @@
       ]
     },
     "b31b91a0d0d10fa5": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Беринг",
       "house": "ГП-75, д. 1827",
       "section": "5",
@@ -122,37 +122,67 @@
         }
       ]
     },
-    "df2cbec04a6aae6a": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
-      "residential_complex": "Кедровый берег",
-      "house": "ГП-1.1, ГП-1.2, ГП-1.3, ГП-1.4, ул. судостроителей, д. 48",
-      "floor": "14",
-      "area_sqm": 66.52,
-      "rooms_real": "3E",
+    "8f7078ffd7ca5e23": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Горизонт",
+      "house": "ГП-4, ул. мельникайте, д. 2к21",
+      "section": "2",
+      "floor": "24",
+      "area_sqm": 40.55,
+      "rooms_real": "2E",
       "price_source": {
         "type": "Официальный",
-        "url": "https://xn--80ahefirqxn.xn--p1ai/realty/16730316"
+        "url": "https://arsibd.com/apartments/27912"
       },
       "first_seen_date": "2026-09-22",
-      "start_price_rub": 10180000,
-      "current_price_rub": 10180000,
+      "start_price_rub": 6450000,
+      "current_price_rub": 6450000,
       "price_change_rub": 0,
       "price_change_percent": 0.0,
-      "start_price_per_sqm_rub": 153037,
-      "current_price_per_sqm_rub": 153037,
+      "start_price_per_sqm_rub": 159063,
+      "current_price_per_sqm_rub": 159063,
       "price_per_sqm_change_rub": 0,
       "price_history": [
         {
           "effective_from": "2026-09-22",
-          "price_rub": 10180000,
-          "price_per_sqm_rub": 153037,
+          "price_rub": 6450000,
+          "price_per_sqm_rub": 159063,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "df2cbec04a6aae6a": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Кедровый берег",
+      "house": "ГП-2.2, ул. судостроителей, д. 52",
+      "floor": "22",
+      "area_sqm": 66.53,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80ahefirqxn.xn--p1ai/realty/16730651"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7490000,
+      "current_price_rub": 7490000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 112581,
+      "current_price_per_sqm_rub": 112581,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7490000,
+          "price_per_sqm_rub": 112581,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
       ]
     },
     "8c34d761f36ec747": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Концепт",
       "house": "ГП-1, ул. сергея джанбровского, д. 29",
       "section": "1",
@@ -182,7 +212,7 @@
       ]
     },
     "4ff2c2a8b51ccbe9": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Концепт",
       "house": "ГП-1, ул. сергея джанбровского, д. 29",
       "section": "1",
@@ -212,7 +242,7 @@
       ]
     },
     "cefdcd61bacdd431": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Новатор",
       "house": "ГП-1, ул. новаторов, д. 28",
       "section": "ГП1 - 6 секция",
@@ -241,8 +271,38 @@
         }
       ]
     },
+    "9b3790a742629fd0": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Свой",
+      "house": "ГП-1, ул. сосьвинская, д. 33к1",
+      "section": "1",
+      "floor": "15",
+      "area_sqm": 35.7,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://rodina-dom.ru/ok-land#/macrocatalog/houses/3815666/bigGrid?studio=null&estateId=4547732&floorNum=1&category=flat&activity=sell"
+      },
+      "first_seen_date": "2026-03-19",
+      "start_price_rub": 5050000,
+      "current_price_rub": 5050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 141457,
+      "current_price_per_sqm_rub": 141457,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-03-19",
+          "price_rub": 5050000,
+          "price_per_sqm_rub": 141457,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "bc51ed234fbe5de6": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Сезоны",
       "house": "ГП-1, ул. владимира абазарова, д. 5",
       "floor": "6",
@@ -271,7 +331,7 @@
       ]
     },
     "cc77af2b03934428": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Сезоны",
       "house": "ГП-1, ул. владимира абазарова, д. 5",
       "floor": "12",
@@ -300,7 +360,7 @@
       ]
     },
     "cfc0cd74d120e844": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Сезоны",
       "house": "ГП-6, ул. владимира абазарова, д. 3",
       "floor": "14",
@@ -327,8 +387,38 @@
         }
       ]
     },
+    "50a74906e16fc49d": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Симфония",
+      "house": "ГП-2, ул. холодильная, д. 31к2",
+      "section": "2",
+      "floor": "17",
+      "area_sqm": 29.2,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27809"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5580000,
+      "current_price_rub": 5580000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 191096,
+      "current_price_per_sqm_rub": 191096,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5580000,
+          "price_per_sqm_rub": 191096,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "81fcdf9482c6394e": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Supersky",
       "house": "ГП-1, ул. ветеранов труда, д. 36к1",
       "section": "6",
@@ -358,7 +448,7 @@
       ]
     },
     "be670d2012048e52": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Supersky",
       "house": "ГП-1, ул. ветеранов труда, д. 36к1",
       "section": "2",
@@ -387,8 +477,198 @@
         }
       ]
     },
+    "eda80aff0d879718": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Хито",
+      "house": "ГП-1, ул. сергея джанбровского, д. 25к1",
+      "section": "4",
+      "floor": "14",
+      "area_sqm": 28.28,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://rodina-dom.ru/ok-land#/macrocatalog/houses/3815666/bigGrid?studio=null&estateId=5263180&floorNum=1&category=flat&activity=sell"
+      },
+      "first_seen_date": "2025-03-20",
+      "start_price_rub": 4050000,
+      "current_price_rub": 4650000,
+      "price_change_rub": 600000,
+      "price_change_percent": 14.81,
+      "start_price_per_sqm_rub": 143211,
+      "current_price_per_sqm_rub": 164427,
+      "price_per_sqm_change_rub": 21216,
+      "price_history": [
+        {
+          "effective_from": "2025-03-20",
+          "price_rub": 4050000,
+          "price_per_sqm_rub": 143211,
+          "effective_to": "2025-06-23",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-06-24",
+          "price_rub": 4100000,
+          "price_per_sqm_rub": 144979,
+          "effective_to": "2025-09-24",
+          "change_from_previous_rub": 50000,
+          "change_from_previous_percent": 1.23,
+          "change_from_start_rub": 50000,
+          "change_from_start_percent": 1.23
+        },
+        {
+          "effective_from": "2026-02-05",
+          "price_rub": 4150000,
+          "price_per_sqm_rub": 146747,
+          "effective_to": "2026-02-18",
+          "change_from_previous_rub": 50000,
+          "change_from_previous_percent": 1.22,
+          "change_from_start_rub": 100000,
+          "change_from_start_percent": 2.47
+        },
+        {
+          "effective_from": "2026-02-19",
+          "price_rub": 4250000,
+          "price_per_sqm_rub": 150283,
+          "effective_to": "2026-03-18",
+          "change_from_previous_rub": 100000,
+          "change_from_previous_percent": 2.41,
+          "change_from_start_rub": 200000,
+          "change_from_start_percent": 4.94
+        },
+        {
+          "effective_from": "2026-03-19",
+          "price_rub": 3950000,
+          "price_per_sqm_rub": 139675,
+          "effective_to": "2026-06-02",
+          "change_from_previous_rub": -300000,
+          "change_from_previous_percent": -7.06,
+          "change_from_start_rub": -100000,
+          "change_from_start_percent": -2.47
+        },
+        {
+          "effective_from": "2026-06-03",
+          "price_rub": 4100000,
+          "price_per_sqm_rub": 144979,
+          "effective_to": "2026-07-23",
+          "change_from_previous_rub": 150000,
+          "change_from_previous_percent": 3.8,
+          "change_from_start_rub": 50000,
+          "change_from_start_percent": 1.23
+        },
+        {
+          "effective_from": "2026-07-24",
+          "price_rub": 4600000,
+          "price_per_sqm_rub": 162659,
+          "effective_to": "2026-09-02",
+          "change_from_previous_rub": 500000,
+          "change_from_previous_percent": 12.2,
+          "change_from_start_rub": 550000,
+          "change_from_start_percent": 13.58
+        },
+        {
+          "effective_from": "2026-09-03",
+          "price_rub": 4650000,
+          "price_per_sqm_rub": 164427,
+          "change_from_previous_rub": 50000,
+          "change_from_previous_percent": 1.09,
+          "change_from_start_rub": 600000,
+          "change_from_start_percent": 14.81
+        }
+      ]
+    },
+    "3b6dc598adb25646": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Хито",
+      "house": "2 очередь, ул. сергея джанбровского, д. 25",
+      "section": "4",
+      "floor": "17",
+      "area_sqm": 40.01,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://rodina-dom.ru/ok-land#/macrocatalog/houses/3815666/bigGrid?studio=null&estateId=7045411&floorNum=1&category=flat&activity=sell"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6050000,
+      "current_price_rub": 6050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 151212,
+      "current_price_per_sqm_rub": 151212,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6050000,
+          "price_per_sqm_rub": 151212,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6ef1cf4994898a6e": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Хито",
+      "house": "ГП-2.2, ул. сергея джанбровского, д. 25к2",
+      "section": "1",
+      "floor": "17",
+      "area_sqm": 47.42,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://rodina-dom.ru/ok-land#/macrocatalog/houses/3815666/bigGrid?studio=null&estateId=5262452&floorNum=1&category=flat&activity=sell"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6850000,
+      "current_price_rub": 6850000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 144454,
+      "current_price_per_sqm_rub": 144454,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6850000,
+          "price_per_sqm_rub": 144454,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "a761519d19e3e259": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Хито",
+      "house": "2 очередь, ул. сергея джанбровского, д. 25",
+      "section": "5",
+      "floor": "17",
+      "area_sqm": 61.64,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://rodina-dom.ru/ok-land#/macrocatalog/houses/3815666/bigGrid?studio=null&estateId=7045536&floorNum=1&category=flat&activity=sell"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 7850000,
+      "current_price_rub": 7850000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 127352,
+      "current_price_per_sqm_rub": 127352,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 7850000,
+          "price_per_sqm_rub": 127352,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "527ddef67b443462": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Чистые пруды",
       "house": "ГП-1, ул. лесопарковая, д. 22",
       "section": "Секция 1.2",
@@ -498,7 +778,7 @@
       ]
     },
     "ec2586366f5681d2": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Чистые пруды",
       "house": "ГП-1, ул. лесопарковая, д. 22",
       "section": "Секция 1.5",
@@ -528,7 +808,7 @@
       ]
     },
     "429079e229ca0108": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Чистые пруды",
       "house": "ГП-1, ул. лесопарковая, д. 22",
       "section": "Секция 1.2",
@@ -558,7 +838,7 @@
       ]
     },
     "269eefb9ff7d101d": {
-      "data_as_of": "2026-10-06T13:38:53+05:00",
+      "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Чистые пруды",
       "house": "ГП-2, ул. лесопарковая, д. 20",
       "section": "1",

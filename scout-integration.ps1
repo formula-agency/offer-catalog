@@ -211,7 +211,10 @@ function Find-ScoutCandidates {
 }
 
 function Select-ScoutApartment {
-    param([Parameter(Mandatory)][AllowEmptyCollection()][object[]]$Candidates)
+    param(
+        [Parameter(Mandatory)][AllowEmptyCollection()][object[]]$Candidates,
+        [AllowEmptyCollection()][string[]]$PreferredUrls = @()
+    )
 
     $priced = @($Candidates | Where-Object { $null -ne (Get-ScoutEffectivePrice -Item $_) })
     if ($priced.Count -eq 0) { return $null }
@@ -222,6 +225,21 @@ function Select-ScoutApartment {
         $pool = @($priced | Where-Object { (Get-ScoutSourceType -Item $_) -eq 'aggregator' })
     }
     if ($pool.Count -eq 0) { return $null }
+
+    $preferredUrlSet = @{}
+    foreach ($preferredUrl in @($PreferredUrls)) {
+        if ([string]::IsNullOrWhiteSpace($preferredUrl)) { continue }
+        $preferredUrlSet[$preferredUrl.Trim().TrimEnd('/').ToLowerInvariant()] = $true
+    }
+    if ($preferredUrlSet.Count -gt 0) {
+        $preferredPool = @($pool | Where-Object {
+            $candidateUrl = "$(Get-ScoutProperty -InputObject $_ -Names @('item_url'))".Trim().TrimEnd('/').ToLowerInvariant()
+            $candidateUrl -and $preferredUrlSet.ContainsKey($candidateUrl)
+        })
+        if ($preferredPool.Count -gt 0) {
+            $pool = $preferredPool
+        }
+    }
 
     return $pool | Sort-Object `
         @{ Expression = { Get-ScoutEffectivePrice -Item $_ }; Descending = $true }, `

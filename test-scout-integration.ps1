@@ -71,6 +71,19 @@ $aliasCandidates = @(Find-ScoutCandidates -Expositions @(
 Assert-Equal $aliasCandidates.Count 1 'Поиск по raw_project и реестру алиасов работает неверно'
 Assert-Equal (Select-ScoutApartment -Candidates $aliasCandidates).source_id 'ETAGI-1' 'Aggregator должен использоваться при отсутствии official'
 
+$preferredUrlCandidates = @(
+    [pscustomobject]@{
+        project_name = 'Тест'; square = 41.05; source_type = 'official'; price = 6100000
+        source_id = 'higher-price'; item_url = 'https://example.com/higher'; deleted_flg = 'N'
+    },
+    [pscustomobject]@{
+        project_name = 'Тест'; square = 41.05; source_type = 'official'; price = 6000000
+        source_id = 'exact-source'; item_url = 'https://example.com/exact/'; deleted_flg = 'N'
+    }
+)
+$preferredUrlSelected = Select-ScoutApartment -Candidates $preferredUrlCandidates -PreferredUrls @('https://example.com/exact')
+Assert-Equal $preferredUrlSelected.source_id 'exact-source' 'Точная исходная ссылка оффера должна иметь приоритет среди official-кандидатов'
+
 $unknownOnly = @(
     [pscustomobject]@{ project_name = 'Тест'; square = 41.05; source_type = 'new-feed'; price = 7000000; source_id = 'new-1'; deleted_flg = 'N' }
 )

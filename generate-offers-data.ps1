@@ -406,6 +406,19 @@ try {
         }
         if ($offerMetadataByCatalogPath.ContainsKey($projectRelativeKey)) {
             $metadataEntry = $offerMetadataByCatalogPath[$projectRelativeKey]
+            $metadataTypes = Get-OptionalPropertyValue -InputObject $metadataEntry -Name 'types'
+            foreach ($metadataTypeRaw in @($metadataTypes)) {
+                if ([string]::IsNullOrWhiteSpace("$metadataTypeRaw")) { continue }
+                $metadataType = if ($typeLabels.ContainsKey("$metadataTypeRaw")) {
+                    $typeLabels["$metadataTypeRaw"]
+                }
+                else {
+                    "$metadataTypeRaw"
+                }
+                if ($metadataType -notin $offer.types) {
+                    $offer.types = @($offer.types) + $metadataType
+                }
+            }
             $sourceUrl = Get-OptionalPropertyValue -InputObject $metadataEntry -Name 'sourceUrl'
             if (-not [string]::IsNullOrWhiteSpace("$sourceUrl")) {
                 $offer.sourceUrl = "$sourceUrl"

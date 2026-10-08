@@ -215,7 +215,11 @@ foreach ($group in $groups) {
             $null -ne $candidateArea -and [Math]::Abs($candidateArea - $area) -le 0.0100001
         })
     }
-    $selected = Select-ScoutApartment -Candidates $candidates
+    $preferredUrls = @($group.Group |
+        ForEach-Object { Get-ScoutProperty -InputObject $_ -Names @('sourceUrl') } |
+        Where-Object { -not [string]::IsNullOrWhiteSpace("$_") } |
+        Sort-Object -Unique)
+    $selected = Select-ScoutApartment -Candidates $candidates -PreferredUrls $preferredUrls
     $selectionByGroup[$group.Name] = [pscustomobject]@{
         Candidates = $candidates
         Selected = $selected
