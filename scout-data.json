@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T14:33:57+05:00",
+  "generatedAt": "2026-10-08T14:57:21+05:00",
   "dataAsOf": "2026-10-08T13:08:52+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -122,6 +122,256 @@
         }
       ]
     },
+    "693b20ad89c80edf": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Восход",
+      "house": "ГП-1, ул. тимофея чаркова, д. 73",
+      "section": "5",
+      "floor": "16",
+      "area_sqm": 36.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://dom.aspec.ru/object/voshod#/catalog/projects/list?propertyId=14889441&filter=project:49432&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-09-11",
+      "start_price_rub": 5477700,
+      "current_price_rub": 6610000,
+      "price_change_rub": 1132300,
+      "price_change_percent": 20.67,
+      "start_price_per_sqm_rub": 150074,
+      "current_price_per_sqm_rub": 181096,
+      "price_per_sqm_change_rub": 31022,
+      "price_history": [
+        {
+          "effective_from": "2025-09-11",
+          "price_rub": 5477700,
+          "price_per_sqm_rub": 150074,
+          "effective_to": "2025-10-01",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-02",
+          "price_rub": 5890000,
+          "price_per_sqm_rub": 161370,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 412300,
+          "change_from_previous_percent": 7.53,
+          "change_from_start_rub": 412300,
+          "change_from_start_percent": 7.53
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 5477700,
+          "price_per_sqm_rub": 150074,
+          "effective_to": "2025-10-15",
+          "change_from_previous_rub": -412300,
+          "change_from_previous_percent": -7.0,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-16",
+          "price_rub": 5589300,
+          "price_per_sqm_rub": 153132,
+          "effective_to": "2025-10-29",
+          "change_from_previous_rub": 111600,
+          "change_from_previous_percent": 2.04,
+          "change_from_start_rub": 111600,
+          "change_from_start_percent": 2.04
+        },
+        {
+          "effective_from": "2025-10-30",
+          "price_rub": 5654400,
+          "price_per_sqm_rub": 154915,
+          "effective_to": "2025-11-12",
+          "change_from_previous_rub": 65100,
+          "change_from_previous_percent": 1.16,
+          "change_from_start_rub": 176700,
+          "change_from_start_percent": 3.23
+        },
+        {
+          "effective_from": "2025-11-13",
+          "price_rub": 5905500,
+          "price_per_sqm_rub": 161795,
+          "effective_to": "2025-11-19",
+          "change_from_previous_rub": 251100,
+          "change_from_previous_percent": 4.44,
+          "change_from_start_rub": 427800,
+          "change_from_start_percent": 7.81
+        },
+        {
+          "effective_from": "2025-11-20",
+          "price_rub": 6096000,
+          "price_per_sqm_rub": 167014,
+          "effective_to": "2025-11-26",
+          "change_from_previous_rub": 190500,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": 618300,
+          "change_from_start_percent": 11.29
+        },
+        {
+          "effective_from": "2025-11-27",
+          "price_rub": 6124800,
+          "price_per_sqm_rub": 167803,
+          "effective_to": "2025-12-10",
+          "change_from_previous_rub": 28800,
+          "change_from_previous_percent": 0.47,
+          "change_from_start_rub": 647100,
+          "change_from_start_percent": 11.81
+        },
+        {
+          "effective_from": "2026-01-12",
+          "price_rub": 6285600,
+          "price_per_sqm_rub": 172208,
+          "effective_to": "2026-01-21",
+          "change_from_previous_rub": 160800,
+          "change_from_previous_percent": 2.63,
+          "change_from_start_rub": 807900,
+          "change_from_start_percent": 14.75
+        },
+        {
+          "effective_from": "2026-01-22",
+          "price_rub": 6411700,
+          "price_per_sqm_rub": 175663,
+          "effective_to": "2026-03-11",
+          "change_from_previous_rub": 126100,
+          "change_from_previous_percent": 2.01,
+          "change_from_start_rub": 934000,
+          "change_from_start_percent": 17.05
+        },
+        {
+          "effective_from": "2026-03-12",
+          "price_rub": 6610000,
+          "price_per_sqm_rub": 181096,
+          "change_from_previous_rub": 198300,
+          "change_from_previous_percent": 3.09,
+          "change_from_start_rub": 1132300,
+          "change_from_start_percent": 20.67
+        }
+      ]
+    },
+    "afab82575cb8a9fe": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Восход",
+      "house": "ГП-1, ул. тимофея чаркова, д. 73",
+      "section": "5",
+      "floor": "4",
+      "area_sqm": 58.6,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://dom.aspec.ru/object/voshod#/catalog/projects/list?propertyId=14889365&filter=project:49432&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-09-11",
+      "start_price_rub": 7477200,
+      "current_price_rub": 8350000,
+      "price_change_rub": 872800,
+      "price_change_percent": 11.67,
+      "start_price_per_sqm_rub": 127597,
+      "current_price_per_sqm_rub": 142491,
+      "price_per_sqm_change_rub": 14894,
+      "price_history": [
+        {
+          "effective_from": "2025-09-11",
+          "price_rub": 7477200,
+          "price_per_sqm_rub": 127597,
+          "effective_to": "2025-10-01",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-02",
+          "price_rub": 8040000,
+          "price_per_sqm_rub": 137201,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 562800,
+          "change_from_previous_percent": 7.53,
+          "change_from_start_rub": 562800,
+          "change_from_start_percent": 7.53
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 7477200,
+          "price_per_sqm_rub": 127597,
+          "effective_to": "2025-10-29",
+          "change_from_previous_rub": -562800,
+          "change_from_previous_percent": -7.0,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-30",
+          "price_rub": 7560900,
+          "price_per_sqm_rub": 129026,
+          "effective_to": "2025-11-12",
+          "change_from_previous_rub": 83700,
+          "change_from_previous_percent": 1.12,
+          "change_from_start_rub": 83700,
+          "change_from_start_percent": 1.12
+        },
+        {
+          "effective_from": "2025-11-13",
+          "price_rub": 7598100,
+          "price_per_sqm_rub": 129660,
+          "effective_to": "2025-11-19",
+          "change_from_previous_rub": 37200,
+          "change_from_previous_percent": 0.49,
+          "change_from_start_rub": 120900,
+          "change_from_start_percent": 1.62
+        },
+        {
+          "effective_from": "2025-11-20",
+          "price_rub": 7843200,
+          "price_per_sqm_rub": 133843,
+          "effective_to": "2025-12-10",
+          "change_from_previous_rub": 245100,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": 366000,
+          "change_from_start_percent": 4.89
+        },
+        {
+          "effective_from": "2026-01-12",
+          "price_rub": 8021900,
+          "price_per_sqm_rub": 136892,
+          "effective_to": "2026-02-04",
+          "change_from_previous_rub": 178700,
+          "change_from_previous_percent": 2.28,
+          "change_from_start_rub": 544700,
+          "change_from_start_percent": 7.28
+        },
+        {
+          "effective_from": "2026-02-05",
+          "price_rub": 8099500,
+          "price_per_sqm_rub": 138217,
+          "effective_to": "2026-03-04",
+          "change_from_previous_rub": 77600,
+          "change_from_previous_percent": 0.97,
+          "change_from_start_rub": 622300,
+          "change_from_start_percent": 8.32
+        },
+        {
+          "effective_from": "2026-03-05",
+          "price_rub": 7682000,
+          "price_per_sqm_rub": 131092,
+          "effective_to": "2026-05-07",
+          "change_from_previous_rub": -417500,
+          "change_from_previous_percent": -5.15,
+          "change_from_start_rub": 204800,
+          "change_from_start_percent": 2.74
+        },
+        {
+          "effective_from": "2026-05-08",
+          "price_rub": 8350000,
+          "price_per_sqm_rub": 142491,
+          "change_from_previous_rub": 668000,
+          "change_from_previous_percent": 8.7,
+          "change_from_start_rub": 872800,
+          "change_from_start_percent": 11.67
+        }
+      ]
+    },
     "8f7078ffd7ca5e23": {
       "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Горизонт",
@@ -152,6 +402,36 @@
         }
       ]
     },
+    "c25f24aa4b06a1d4": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Зелёные аллеи",
+      "house": "ГП-9, ул. александра звягина, д. 2",
+      "section": "2",
+      "floor": "4",
+      "area_sqm": 36.93,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://navigator-tmn.ru/lot/flats/edd66bae-9d97-41b2-aa08-717a527f4984"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5595000,
+      "current_price_rub": 5595000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 151503,
+      "current_price_per_sqm_rub": 151503,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5595000,
+          "price_per_sqm_rub": 151503,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "df2cbec04a6aae6a": {
       "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Кедровый берег",
@@ -176,6 +456,36 @@
           "effective_from": "2026-09-22",
           "price_rub": 7490000,
           "price_per_sqm_rub": 112581,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "03ab6b6a2b8e4fd3": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Континент",
+      "house": "ГП-1, ул. червишевский тракт, д. 23к1",
+      "section": "1",
+      "floor": "3",
+      "area_sqm": 38.46,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27885"
+      },
+      "first_seen_date": "2026-07-24",
+      "start_price_rub": 5150000,
+      "current_price_rub": 5150000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 133905,
+      "current_price_per_sqm_rub": 133905,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-07-24",
+          "price_rub": 5150000,
+          "price_per_sqm_rub": 133905,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
