@@ -423,6 +423,10 @@ try {
             if (-not [string]::IsNullOrWhiteSpace("$sourceUrl")) {
                 $offer.sourceUrl = "$sourceUrl"
             }
+            $scoutSourceUrl = Get-OptionalPropertyValue -InputObject $metadataEntry -Name 'scoutSourceUrl'
+            if (-not [string]::IsNullOrWhiteSpace("$scoutSourceUrl")) {
+                $offer.scoutSourceUrl = "$scoutSourceUrl"
+            }
         }
         $offer
     }

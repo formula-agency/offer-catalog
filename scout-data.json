@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T14:57:21+05:00",
+  "generatedAt": "2026-10-08T15:50:32+05:00",
   "dataAsOf": "2026-10-08T13:08:52+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -117,6 +117,36 @@
           "effective_from": "2026-10-06",
           "price_rub": 9025770,
           "price_per_sqm_rub": 115745,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0f0514b805627bd6": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Ботаника в Комарово парк",
+      "house": "2 этап (Секции № 9,10), ул. василия малкова, д. 25, д.23, д.27",
+      "section": "1",
+      "floor": "18",
+      "area_sqm": 40.2,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--e1aner7ci.xn--80aa6ajv.xn--p1ai/apartment/18927"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6276000,
+      "current_price_rub": 6276000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156119,
+      "current_price_per_sqm_rub": 156119,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6276000,
+          "price_per_sqm_rub": 156119,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -581,6 +611,95 @@
         }
       ]
     },
+    "da636ee60864f4cf": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Октябрьский на Туре",
+      "house": "ГП-8, ул. краснооктябрьская, д. 4к2",
+      "section": "2",
+      "floor": "6",
+      "area_sqm": 21.1,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/46956/"
+      },
+      "first_seen_date": "2026-06-03",
+      "start_price_rub": 5540000,
+      "current_price_rub": 5540000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 262559,
+      "current_price_per_sqm_rub": 262559,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-03",
+          "price_rub": 5540000,
+          "price_per_sqm_rub": 262559,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "99a07acf80c893bf": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Октябрьский на Туре",
+      "house": "ГП-8, ул. краснооктябрьская, д. 4к2",
+      "section": "2",
+      "floor": "9",
+      "area_sqm": 31.8,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/48889/"
+      },
+      "first_seen_date": "2026-06-03",
+      "start_price_rub": 6910000,
+      "current_price_rub": 6910000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 217296,
+      "current_price_per_sqm_rub": 217296,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-03",
+          "price_rub": 6910000,
+          "price_per_sqm_rub": 217296,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "fd4312d4465536ea": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Республики 205",
+      "house": "ГП-2, ул. республики, д. 203к2",
+      "section": "4",
+      "floor": "6",
+      "area_sqm": 21.4,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/52498/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5620000,
+      "current_price_rub": 5620000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 262617,
+      "current_price_per_sqm_rub": 262617,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5620000,
+          "price_per_sqm_rub": 262617,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "9b3790a742629fd0": {
       "data_as_of": "2026-10-08T13:08:52+05:00",
       "residential_complex": "Свой",
@@ -782,6 +901,36 @@
           "effective_from": "2026-08-19",
           "price_rub": 6600000,
           "price_per_sqm_rub": 192420,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c2211737aa00e1ef": {
+      "data_as_of": "2026-10-08T13:08:52+05:00",
+      "residential_complex": "Фатера",
+      "house": "4Б, ул. полевая, д. 117к13",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 34.35,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-b2f3-444a-9106-1e16870ca631"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5060000,
+      "current_price_rub": 5060000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 147307,
+      "current_price_per_sqm_rub": 147307,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5060000,
+          "price_per_sqm_rub": 147307,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }

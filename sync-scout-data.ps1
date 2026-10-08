@@ -216,7 +216,10 @@ foreach ($group in $groups) {
         })
     }
     $preferredUrls = @($group.Group |
-        ForEach-Object { Get-ScoutProperty -InputObject $_ -Names @('sourceUrl') } |
+        ForEach-Object {
+            Get-ScoutProperty -InputObject $_ -Names @('sourceUrl')
+            Get-ScoutProperty -InputObject $_ -Names @('scoutSourceUrl')
+        } |
         Where-Object { -not [string]::IsNullOrWhiteSpace("$_") } |
         Sort-Object -Unique)
     $selected = Select-ScoutApartment -Candidates $candidates -PreferredUrls $preferredUrls
