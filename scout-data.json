@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T12:58:04+05:00",
+  "generatedAt": "2026-10-09T13:33:28+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -666,6 +666,125 @@
           "effective_from": "2026-07-24",
           "price_rub": 7221000,
           "price_per_sqm_rub": 156265,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "92cb2fa9d19cc94d": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "14",
+      "area_sqm": 20.0,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283772/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 3444480,
+      "current_price_rub": 3444480,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 172224,
+      "current_price_per_sqm_rub": 172224,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 3444480,
+          "price_per_sqm_rub": 172224,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c888237e615331cd": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 2",
+      "floor": "4",
+      "area_sqm": 21.3,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283835/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 3468400,
+      "current_price_rub": 3468400,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 162836,
+      "current_price_per_sqm_rub": 162836,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 3468400,
+          "price_per_sqm_rub": 162836,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "484049992619caae": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "8",
+      "area_sqm": 36.1,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283698/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5170400,
+      "current_price_rub": 5170400,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 143224,
+      "current_price_per_sqm_rub": 143224,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5170400,
+          "price_per_sqm_rub": 143224,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "98aaf6b3619e3cf9": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "15",
+      "area_sqm": 52.5,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283781/"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7043520,
+      "current_price_rub": 7043520,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 134162,
+      "current_price_per_sqm_rub": 134162,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7043520,
+          "price_per_sqm_rub": 134162,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
