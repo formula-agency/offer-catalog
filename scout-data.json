@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T15:13:41+05:00",
+  "generatedAt": "2026-10-12T15:29:12+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -62,7 +62,67 @@
         }
       ]
     },
+    "594c2a0e072adb95": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "3",
+      "floor": "14",
+      "area_sqm": 39.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/9999861"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6200000,
+      "current_price_rub": 6200000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156962,
+      "current_price_per_sqm_rub": 156962,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6200000,
+          "price_per_sqm_rub": 156962,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "38f9bd46200c922f": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "1",
+      "floor": "22",
+      "area_sqm": 56.36,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/9999766"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7378942,
+      "current_price_rub": 7378942,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 130925,
+      "current_price_per_sqm_rub": 130925,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7378942,
+          "price_per_sqm_rub": 130925,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "21a1b6de9c214ae3": {
       "data_as_of": "2026-10-09T12:55:54+05:00",
       "residential_complex": "Беринг",
       "house": "ГП-76, д. 1826",
@@ -820,6 +880,66 @@
         }
       ]
     },
+    "f9e4b331685756ba": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Мириады",
+      "house": "ГП-72.107, ул. капитана куликова, д. 25",
+      "section": "2",
+      "floor": "13",
+      "area_sqm": 45.96,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/miriady-50136/10001963"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6898300,
+      "current_price_rub": 6898300,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 150094,
+      "current_price_per_sqm_rub": 150094,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6898300,
+          "price_per_sqm_rub": 150094,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0cf1cae55cba803b": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Мириады",
+      "house": "ГП-72.110, пр. капитана куликова, д. 7",
+      "section": "1",
+      "floor": "23",
+      "area_sqm": 60.15,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/miriady-50136/10002016"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 8207400,
+      "current_price_rub": 8207400,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 136449,
+      "current_price_per_sqm_rub": 136449,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 8207400,
+          "price_per_sqm_rub": 136449,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "c457b302d5a4e8e8": {
       "data_as_of": "2026-10-09T12:55:54+05:00",
       "residential_complex": "Квартал мятный",
@@ -1293,6 +1413,36 @@
           "effective_from": "2026-09-22",
           "price_rub": 5010000,
           "price_per_sqm_rub": 147353,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "82bfe2fea695a64c": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Плэй",
+      "house": "ГП-2, ул. полевая, д. 93к1",
+      "section": "4",
+      "floor": "3",
+      "area_sqm": 60.92,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/579018"
+      },
+      "first_seen_date": "2026-04-27",
+      "start_price_rub": 8392000,
+      "current_price_rub": 8392000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 137754,
+      "current_price_per_sqm_rub": 137754,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-04-27",
+          "price_rub": 8392000,
+          "price_per_sqm_rub": 137754,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
