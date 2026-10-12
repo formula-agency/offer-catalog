@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T16:23:31+05:00",
+  "generatedAt": "2026-10-12T14:54:53+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -790,6 +790,215 @@
         }
       ]
     },
+    "c457b302d5a4e8e8": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-2, ул. кулибина, д. 1491",
+      "section": "2",
+      "floor": "18",
+      "area_sqm": 29.66,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/odnokomnatnaya-29-66-kv-m-14006329"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5100000,
+      "current_price_rub": 5100000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 171949,
+      "current_price_per_sqm_rub": 171949,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5100000,
+          "price_per_sqm_rub": 171949,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "d2522908648391b0": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-3, ул. кулибина, д. 1492",
+      "section": "2",
+      "floor": "8",
+      "area_sqm": 32.73,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/odnokomnatnaya-32-73-kv-m-14006762"
+      },
+      "first_seen_date": "2024-11-14",
+      "start_price_rub": 5180000,
+      "current_price_rub": 6000000,
+      "price_change_rub": 820000,
+      "price_change_percent": 15.83,
+      "start_price_per_sqm_rub": 158265,
+      "current_price_per_sqm_rub": 183318,
+      "price_per_sqm_change_rub": 25053,
+      "price_history": [
+        {
+          "effective_from": "2024-11-14",
+          "price_rub": 5180000,
+          "price_per_sqm_rub": 158265,
+          "effective_to": "2024-12-04",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2024-12-19",
+          "price_rub": 5400000,
+          "price_per_sqm_rub": 164986,
+          "effective_to": "2025-02-27",
+          "change_from_previous_rub": 220000,
+          "change_from_previous_percent": 4.25,
+          "change_from_start_rub": 220000,
+          "change_from_start_percent": 4.25
+        },
+        {
+          "effective_from": "2025-02-28",
+          "price_rub": 4550000,
+          "price_per_sqm_rub": 139016,
+          "effective_to": "2025-03-13",
+          "change_from_previous_rub": -850000,
+          "change_from_previous_percent": -15.74,
+          "change_from_start_rub": -630000,
+          "change_from_start_percent": -12.16
+        },
+        {
+          "effective_from": "2025-03-14",
+          "price_rub": 4700000,
+          "price_per_sqm_rub": 143599,
+          "effective_to": "2025-04-17",
+          "change_from_previous_rub": 150000,
+          "change_from_previous_percent": 3.3,
+          "change_from_start_rub": -480000,
+          "change_from_start_percent": -9.27
+        },
+        {
+          "effective_from": "2025-04-18",
+          "price_rub": 4650000,
+          "price_per_sqm_rub": 142071,
+          "effective_to": "2025-06-10",
+          "change_from_previous_rub": -50000,
+          "change_from_previous_percent": -1.06,
+          "change_from_start_rub": -530000,
+          "change_from_start_percent": -10.23
+        },
+        {
+          "effective_from": "2025-06-11",
+          "price_rub": 5330000,
+          "price_per_sqm_rub": 162848,
+          "effective_to": "2025-07-06",
+          "change_from_previous_rub": 680000,
+          "change_from_previous_percent": 14.62,
+          "change_from_start_rub": 150000,
+          "change_from_start_percent": 2.9
+        },
+        {
+          "effective_from": "2025-07-07",
+          "price_rub": 4650000,
+          "price_per_sqm_rub": 142071,
+          "effective_to": "2025-08-04",
+          "change_from_previous_rub": -680000,
+          "change_from_previous_percent": -12.76,
+          "change_from_start_rub": -530000,
+          "change_from_start_percent": -10.23
+        },
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 4800000,
+          "price_per_sqm_rub": 146654,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 150000,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": -380000,
+          "change_from_start_percent": -7.34
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 5330000,
+          "price_per_sqm_rub": 162848,
+          "effective_to": "2026-01-11",
+          "change_from_previous_rub": 530000,
+          "change_from_previous_percent": 11.04,
+          "change_from_start_rub": 150000,
+          "change_from_start_percent": 2.9
+        },
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 5700000,
+          "price_per_sqm_rub": 174152,
+          "change_from_previous_rub": 370000,
+          "change_from_previous_percent": 6.94,
+          "change_from_start_rub": 520000,
+          "change_from_start_percent": 10.04
+        },
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6000000,
+          "price_per_sqm_rub": 183318,
+          "change_from_previous_rub": 300000,
+          "change_from_previous_percent": 5.26,
+          "change_from_start_rub": 820000,
+          "change_from_start_percent": 15.83
+        }
+      ]
+    },
+    "502deac759531f82": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-1, ул. кулибина, д. 1441",
+      "section": "1",
+      "floor": "25",
+      "area_sqm": 59.26,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/dvuhkomnatnaya-59-26-kv-m-14006049"
+      },
+      "first_seen_date": "2025-08-15",
+      "start_price_rub": 9340000,
+      "current_price_rub": 9800000,
+      "price_change_rub": 460000,
+      "price_change_percent": 4.93,
+      "start_price_per_sqm_rub": 157611,
+      "current_price_per_sqm_rub": 165373,
+      "price_per_sqm_change_rub": 7762,
+      "price_history": [
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 9340000,
+          "price_per_sqm_rub": 157611,
+          "effective_to": "2025-10-08",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2026-06-03",
+          "price_rub": 9100000,
+          "price_per_sqm_rub": 153561,
+          "effective_to": "2026-07-23",
+          "change_from_previous_rub": -240000,
+          "change_from_previous_percent": -2.57,
+          "change_from_start_rub": -240000,
+          "change_from_start_percent": -2.57
+        },
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 9800000,
+          "price_per_sqm_rub": 165373,
+          "change_from_previous_rub": 700000,
+          "change_from_previous_percent": 7.69,
+          "change_from_start_rub": 460000,
+          "change_from_start_percent": 4.93
+        }
+      ]
+    },
     "cefdcd61bacdd431": {
       "data_as_of": "2026-10-09T12:55:54+05:00",
       "residential_complex": "Новатор",
@@ -815,6 +1024,65 @@
           "effective_from": "2026-09-22",
           "price_rub": 5145000,
           "price_per_sqm_rub": 144766,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c4396b1e69bdf23e": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "2",
+      "area_sqm": 36.62,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717689"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6318000,
+      "current_price_rub": 6318000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 172529,
+      "current_price_per_sqm_rub": 172529,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6318000,
+          "price_per_sqm_rub": 172529,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "77be66794f2f9e40": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "8",
+      "area_sqm": 37.87,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717769"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7040000,
+      "current_price_rub": 7040000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 185899,
+      "current_price_per_sqm_rub": 185899,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7040000,
+          "price_per_sqm_rub": 185899,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
