@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T15:29:12+05:00",
+  "generatedAt": "2026-10-12T16:03:03+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -577,6 +577,96 @@
           "effective_from": "2026-09-22",
           "price_rub": 6450000,
           "price_per_sqm_rub": 159063,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c9ee8717809e8b5e": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Домашний",
+      "house": "ГП-19 (Дом Экологичный), ул. андрея кореневского, д. 5к1",
+      "section": "2",
+      "floor": "2",
+      "area_sqm": 35.63,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/domashnijj-9906/3367028"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6500000,
+      "current_price_rub": 6500000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 182431,
+      "current_price_per_sqm_rub": 182431,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6500000,
+          "price_per_sqm_rub": 182431,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c3ca531c034bb88f": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Домашний",
+      "house": "ГП-21 (Дом Процветающий), ул. андрея кореневского, д. 1к2",
+      "section": "1",
+      "floor": "12",
+      "area_sqm": 36.42,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/domashnijj-9906/1985426"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6050000,
+      "current_price_rub": 6050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166118,
+      "current_price_per_sqm_rub": 166118,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6050000,
+          "price_per_sqm_rub": 166118,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cca4f233c13799a8": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Европейский берег 2.0",
+      "house": "ГП-9 (Дом Хельсинки), ул. защитников отечества, д. 15",
+      "section": "3",
+      "floor": "24",
+      "area_sqm": 31.01,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/evropejjskijj-bereg-2-0-14371/5804201"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 7370000,
+      "current_price_rub": 7370000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 237665,
+      "current_price_per_sqm_rub": 237665,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 7370000,
+          "price_per_sqm_rub": 237665,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -1683,6 +1773,36 @@
         }
       ]
     },
+    "0993e9cdd8b43c23": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Сонтар",
+      "house": "Дом 1, ул. бакинских комиссаров, д. 3к2",
+      "section": "Секция 1",
+      "floor": "2",
+      "area_sqm": 54.7,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://sontar72.ru/#dp/plans?&flat_id=716093"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 7500000,
+      "current_price_rub": 7500000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 137112,
+      "current_price_per_sqm_rub": 137112,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 7500000,
+          "price_per_sqm_rub": 137112,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "81fcdf9482c6394e": {
       "data_as_of": "2026-10-09T12:55:54+05:00",
       "residential_complex": "Supersky",
@@ -2278,6 +2398,36 @@
           "effective_from": "2026-06-19",
           "price_rub": 9090000,
           "price_per_sqm_rub": 132895,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4516cc20f207e76b": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Юнион",
+      "house": "ГП-2 (Дом Форум), ул. интернациональная, д. 199к10",
+      "section": "7",
+      "floor": "4",
+      "area_sqm": 37.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/yunion-13268/3365954"
+      },
+      "first_seen_date": "2026-09-17",
+      "start_price_rub": 5340000,
+      "current_price_rub": 5340000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 142400,
+      "current_price_per_sqm_rub": 142400,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-17",
+          "price_rub": 5340000,
+          "price_per_sqm_rub": 142400,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
