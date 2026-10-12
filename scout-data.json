@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T14:54:53+05:00",
+  "generatedAt": "2026-10-12T15:13:41+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -207,6 +207,36 @@
           "effective_from": "2026-10-06",
           "price_rub": 6276000,
           "price_per_sqm_rub": 156119,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6418a0505c35cec6": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Вида",
+      "house": "ГП-1, ул. академическая, д. 10",
+      "section": "1",
+      "floor": "15",
+      "area_sqm": 45.73,
+      "rooms_real": "2K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/dvuhkomnatnaya-45-73-kv-m-722202"
+      },
+      "first_seen_date": "2026-08-04",
+      "start_price_rub": 7510000,
+      "current_price_rub": 7510000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 164225,
+      "current_price_per_sqm_rub": 164225,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-04",
+          "price_rub": 7510000,
+          "price_per_sqm_rub": 164225,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -1029,6 +1059,36 @@
         }
       ]
     },
+    "29e0672e73edf877": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-2 (Дом Огня), ул. разведчика кузнецова, д. 10",
+      "section": "7",
+      "floor": "6",
+      "area_sqm": 24.37,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15741591"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5660000,
+      "current_price_rub": 5660000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 232253,
+      "current_price_per_sqm_rub": 232253,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5660000,
+          "price_per_sqm_rub": 232253,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "c4396b1e69bdf23e": {
       "data_as_of": "2026-10-09T12:55:54+05:00",
       "residential_complex": "Окинава",
@@ -1054,6 +1114,36 @@
           "effective_from": "2026-09-22",
           "price_rub": 6318000,
           "price_per_sqm_rub": 172529,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "1c9d91d8af03c501": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "3",
+      "area_sqm": 37.61,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717709"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6960000,
+      "current_price_rub": 6960000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 185057,
+      "current_price_per_sqm_rub": 185057,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6960000,
+          "price_per_sqm_rub": 185057,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -1468,6 +1558,36 @@
           "effective_from": "2026-08-19",
           "price_rub": 5692700,
           "price_per_sqm_rub": 192321,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "280e53df5d302fe6": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "2",
+      "floor": "5",
+      "area_sqm": 33.8,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11094737"
+      },
+      "first_seen_date": "2026-08-04",
+      "start_price_rub": 6238000,
+      "current_price_rub": 6238000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 184556,
+      "current_price_per_sqm_rub": 184556,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-04",
+          "price_rub": 6238000,
+          "price_per_sqm_rub": 184556,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
