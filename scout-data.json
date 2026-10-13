@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T16:40:37+05:00",
+  "generatedAt": "2026-10-13T10:39:14+05:00",
   "dataAsOf": "2026-10-09T12:55:54+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -904,6 +904,36 @@
           "effective_from": "2026-07-24",
           "price_rub": 7221000,
           "price_per_sqm_rub": 156265,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "aeb53a71feb866a8": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "MAX",
+      "house": "ГП-1, ул. сергея джанбровского, д. 21к6",
+      "section": "1",
+      "floor": "10",
+      "area_sqm": 37.47,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/kvartal-max-maks-51069/9786829"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6910000,
+      "current_price_rub": 6910000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 184414,
+      "current_price_per_sqm_rub": 184414,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6910000,
+          "price_per_sqm_rub": 184414,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -1856,6 +1886,36 @@
           "effective_from": "2026-08-19",
           "price_rub": 7500000,
           "price_per_sqm_rub": 137112,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6917ddd446a94e34": {
+      "data_as_of": "2026-10-09T12:55:54+05:00",
+      "residential_complex": "Спутник-2",
+      "house": "ГП-1, ул. алматинская, д. 5",
+      "section": "Секция 1",
+      "floor": "18",
+      "area_sqm": 31.85,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://sputnik-tmn.ru/#dp/plans?flat_id=266239"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6522000,
+      "current_price_rub": 6522000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 204772,
+      "current_price_per_sqm_rub": 204772,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6522000,
+          "price_per_sqm_rub": 204772,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
