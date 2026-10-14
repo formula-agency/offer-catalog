@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:26:00+05:00",
+  "generatedAt": "2026-10-14T16:28:37+05:00",
   "dataAsOf": "2026-10-13T16:21:11+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -762,6 +762,66 @@
         }
       ]
     },
+    "357358cf9a4fddd8": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Игрим",
+      "house": "ГП-1.2, д. 2097",
+      "section": "3",
+      "floor": "3",
+      "area_sqm": 30.15,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/igrim-52619/10140763"
+      },
+      "first_seen_date": "2026-09-17",
+      "start_price_rub": 5067853,
+      "current_price_rub": 5067853,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168088,
+      "current_price_per_sqm_rub": 168088,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-17",
+          "price_rub": 5067853,
+          "price_per_sqm_rub": 168088,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "579c9a9330e1cc5e": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Игрим",
+      "house": "ГП-1.2, д. 2097",
+      "section": "2",
+      "floor": "17",
+      "area_sqm": 37.96,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/igrim-52619/10140754"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6334146,
+      "current_price_rub": 6334146,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166864,
+      "current_price_per_sqm_rub": 166864,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6334146,
+          "price_per_sqm_rub": 166864,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "df2cbec04a6aae6a": {
       "data_as_of": "2026-10-13T16:21:11+05:00",
       "residential_complex": "Кедровый берег",
@@ -906,6 +966,36 @@
           "effective_from": "2026-07-24",
           "price_rub": 7221000,
           "price_per_sqm_rub": 156265,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "11e7f8ecd99a30b8": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Листопад",
+      "house": "ГП-4, п. московский, ул. новая, д. 17к3",
+      "section": "1",
+      "floor": "7",
+      "area_sqm": 35.79,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://listopad72.ru/kartochka-kvartiry/403"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 4690000,
+      "current_price_rub": 4690000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 131042,
+      "current_price_per_sqm_rub": 131042,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 4690000,
+          "price_per_sqm_rub": 131042,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
