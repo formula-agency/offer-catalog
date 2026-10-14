@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T16:23:46+05:00",
+  "generatedAt": "2026-10-14T15:06:32+05:00",
   "dataAsOf": "2026-10-13T16:21:11+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -1596,6 +1596,36 @@
           "effective_from": "2026-09-22",
           "price_rub": 5010000,
           "price_per_sqm_rub": 147353,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "088199e79669913c": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Плэй",
+      "house": "ГП-1, ул. полевая, д. 93",
+      "section": "3",
+      "floor": "13",
+      "area_sqm": 35.76,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/578858"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6008000,
+      "current_price_rub": 6008000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168009,
+      "current_price_per_sqm_rub": 168009,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6008000,
+          "price_per_sqm_rub": 168009,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
