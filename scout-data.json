@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:06:32+05:00",
+  "generatedAt": "2026-10-14T15:26:00+05:00",
   "dataAsOf": "2026-10-13T16:21:11+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -1121,6 +1121,36 @@
         }
       ]
     },
+    "aa787dda5b4aff16": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Мотивы",
+      "house": "ГП-8, ул. андрея приказнова, д. 6",
+      "section": "6",
+      "floor": "11",
+      "area_sqm": 37.22,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 4936000,
+      "current_price_rub": 4936000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132617,
+      "current_price_per_sqm_rub": 132617,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 4936000,
+          "price_per_sqm_rub": 132617,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "c457b302d5a4e8e8": {
       "data_as_of": "2026-10-13T16:21:11+05:00",
       "residential_complex": "Квартал мятный",
@@ -2163,6 +2193,36 @@
           "effective_from": "2026-09-22",
           "price_rub": 5410000,
           "price_per_sqm_rub": 132924,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "f05c04e26fcf3df4": {
+      "data_as_of": "2026-10-13T16:21:11+05:00",
+      "residential_complex": "Фатера",
+      "house": "4Б, ул. полевая, д. 117к13",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 32.46,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-8840-42ba-9a98-d86847c6a0d7"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 4790000,
+      "current_price_rub": 4790000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 147566,
+      "current_price_per_sqm_rub": 147566,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 4790000,
+          "price_per_sqm_rub": 147566,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
