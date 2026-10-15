@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T16:58:14+05:00",
+  "generatedAt": "2026-10-15T17:29:25+05:00",
   "dataAsOf": "2026-10-15T14:57:47+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -27,6 +27,35 @@
           "effective_from": "2026-09-22",
           "price_rub": 7500000,
           "price_per_sqm_rub": 94423,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "1e9f64b2d43912e5": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Баланс",
+      "house": "ГП-22, ул. республики, д. 204к18",
+      "section": "1",
+      "floor": "23",
+      "area_sqm": 25.5,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-balans/flats/None"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5780000,
+      "current_price_rub": 5780000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 226667,
+      "current_price_per_sqm_rub": 226667,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5780000,
+          "price_per_sqm_rub": 226667,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
