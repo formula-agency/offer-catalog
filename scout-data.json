@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T15:07:43+05:00",
+  "generatedAt": "2026-10-15T16:51:23+05:00",
   "dataAsOf": "2026-10-15T14:57:47+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -635,6 +635,36 @@
           "effective_from": "2026-10-15",
           "price_rub": 7300000,
           "price_per_sqm_rub": 143984,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "72fda6fcf6dddbc2": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Дом на Большой Спасской",
+      "house": "ГП-14, ул. республики, д. 204к10",
+      "section": "1",
+      "floor": "16",
+      "area_sqm": 52.2,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-dom-na-bolshoi-spasskoi/flats/2-komnatnaya-kvartira-52.2m-korpus-14-kv-549"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 8980000,
+      "current_price_rub": 8980000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 172031,
+      "current_price_per_sqm_rub": 172031,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 8980000,
+          "price_per_sqm_rub": 172031,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
@@ -2976,6 +3006,36 @@
           "effective_from": "2026-06-19",
           "price_rub": 9090000,
           "price_per_sqm_rub": 132895,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0a863bef065a6776": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Эклипт",
+      "house": "ГП-39.3-11, ул. игоря комиссарова, д. 25",
+      "section": "1",
+      "floor": "1",
+      "area_sqm": 43.19,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-39311-kv-24"
+      },
+      "first_seen_date": "2026-09-03",
+      "start_price_rub": 6430000,
+      "current_price_rub": 6430000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 148877,
+      "current_price_per_sqm_rub": 148877,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-03",
+          "price_rub": 6430000,
+          "price_per_sqm_rub": 148877,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
