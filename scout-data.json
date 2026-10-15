@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T16:51:23+05:00",
+  "generatedAt": "2026-10-15T16:58:14+05:00",
   "dataAsOf": "2026-10-15T14:57:47+05:00",
   "offers": {
     "12ce45db782f2964": {
@@ -3036,6 +3036,36 @@
           "effective_from": "2026-09-03",
           "price_rub": 6430000,
           "price_per_sqm_rub": 148877,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "e2823b7178cd2a20": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Эклипт",
+      "house": "ГП-40.3-11, ул. игоря комиссарова, д. 23",
+      "section": "1",
+      "floor": "2",
+      "area_sqm": 43.19,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-40311-kv-11"
+      },
+      "first_seen_date": "2026-09-03",
+      "start_price_rub": 6050000,
+      "current_price_rub": 6050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 140079,
+      "current_price_per_sqm_rub": 140079,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-03",
+          "price_rub": 6050000,
+          "price_per_sqm_rub": 140079,
           "change_from_start_rub": 0,
           "change_from_start_percent": 0.0
         }
