@@ -1,7 +1,67 @@
 {
-  "generatedAt": "2026-10-15T17:29:25+05:00",
+  "generatedAt": "2026-10-16T10:32:43+05:00",
   "dataAsOf": "2026-10-15T14:57:47+05:00",
   "offers": {
+    "764162f7393c0c80": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-8, ул. судостроителей, д. 87",
+      "section": "2",
+      "floor": "7",
+      "area_sqm": 30.55,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/89f88015-b288-4fb8-a4be-1986589ca8bf/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3531580,
+      "current_price_rub": 3531580,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 115600,
+      "current_price_per_sqm_rub": 115600,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3531580,
+          "price_per_sqm_rub": 115600,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "37d3e16561166083": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-7, ул. судостроителей, д. 89",
+      "section": "Подъезд 1",
+      "floor": "18",
+      "area_sqm": 34.11,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/b83a358c-ef8e-4e1a-a9ef-c02ac6b6b19a/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3868074,
+      "current_price_rub": 3868074,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 113400,
+      "current_price_per_sqm_rub": 113400,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3868074,
+          "price_per_sqm_rub": 113400,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
     "12ce45db782f2964": {
       "data_as_of": "2026-10-15T14:57:47+05:00",
       "residential_complex": "Акватория",
