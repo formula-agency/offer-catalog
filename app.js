@@ -11,6 +11,7 @@
   }
 
   const PAGE_SIZE = 24;
+  const NEW_BADGE_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
   const INACTIVE_STORAGE_KEY = 'formula-offer-catalog-inactive-v1';
   const TYPE_COLORS = {
     'ПВ 0% (семейка)': '#7b3fc4',
@@ -57,6 +58,7 @@
   let modalOfferId = null;
   let lastFocusedElement = null;
   let toastTimer = null;
+  let newBadgeRefreshTimer = null;
 
   const elements = {
     search: document.getElementById('catalog-search'),
@@ -84,6 +86,7 @@
     modal: document.getElementById('offer-modal'),
     modalImage: document.getElementById('modal-image'),
     modalType: document.getElementById('modal-type'),
+    modalNew: document.getElementById('modal-new'),
     modalRoom: document.getElementById('modal-room'),
     modalTitle: document.getElementById('modal-title'),
     modalOfferTitle: document.getElementById('modal-offer-title'),
@@ -122,6 +125,34 @@
       ].join(' '))
     };
   });
+
+  function offerAddedTimestamp(offer) {
+    const timestamp = Date.parse(offer.addedAt || '');
+    return Number.isFinite(timestamp) ? timestamp : null;
+  }
+
+  function isNewOffer(offer, now = Date.now()) {
+    const addedAt = offerAddedTimestamp(offer);
+    return addedAt !== null && now >= addedAt && now < addedAt + NEW_BADGE_DURATION_MS;
+  }
+
+  function scheduleNewBadgeRefresh() {
+    if (newBadgeRefreshTimer) window.clearTimeout(newBadgeRefreshTimer);
+    const now = Date.now();
+    const delays = offers
+      .map((offer) => {
+        const addedAt = offerAddedTimestamp(offer);
+        return addedAt === null ? null : addedAt + NEW_BADGE_DURATION_MS - now;
+      })
+      .filter((delay) => delay !== null && delay > 0);
+
+    if (!delays.length) return;
+    newBadgeRefreshTimer = window.setTimeout(() => {
+      renderCards();
+      if (modalOfferId) updateModal();
+      scheduleNewBadgeRefresh();
+    }, Math.min(...delays) + 1000);
+  }
 
   function loadInactiveOfferIds() {
     try {
@@ -677,6 +708,7 @@
     card.className = 'offer-card';
     card.dataset.offerId = offer.id;
     card.classList.toggle('is-inactive', isInactive(offer));
+    card.classList.toggle('is-new', isNewOffer(offer));
 
     const preview = document.createElement('button');
     preview.type = 'button';
@@ -702,6 +734,11 @@
     badge.textContent = visibleType;
     badge.style.setProperty('--type-color', TYPE_COLORS[visibleType] || '#4c2b91');
 
+    const newBadge = document.createElement('span');
+    newBadge.className = 'new-badge';
+    newBadge.textContent = 'NEW';
+    newBadge.hidden = !isNewOffer(offer);
+
     const overlay = document.createElement('span');
     overlay.className = 'preview-overlay';
     const action = document.createElement('span');
@@ -709,7 +746,7 @@
     action.append(svg('M2.8 12s3.2-5.2 9.2-5.2 9.2 5.2 9.2 5.2-3.2 5.2-9.2 5.2S2.8 12 2.8 12Z|M14.4 12a2.4 2.4 0 1 1-4.8 0 2.4 2.4 0 0 1 4.8 0Z'));
     action.append(document.createTextNode('Открыть'));
     overlay.append(action);
-    preview.append(image, error, badge, overlay);
+    preview.append(image, error, badge, newBadge, overlay);
 
     const body = document.createElement('div');
     body.className = 'offer-card-body';
@@ -933,6 +970,7 @@
     const visibleType = TYPE_ORDER.find((type) => state.type.has(type) && offer.types.includes(type)) || offer.type;
     elements.modalType.textContent = visibleType;
     elements.modalType.style.setProperty('--type-color', TYPE_COLORS[visibleType] || '#4c2b91');
+    elements.modalNew.hidden = !isNewOffer(offer);
     elements.modalRoom.textContent = offer.room;
     elements.modalTitle.textContent = complexTitle(offer.complex);
     elements.modalOfferTitle.textContent = offer.title;
@@ -1107,4 +1145,5 @@
   }
 
   renderAll();
+  scheduleNewBadgeRefresh();
 }());

@@ -289,6 +289,71 @@ $processedFiles = @(
 
 $hashAlgorithm = [System.Security.Cryptography.SHA256]::Create()
 $utf8 = [System.Text.UTF8Encoding]::new($false)
+$generationTimestamp = [DateTimeOffset]::Now.ToString('o')
+
+$previousAddedAtByOfferId = @{}
+if (Test-Path -LiteralPath $OutputPath -PathType Leaf) {
+    try {
+        $previousJavascript = Get-Content -LiteralPath $OutputPath -Raw -Encoding UTF8
+        if ($previousJavascript -match '(?s)^\s*window\.OFFERS_CATALOG\s*=\s*(.+);\s*$') {
+            $previousCatalog = $Matches[1] | ConvertFrom-Json
+            foreach ($previousOffer in @($previousCatalog.offers)) {
+                $previousAddedAt = Get-OptionalPropertyValue -InputObject $previousOffer -Name 'addedAt'
+                if ($previousOffer.id -and -not [string]::IsNullOrWhiteSpace("$previousAddedAt")) {
+                    $previousAddedAtByOfferId["$($previousOffer.id)"] = "$previousAddedAt"
+                }
+            }
+        }
+    }
+    catch {
+        Write-Warning 'Не удалось сохранить даты добавления из предыдущей версии каталога.'
+    }
+}
+
+$gitAddedAtByCatalogPath = @{}
+try {
+    $currentCommitDate = $null
+    $gitHistory = @(& git -C $PSScriptRoot -c core.quotepath=false log --all --diff-filter=A --format='__OFFER_DATE__%aI' --name-only 2>$null)
+    if ($LASTEXITCODE -eq 0) {
+        foreach ($line in $gitHistory) {
+            if ($line -like '__OFFER_DATE__*') {
+                $currentCommitDate = $line.Substring('__OFFER_DATE__'.Length)
+                continue
+            }
+            $gitPath = ("$line" -replace '\\', '/').Trim()
+            if ($currentCommitDate -and $gitPath -and -not $gitAddedAtByCatalogPath.ContainsKey($gitPath)) {
+                $gitAddedAtByCatalogPath[$gitPath] = $currentCommitDate
+            }
+        }
+    }
+}
+catch {
+    Write-Warning 'Не удалось прочитать даты добавления из истории Git.'
+}
+
+function Get-OfferAddedAt {
+    param(
+        [Parameter(Mandatory)][string]$OfferId,
+        [Parameter(Mandatory)][string]$CatalogPath,
+        [AllowNull()]$MetadataEntry
+    )
+
+    $metadataAddedAt = Get-OptionalPropertyValue -InputObject $MetadataEntry -Name 'addedAt'
+    if (-not [string]::IsNullOrWhiteSpace("$metadataAddedAt")) {
+        return "$metadataAddedAt"
+    }
+
+    if ($previousAddedAtByOfferId.ContainsKey($OfferId)) {
+        return $previousAddedAtByOfferId[$OfferId]
+    }
+
+    if ($gitAddedAtByCatalogPath.ContainsKey($CatalogPath)) {
+        return $gitAddedAtByCatalogPath[$CatalogPath]
+    }
+
+    # Новый незакоммиченный файл или запуск вне Git: используем время генерации.
+    return $generationTimestamp
+}
 
 try {
     $offers = foreach ($record in $processedFiles) {
@@ -404,6 +469,7 @@ try {
         if ($scoutByOfferId.ContainsKey($id)) {
             $offer.scout = $scoutByOfferId[$id]
         }
+        $metadataEntry = $null
         if ($offerMetadataByCatalogPath.ContainsKey($projectRelativeKey)) {
             $metadataEntry = $offerMetadataByCatalogPath[$projectRelativeKey]
             $metadataTypes = Get-OptionalPropertyValue -InputObject $metadataEntry -Name 'types'
@@ -428,6 +494,7 @@ try {
                 $offer.scoutSourceUrl = "$scoutSourceUrl"
             }
         }
+        $offer.addedAt = Get-OfferAddedAt -OfferId $id -CatalogPath $projectRelativeKey -MetadataEntry $metadataEntry
         $offer
     }
 }

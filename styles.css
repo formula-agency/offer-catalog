@@ -832,6 +832,38 @@ h1 {
   backdrop-filter: blur(7px);
 }
 
+.offer-card.is-new .offer-preview > .type-badge {
+  max-width: calc(100% - 78px);
+}
+
+.new-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  color: #fff;
+  background: var(--orange);
+  box-shadow: 0 5px 18px rgba(197, 76, 8, 0.22);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.new-badge[hidden] {
+  display: none;
+}
+
+.offer-preview > .new-badge {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+}
+
 .image-error {
   position: absolute;
   inset: 0;
@@ -1195,7 +1227,8 @@ h1 {
 }
 
 .modal-badges .type-badge,
-.room-badge {
+.room-badge,
+.modal-badges .new-badge {
   padding: 7px 9px;
 }
 
