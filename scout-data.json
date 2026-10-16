@@ -1,0 +1,3194 @@
+{
+  "generatedAt": "2026-10-16T10:32:43+05:00",
+  "dataAsOf": "2026-10-15T14:57:47+05:00",
+  "offers": {
+    "764162f7393c0c80": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-8, ул. судостроителей, д. 87",
+      "section": "2",
+      "floor": "7",
+      "area_sqm": 30.55,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/89f88015-b288-4fb8-a4be-1986589ca8bf/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3531580,
+      "current_price_rub": 3531580,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 115600,
+      "current_price_per_sqm_rub": 115600,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3531580,
+          "price_per_sqm_rub": 115600,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "37d3e16561166083": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-7, ул. судостроителей, д. 89",
+      "section": "Подъезд 1",
+      "floor": "18",
+      "area_sqm": 34.11,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/b83a358c-ef8e-4e1a-a9ef-c02ac6b6b19a/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3868074,
+      "current_price_rub": 3868074,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 113400,
+      "current_price_per_sqm_rub": 113400,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3868074,
+          "price_per_sqm_rub": 113400,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "12ce45db782f2964": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Акватория",
+      "house": "ГП-6, ул. павла никольского, д. 14",
+      "section": "2",
+      "floor": "1",
+      "area_sqm": 79.43,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/77facf7e-2b34-46ea-8938-71bcce2d3a4c/"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7500000,
+      "current_price_rub": 7500000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 94423,
+      "current_price_per_sqm_rub": 94423,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7500000,
+          "price_per_sqm_rub": 94423,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "1e9f64b2d43912e5": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Баланс",
+      "house": "ГП-22, ул. республики, д. 204к18",
+      "section": "1",
+      "floor": "23",
+      "area_sqm": 25.5,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-balans/flats/None"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5780000,
+      "current_price_rub": 5780000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 226667,
+      "current_price_per_sqm_rub": 226667,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5780000,
+          "price_per_sqm_rub": 226667,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "812c99da7e070e6c": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "3",
+      "floor": "14",
+      "area_sqm": 39.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10417756"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6200000,
+      "current_price_rub": 6200000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156962,
+      "current_price_per_sqm_rub": 156962,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6200000,
+          "price_per_sqm_rub": 156962,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "594c2a0e072adb95": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "3",
+      "floor": "14",
+      "area_sqm": 39.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10417756"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6200000,
+      "current_price_rub": 6200000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156962,
+      "current_price_per_sqm_rub": 156962,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6200000,
+          "price_per_sqm_rub": 156962,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "38f9bd46200c922f": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "1",
+      "floor": "22",
+      "area_sqm": 56.36,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10417654"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7378942,
+      "current_price_rub": 7378942,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 130925,
+      "current_price_per_sqm_rub": 130925,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7378942,
+          "price_per_sqm_rub": 130925,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "21a1b6de9c214ae3": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-76, д. 1826",
+      "section": "1",
+      "floor": "22",
+      "area_sqm": 56.36,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10417654"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7378942,
+      "current_price_rub": 7378942,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 130925,
+      "current_price_per_sqm_rub": 130925,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7378942,
+          "price_per_sqm_rub": 130925,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "b31b91a0d0d10fa5": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Беринг",
+      "house": "ГП-75, д. 1827",
+      "section": "5",
+      "floor": "18",
+      "area_sqm": 77.98,
+      "rooms_real": "4E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/bering-50469/10417401"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 9025770,
+      "current_price_rub": 9025770,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 115745,
+      "current_price_per_sqm_rub": 115745,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 9025770,
+          "price_per_sqm_rub": 115745,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "1e98728f8e1b44e1": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Ботаника в Комарово парк",
+      "house": "3 этап, ул. василия малкова, д. 26",
+      "section": "4",
+      "floor": "2",
+      "area_sqm": 33.8,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--e1aner7ci.xn--80aa6ajv.xn--p1ai/apartment/25696"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5364000,
+      "current_price_rub": 5364000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 158698,
+      "current_price_per_sqm_rub": 158698,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5364000,
+          "price_per_sqm_rub": 158698,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "096505b495f28165": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Ботаника в Комарово парк",
+      "house": "3 этап, ул. василия малкова, д. 26",
+      "section": "3",
+      "floor": "2",
+      "area_sqm": 37.4,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--e1aner7ci.xn--80aa6ajv.xn--p1ai/apartment/26079"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6209300,
+      "current_price_rub": 6209300,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166024,
+      "current_price_per_sqm_rub": 166024,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6209300,
+          "price_per_sqm_rub": 166024,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0f0514b805627bd6": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Ботаника в Комарово парк",
+      "house": "2 этап (Секции № 9,10), ул. василия малкова, д. 25, д.23, д.27",
+      "section": "1",
+      "floor": "18",
+      "area_sqm": 40.2,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--e1aner7ci.xn--80aa6ajv.xn--p1ai/apartment/18927"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6276000,
+      "current_price_rub": 6276000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156119,
+      "current_price_per_sqm_rub": 156119,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6276000,
+          "price_per_sqm_rub": 156119,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6418a0505c35cec6": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Вида",
+      "house": "ГП-1, ул. академическая, д. 10",
+      "section": "1",
+      "floor": "15",
+      "area_sqm": 45.73,
+      "rooms_real": "2K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/dvuhkomnatnaya-45-73-kv-m-722202"
+      },
+      "first_seen_date": "2026-08-04",
+      "start_price_rub": 7510000,
+      "current_price_rub": 7510000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 164225,
+      "current_price_per_sqm_rub": 164225,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-04",
+          "price_rub": 7510000,
+          "price_per_sqm_rub": 164225,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "693b20ad89c80edf": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Восход",
+      "house": "ГП-1, ул. тимофея чаркова, д. 73",
+      "section": "5",
+      "floor": "16",
+      "area_sqm": 36.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://dom.aspec.ru/object/voshod#/catalog/projects/list?propertyId=14889441&filter=project:49432&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-09-11",
+      "start_price_rub": 5477700,
+      "current_price_rub": 6610000,
+      "price_change_rub": 1132300,
+      "price_change_percent": 20.67,
+      "start_price_per_sqm_rub": 150074,
+      "current_price_per_sqm_rub": 181096,
+      "price_per_sqm_change_rub": 31022,
+      "price_history": [
+        {
+          "effective_from": "2025-09-11",
+          "price_rub": 5477700,
+          "price_per_sqm_rub": 150074,
+          "effective_to": "2025-10-01",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-02",
+          "price_rub": 5890000,
+          "price_per_sqm_rub": 161370,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 412300,
+          "change_from_previous_percent": 7.53,
+          "change_from_start_rub": 412300,
+          "change_from_start_percent": 7.53
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 5477700,
+          "price_per_sqm_rub": 150074,
+          "effective_to": "2025-10-15",
+          "change_from_previous_rub": -412300,
+          "change_from_previous_percent": -7.0,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-16",
+          "price_rub": 5589300,
+          "price_per_sqm_rub": 153132,
+          "effective_to": "2025-10-29",
+          "change_from_previous_rub": 111600,
+          "change_from_previous_percent": 2.04,
+          "change_from_start_rub": 111600,
+          "change_from_start_percent": 2.04
+        },
+        {
+          "effective_from": "2025-10-30",
+          "price_rub": 5654400,
+          "price_per_sqm_rub": 154915,
+          "effective_to": "2025-11-12",
+          "change_from_previous_rub": 65100,
+          "change_from_previous_percent": 1.16,
+          "change_from_start_rub": 176700,
+          "change_from_start_percent": 3.23
+        },
+        {
+          "effective_from": "2025-11-13",
+          "price_rub": 5905500,
+          "price_per_sqm_rub": 161795,
+          "effective_to": "2025-11-19",
+          "change_from_previous_rub": 251100,
+          "change_from_previous_percent": 4.44,
+          "change_from_start_rub": 427800,
+          "change_from_start_percent": 7.81
+        },
+        {
+          "effective_from": "2025-11-20",
+          "price_rub": 6096000,
+          "price_per_sqm_rub": 167014,
+          "effective_to": "2025-11-26",
+          "change_from_previous_rub": 190500,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": 618300,
+          "change_from_start_percent": 11.29
+        },
+        {
+          "effective_from": "2025-11-27",
+          "price_rub": 6124800,
+          "price_per_sqm_rub": 167803,
+          "effective_to": "2025-12-10",
+          "change_from_previous_rub": 28800,
+          "change_from_previous_percent": 0.47,
+          "change_from_start_rub": 647100,
+          "change_from_start_percent": 11.81
+        },
+        {
+          "effective_from": "2026-01-12",
+          "price_rub": 6285600,
+          "price_per_sqm_rub": 172208,
+          "effective_to": "2026-01-21",
+          "change_from_previous_rub": 160800,
+          "change_from_previous_percent": 2.63,
+          "change_from_start_rub": 807900,
+          "change_from_start_percent": 14.75
+        },
+        {
+          "effective_from": "2026-01-22",
+          "price_rub": 6411700,
+          "price_per_sqm_rub": 175663,
+          "effective_to": "2026-03-11",
+          "change_from_previous_rub": 126100,
+          "change_from_previous_percent": 2.01,
+          "change_from_start_rub": 934000,
+          "change_from_start_percent": 17.05
+        },
+        {
+          "effective_from": "2026-03-12",
+          "price_rub": 6610000,
+          "price_per_sqm_rub": 181096,
+          "change_from_previous_rub": 198300,
+          "change_from_previous_percent": 3.09,
+          "change_from_start_rub": 1132300,
+          "change_from_start_percent": 20.67
+        }
+      ]
+    },
+    "afab82575cb8a9fe": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Восход",
+      "house": "ГП-1, ул. тимофея чаркова, д. 73",
+      "section": "5",
+      "floor": "4",
+      "area_sqm": 58.6,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://dom.aspec.ru/object/voshod#/catalog/projects/list?propertyId=14889365&filter=project:49432&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-09-11",
+      "start_price_rub": 7477200,
+      "current_price_rub": 8350000,
+      "price_change_rub": 872800,
+      "price_change_percent": 11.67,
+      "start_price_per_sqm_rub": 127597,
+      "current_price_per_sqm_rub": 142491,
+      "price_per_sqm_change_rub": 14894,
+      "price_history": [
+        {
+          "effective_from": "2025-09-11",
+          "price_rub": 7477200,
+          "price_per_sqm_rub": 127597,
+          "effective_to": "2025-10-01",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-02",
+          "price_rub": 8040000,
+          "price_per_sqm_rub": 137201,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 562800,
+          "change_from_previous_percent": 7.53,
+          "change_from_start_rub": 562800,
+          "change_from_start_percent": 7.53
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 7477200,
+          "price_per_sqm_rub": 127597,
+          "effective_to": "2025-10-29",
+          "change_from_previous_rub": -562800,
+          "change_from_previous_percent": -7.0,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-10-30",
+          "price_rub": 7560900,
+          "price_per_sqm_rub": 129026,
+          "effective_to": "2025-11-12",
+          "change_from_previous_rub": 83700,
+          "change_from_previous_percent": 1.12,
+          "change_from_start_rub": 83700,
+          "change_from_start_percent": 1.12
+        },
+        {
+          "effective_from": "2025-11-13",
+          "price_rub": 7598100,
+          "price_per_sqm_rub": 129660,
+          "effective_to": "2025-11-19",
+          "change_from_previous_rub": 37200,
+          "change_from_previous_percent": 0.49,
+          "change_from_start_rub": 120900,
+          "change_from_start_percent": 1.62
+        },
+        {
+          "effective_from": "2025-11-20",
+          "price_rub": 7843200,
+          "price_per_sqm_rub": 133843,
+          "effective_to": "2025-12-10",
+          "change_from_previous_rub": 245100,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": 366000,
+          "change_from_start_percent": 4.89
+        },
+        {
+          "effective_from": "2026-01-12",
+          "price_rub": 8021900,
+          "price_per_sqm_rub": 136892,
+          "effective_to": "2026-02-04",
+          "change_from_previous_rub": 178700,
+          "change_from_previous_percent": 2.28,
+          "change_from_start_rub": 544700,
+          "change_from_start_percent": 7.28
+        },
+        {
+          "effective_from": "2026-02-05",
+          "price_rub": 8099500,
+          "price_per_sqm_rub": 138217,
+          "effective_to": "2026-03-04",
+          "change_from_previous_rub": 77600,
+          "change_from_previous_percent": 0.97,
+          "change_from_start_rub": 622300,
+          "change_from_start_percent": 8.32
+        },
+        {
+          "effective_from": "2026-03-05",
+          "price_rub": 7682000,
+          "price_per_sqm_rub": 131092,
+          "effective_to": "2026-05-07",
+          "change_from_previous_rub": -417500,
+          "change_from_previous_percent": -5.15,
+          "change_from_start_rub": 204800,
+          "change_from_start_percent": 2.74
+        },
+        {
+          "effective_from": "2026-05-08",
+          "price_rub": 8350000,
+          "price_per_sqm_rub": 142491,
+          "change_from_previous_rub": 668000,
+          "change_from_previous_percent": 8.7,
+          "change_from_start_rub": 872800,
+          "change_from_start_percent": 11.67
+        }
+      ]
+    },
+    "8f7078ffd7ca5e23": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Горизонт",
+      "house": "ГП-4, ул. мельникайте, д. 2к21",
+      "section": "2",
+      "floor": "24",
+      "area_sqm": 40.55,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27912"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6450000,
+      "current_price_rub": 6450000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 159063,
+      "current_price_per_sqm_rub": 159063,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6450000,
+          "price_per_sqm_rub": 159063,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "84c759ec28389118": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Добро. ДОК",
+      "house": "ГП-18, ул. охотская, д. 14а",
+      "section": "4",
+      "floor": "2",
+      "area_sqm": 34.8,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://gkinko.ru/kvartiry/odnokomnatnaya-34-8-kv-m-7310081"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 4524000,
+      "current_price_rub": 4524000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 130000,
+      "current_price_per_sqm_rub": 130000,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 4524000,
+          "price_per_sqm_rub": 130000,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "943bff505105561e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Добро. ДОК",
+      "house": "ГП-18, ул. охотская, д. 14а",
+      "section": "3",
+      "floor": "18",
+      "area_sqm": 50.7,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://gkinko.ru/kvartiry/dvuhkomnatnaya-50-7-kv-m-7310070"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7300000,
+      "current_price_rub": 7300000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 143984,
+      "current_price_per_sqm_rub": 143984,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7300000,
+          "price_per_sqm_rub": 143984,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "72fda6fcf6dddbc2": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Дом на Большой Спасской",
+      "house": "ГП-14, ул. республики, д. 204к10",
+      "section": "1",
+      "floor": "16",
+      "area_sqm": 52.2,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-dom-na-bolshoi-spasskoi/flats/2-komnatnaya-kvartira-52.2m-korpus-14-kv-549"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 8980000,
+      "current_price_rub": 8980000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 172031,
+      "current_price_per_sqm_rub": 172031,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 8980000,
+          "price_per_sqm_rub": 172031,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c9ee8717809e8b5e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Домашний",
+      "house": "ГП-19 (Дом Экологичный), ул. андрея кореневского, д. 5к1",
+      "section": "2",
+      "floor": "4",
+      "area_sqm": 35.63,
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/domashnijj-9906/10416462"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7450000,
+      "current_price_rub": 7450000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 209093,
+      "current_price_per_sqm_rub": 209093,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7450000,
+          "price_per_sqm_rub": 209093,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c3ca531c034bb88f": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Домашний",
+      "house": "ГП-21 (Дом Процветающий), ул. андрея кореневского, д. 1к2",
+      "section": "1",
+      "floor": "12",
+      "area_sqm": 36.42,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/domashnijj-9906/1985426"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6050000,
+      "current_price_rub": 6050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166118,
+      "current_price_per_sqm_rub": 166118,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6050000,
+          "price_per_sqm_rub": 166118,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cca4f233c13799a8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Европейский берег 2.0",
+      "house": "ГП-9 (Дом Хельсинки), ул. защитников отечества, д. 15",
+      "section": "3",
+      "floor": "24",
+      "area_sqm": 31.01,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/evropejjskijj-bereg-2-0-14371/10370778"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 7370000,
+      "current_price_rub": 7370000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 237665,
+      "current_price_per_sqm_rub": 237665,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 7370000,
+          "price_per_sqm_rub": 237665,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c25f24aa4b06a1d4": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Зелёные аллеи",
+      "house": "ГП-9, ул. александра звягина, д. 2",
+      "section": "2",
+      "floor": "4",
+      "area_sqm": 36.93,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://navigator-tmn.ru/lot/flats/edd66bae-9d97-41b2-aa08-717a527f4984"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5595000,
+      "current_price_rub": 5595000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 151503,
+      "current_price_per_sqm_rub": 151503,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5595000,
+          "price_per_sqm_rub": 151503,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "357358cf9a4fddd8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Игрим",
+      "house": "ГП-1.2, д. 2097",
+      "section": "3",
+      "floor": "3",
+      "area_sqm": 30.15,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/igrim-52619/10140763"
+      },
+      "first_seen_date": "2026-09-17",
+      "start_price_rub": 5067853,
+      "current_price_rub": 5067853,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168088,
+      "current_price_per_sqm_rub": 168088,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-17",
+          "price_rub": 5067853,
+          "price_per_sqm_rub": 168088,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "579c9a9330e1cc5e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Игрим",
+      "house": "ГП-1.2, д. 2097",
+      "section": "2",
+      "floor": "17",
+      "area_sqm": 37.96,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/igrim-52619/10140754"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6334146,
+      "current_price_rub": 6334146,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166864,
+      "current_price_per_sqm_rub": 166864,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6334146,
+          "price_per_sqm_rub": 166864,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "311385c4ccb8b16d": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Игрим",
+      "house": "ГП-1.2, д. 2097",
+      "section": "2",
+      "floor": "17",
+      "area_sqm": 37.96,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/igrim-52619/10140754"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6334146,
+      "current_price_rub": 6334146,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166864,
+      "current_price_per_sqm_rub": 166864,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6334146,
+          "price_per_sqm_rub": 166864,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "312bd64618bc341a": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Квартал перемен",
+      "house": "ГП-1, ул. 50 лет октября, д. 75к4",
+      "section": "3",
+      "floor": "12",
+      "area_sqm": 39.9,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27791"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5340000,
+      "current_price_rub": 5340000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 133835,
+      "current_price_per_sqm_rub": 133835,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5340000,
+          "price_per_sqm_rub": 133835,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "df2cbec04a6aae6a": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Кедровый берег",
+      "house": "ГП-2.2, ул. судостроителей, д. 52",
+      "floor": "22",
+      "area_sqm": 66.53,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80ahefirqxn.xn--p1ai/realty/16730651"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7490000,
+      "current_price_rub": 7490000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 112581,
+      "current_price_per_sqm_rub": 112581,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7490000,
+          "price_per_sqm_rub": 112581,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "03ab6b6a2b8e4fd3": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Континент",
+      "house": "ГП-1, ул. червишевский тракт, д. 23к1",
+      "section": "1",
+      "floor": "3",
+      "area_sqm": 38.46,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27885"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5100000,
+      "current_price_rub": 5100000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132605,
+      "current_price_per_sqm_rub": 132605,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5100000,
+          "price_per_sqm_rub": 132605,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "8c34d761f36ec747": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Концепт",
+      "house": "ГП-1, ул. сергея джанбровского, д. 29",
+      "section": "1",
+      "floor": "11",
+      "area_sqm": 22.88,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn----jtbbqbsgk1a1b.xn--p1ai/flats/6af62dfe-c7af-4fde-aa18-daf5162d8e55"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3800000,
+      "current_price_rub": 3800000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 166084,
+      "current_price_per_sqm_rub": 166084,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3800000,
+          "price_per_sqm_rub": 166084,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4ff2c2a8b51ccbe9": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Концепт",
+      "house": "ГП-1, ул. сергея джанбровского, д. 29",
+      "section": "1",
+      "floor": "11",
+      "area_sqm": 32.93,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn----jtbbqbsgk1a1b.xn--p1ai/flats/1a0a542c-c7cd-4823-84df-2d0131635564"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5100000,
+      "current_price_rub": 5100000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 154874,
+      "current_price_per_sqm_rub": 154874,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5100000,
+          "price_per_sqm_rub": 154874,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "a5a91e7434a29bbb": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Квартал культура",
+      "house": "ГП-1, ул. владислава крапивина, д. 9, 11, 13",
+      "section": "3",
+      "floor": "7",
+      "area_sqm": 46.21,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/kvartal-kultura-13922/1332412"
+      },
+      "first_seen_date": "2026-07-24",
+      "start_price_rub": 7221000,
+      "current_price_rub": 7221000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 156265,
+      "current_price_per_sqm_rub": 156265,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-07-24",
+          "price_rub": 7221000,
+          "price_per_sqm_rub": 156265,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "11e7f8ecd99a30b8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Листопад",
+      "house": "ГП-4, п. московский, ул. новая, д. 17к3",
+      "section": "1",
+      "floor": "7",
+      "area_sqm": 35.79,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://listopad72.ru/kartochka-kvartiry/403"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 4690000,
+      "current_price_rub": 4690000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 131042,
+      "current_price_per_sqm_rub": 131042,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 4690000,
+          "price_per_sqm_rub": 131042,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "aeb53a71feb866a8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "MAX",
+      "house": "ГП-1, ул. сергея джанбровского, д. 21к6",
+      "section": "1",
+      "floor": "10",
+      "area_sqm": 37.47,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/kvartal-max-maks-51069/9786829"
+      },
+      "first_seen_date": "2026-09-02",
+      "start_price_rub": 6910000,
+      "current_price_rub": 6910000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 184414,
+      "current_price_per_sqm_rub": 184414,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-02",
+          "price_rub": 6910000,
+          "price_per_sqm_rub": 184414,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "92cb2fa9d19cc94d": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "14",
+      "area_sqm": 20.0,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283772/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3145480,
+      "current_price_rub": 3145480,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 157274,
+      "current_price_per_sqm_rub": 157274,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3145480,
+          "price_per_sqm_rub": 157274,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c888237e615331cd": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 2",
+      "floor": "4",
+      "area_sqm": 21.3,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283835/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 3468400,
+      "current_price_rub": 3468400,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 162836,
+      "current_price_per_sqm_rub": 162836,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 3468400,
+          "price_per_sqm_rub": 162836,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "484049992619caae": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "10",
+      "area_sqm": 36.1,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283724/"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5359000,
+      "current_price_rub": 5359000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 148449,
+      "current_price_per_sqm_rub": 148449,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5359000,
+          "price_per_sqm_rub": 148449,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "98aaf6b3619e3cf9": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Меридиан Слобода",
+      "house": "ГП-2, ул. вадима бованенко, д. 12",
+      "section": "секция 1",
+      "floor": "15",
+      "area_sqm": 52.5,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://meridian72.ru//choose/apartments/283781/"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 7043520,
+      "current_price_rub": 7043520,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 134162,
+      "current_price_per_sqm_rub": 134162,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 7043520,
+          "price_per_sqm_rub": 134162,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "f9e4b331685756ba": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Мириады",
+      "house": "ГП-72.107, ул. капитана куликова, д. 25",
+      "section": "2",
+      "floor": "13",
+      "area_sqm": 45.96,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/miriady-50136/10419387"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 6898300,
+      "current_price_rub": 6898300,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 150094,
+      "current_price_per_sqm_rub": 150094,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6898300,
+          "price_per_sqm_rub": 150094,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0cf1cae55cba803b": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Мириады",
+      "house": "ГП-72.110, пр. капитана куликова, д. 7",
+      "section": "1",
+      "floor": "23",
+      "area_sqm": 60.15,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/miriady-50136/10419437"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 8207400,
+      "current_price_rub": 8207400,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 136449,
+      "current_price_per_sqm_rub": 136449,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 8207400,
+          "price_per_sqm_rub": 136449,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "774ae0a854e77e10": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Мотивы",
+      "house": "ГП-8, ул. андрея приказнова, д. 6",
+      "section": "1",
+      "floor": "7",
+      "area_sqm": 21.91,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15727869"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 3502000,
+      "current_price_rub": 3502000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 159836,
+      "current_price_per_sqm_rub": 159836,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 3502000,
+          "price_per_sqm_rub": 159836,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "aa787dda5b4aff16": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Мотивы",
+      "house": "ГП-8, ул. андрея приказнова, д. 6",
+      "section": "6",
+      "floor": "11",
+      "area_sqm": 37.22,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 4936000,
+      "current_price_rub": 4936000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132617,
+      "current_price_per_sqm_rub": 132617,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 4936000,
+          "price_per_sqm_rub": 132617,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "2e2dbb19a0940b68": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Мотивы",
+      "house": "ГП-8, ул. андрея приказнова, д. 6",
+      "section": "6",
+      "floor": "11",
+      "area_sqm": 37.22,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 4936000,
+      "current_price_rub": 4936000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132617,
+      "current_price_per_sqm_rub": 132617,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 4936000,
+          "price_per_sqm_rub": 132617,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c457b302d5a4e8e8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-2, ул. кулибина, д. 1491",
+      "section": "2",
+      "floor": "18",
+      "area_sqm": 29.66,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/odnokomnatnaya-29-66-kv-m-14006329"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5100000,
+      "current_price_rub": 5100000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 171949,
+      "current_price_per_sqm_rub": 171949,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5100000,
+          "price_per_sqm_rub": 171949,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "d2522908648391b0": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-3, ул. кулибина, д. 1492",
+      "section": "2",
+      "floor": "8",
+      "area_sqm": 32.73,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/odnokomnatnaya-32-73-kv-m-14006762"
+      },
+      "first_seen_date": "2024-11-14",
+      "start_price_rub": 5180000,
+      "current_price_rub": 6000000,
+      "price_change_rub": 820000,
+      "price_change_percent": 15.83,
+      "start_price_per_sqm_rub": 158265,
+      "current_price_per_sqm_rub": 183318,
+      "price_per_sqm_change_rub": 25053,
+      "price_history": [
+        {
+          "effective_from": "2024-11-14",
+          "price_rub": 5180000,
+          "price_per_sqm_rub": 158265,
+          "effective_to": "2024-12-04",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2024-12-19",
+          "price_rub": 5400000,
+          "price_per_sqm_rub": 164986,
+          "effective_to": "2025-02-27",
+          "change_from_previous_rub": 220000,
+          "change_from_previous_percent": 4.25,
+          "change_from_start_rub": 220000,
+          "change_from_start_percent": 4.25
+        },
+        {
+          "effective_from": "2025-02-28",
+          "price_rub": 4550000,
+          "price_per_sqm_rub": 139016,
+          "effective_to": "2025-03-13",
+          "change_from_previous_rub": -850000,
+          "change_from_previous_percent": -15.74,
+          "change_from_start_rub": -630000,
+          "change_from_start_percent": -12.16
+        },
+        {
+          "effective_from": "2025-03-14",
+          "price_rub": 4700000,
+          "price_per_sqm_rub": 143599,
+          "effective_to": "2025-04-17",
+          "change_from_previous_rub": 150000,
+          "change_from_previous_percent": 3.3,
+          "change_from_start_rub": -480000,
+          "change_from_start_percent": -9.27
+        },
+        {
+          "effective_from": "2025-04-18",
+          "price_rub": 4650000,
+          "price_per_sqm_rub": 142071,
+          "effective_to": "2025-06-10",
+          "change_from_previous_rub": -50000,
+          "change_from_previous_percent": -1.06,
+          "change_from_start_rub": -530000,
+          "change_from_start_percent": -10.23
+        },
+        {
+          "effective_from": "2025-06-11",
+          "price_rub": 5330000,
+          "price_per_sqm_rub": 162848,
+          "effective_to": "2025-07-06",
+          "change_from_previous_rub": 680000,
+          "change_from_previous_percent": 14.62,
+          "change_from_start_rub": 150000,
+          "change_from_start_percent": 2.9
+        },
+        {
+          "effective_from": "2025-07-07",
+          "price_rub": 4650000,
+          "price_per_sqm_rub": 142071,
+          "effective_to": "2025-08-04",
+          "change_from_previous_rub": -680000,
+          "change_from_previous_percent": -12.76,
+          "change_from_start_rub": -530000,
+          "change_from_start_percent": -10.23
+        },
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 4800000,
+          "price_per_sqm_rub": 146654,
+          "effective_to": "2025-10-08",
+          "change_from_previous_rub": 150000,
+          "change_from_previous_percent": 3.23,
+          "change_from_start_rub": -380000,
+          "change_from_start_percent": -7.34
+        },
+        {
+          "effective_from": "2025-10-09",
+          "price_rub": 5330000,
+          "price_per_sqm_rub": 162848,
+          "effective_to": "2026-01-11",
+          "change_from_previous_rub": 530000,
+          "change_from_previous_percent": 11.04,
+          "change_from_start_rub": 150000,
+          "change_from_start_percent": 2.9
+        },
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 5700000,
+          "price_per_sqm_rub": 174152,
+          "effective_to": "2026-10-05",
+          "change_from_previous_rub": 370000,
+          "change_from_previous_percent": 6.94,
+          "change_from_start_rub": 520000,
+          "change_from_start_percent": 10.04
+        },
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 6000000,
+          "price_per_sqm_rub": 183318,
+          "change_from_previous_rub": 300000,
+          "change_from_previous_percent": 5.26,
+          "change_from_start_rub": 820000,
+          "change_from_start_percent": 15.83
+        }
+      ]
+    },
+    "502deac759531f82": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Квартал мятный",
+      "house": "ГП-1, ул. кулибина, д. 1441",
+      "section": "1",
+      "floor": "25",
+      "area_sqm": 59.26,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://delomdev.ru/kvartiry/dvuhkomnatnaya-59-26-kv-m-14006049"
+      },
+      "first_seen_date": "2025-08-15",
+      "start_price_rub": 9340000,
+      "current_price_rub": 9800000,
+      "price_change_rub": 460000,
+      "price_change_percent": 4.93,
+      "start_price_per_sqm_rub": 157611,
+      "current_price_per_sqm_rub": 165373,
+      "price_per_sqm_change_rub": 7762,
+      "price_history": [
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 9340000,
+          "price_per_sqm_rub": 157611,
+          "effective_to": "2025-10-08",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2026-06-03",
+          "price_rub": 9100000,
+          "price_per_sqm_rub": 153561,
+          "effective_to": "2026-07-23",
+          "change_from_previous_rub": -240000,
+          "change_from_previous_percent": -2.57,
+          "change_from_start_rub": -240000,
+          "change_from_start_percent": -2.57
+        },
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 9800000,
+          "price_per_sqm_rub": 165373,
+          "change_from_previous_rub": 700000,
+          "change_from_previous_percent": 7.69,
+          "change_from_start_rub": 460000,
+          "change_from_start_percent": 4.93
+        }
+      ]
+    },
+    "dd594ec45da337f2": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Набережный квартал",
+      "house": "ГП-3 сек. В2.1, ул. ю.-р.г. эрвье, д. 34",
+      "section": "Подъезд 2",
+      "floor": "19",
+      "area_sqm": 42.54,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aaacfrai1akonf3bh6a0l.xn--p1ai/"
+      },
+      "first_seen_date": "2026-07-24",
+      "start_price_rub": 6700000,
+      "current_price_rub": 6700000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 157499,
+      "current_price_per_sqm_rub": 157499,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-07-24",
+          "price_rub": 6700000,
+          "price_per_sqm_rub": 157499,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cefdcd61bacdd431": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Новатор",
+      "house": "ГП-1, ул. новаторов, д. 28",
+      "section": "ГП1 - 6 секция",
+      "floor": "9",
+      "area_sqm": 35.54,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80adulgeccss.xn--p1ai/flats/1-komnatnaya-kvartira-35.54m-355"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5145000,
+      "current_price_rub": 5145000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 144766,
+      "current_price_per_sqm_rub": 144766,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5145000,
+          "price_per_sqm_rub": 144766,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "29e0672e73edf877": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-2 (Дом Огня), ул. разведчика кузнецова, д. 10",
+      "section": "7",
+      "floor": "6",
+      "area_sqm": 24.37,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15741591"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 5660000,
+      "current_price_rub": 5660000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 232253,
+      "current_price_per_sqm_rub": 232253,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 5660000,
+          "price_per_sqm_rub": 232253,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c4396b1e69bdf23e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "2",
+      "area_sqm": 36.62,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717689"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6318000,
+      "current_price_rub": 6318000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 172529,
+      "current_price_per_sqm_rub": 172529,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6318000,
+          "price_per_sqm_rub": 172529,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "1c9d91d8af03c501": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "3",
+      "area_sqm": 37.61,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717709"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6960000,
+      "current_price_rub": 6960000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 185057,
+      "current_price_per_sqm_rub": 185057,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6960000,
+          "price_per_sqm_rub": 185057,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "77be66794f2f9e40": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-3, ул. ивана чистякова, д. 9",
+      "section": "1",
+      "floor": "8",
+      "area_sqm": 37.87,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717769"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7040000,
+      "current_price_rub": 7040000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 185899,
+      "current_price_per_sqm_rub": 185899,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7040000,
+          "price_per_sqm_rub": 185899,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0bbabf602ba55533": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Окинава",
+      "house": "ГП-2 (Дом Огня), ул. разведчика кузнецова, д. 10",
+      "section": "3",
+      "floor": "2",
+      "area_sqm": 38.08,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15740997"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6545000,
+      "current_price_rub": 6545000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 171875,
+      "current_price_per_sqm_rub": 171875,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6545000,
+          "price_per_sqm_rub": 171875,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "da636ee60864f4cf": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Октябрьский на Туре",
+      "house": "ГП-8, ул. краснооктябрьская, д. 4к2",
+      "section": "2",
+      "floor": "6",
+      "area_sqm": 21.1,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/46956/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5840000,
+      "current_price_rub": 5840000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 276777,
+      "current_price_per_sqm_rub": 276777,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5840000,
+          "price_per_sqm_rub": 276777,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "99a07acf80c893bf": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Октябрьский на Туре",
+      "house": "ГП-8, ул. краснооктябрьская, д. 4к2",
+      "section": "2",
+      "floor": "9",
+      "area_sqm": 31.8,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/48889/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7210000,
+      "current_price_rub": 7210000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 226730,
+      "current_price_per_sqm_rub": 226730,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7210000,
+          "price_per_sqm_rub": 226730,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4c54b09c5fe37037": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Октябрьский на Туре",
+      "house": "ГП-9, ул. краснооктябрьская, д. 4к3",
+      "section": "4",
+      "floor": "3",
+      "area_sqm": 37.8,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/56911/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7380000,
+      "current_price_rub": 7380000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 195238,
+      "current_price_per_sqm_rub": 195238,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7380000,
+          "price_per_sqm_rub": 195238,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0ea0693da6c909a4": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Отличие",
+      "house": "Секция C (ГП-1.3), ул. василия малкова, д. 20к5",
+      "section": "C",
+      "floor": "4",
+      "area_sqm": 34.0,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a0f34205-9257-41c0-8d52-443bd9b9e06c"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5761500,
+      "current_price_rub": 5761500,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 169456,
+      "current_price_per_sqm_rub": 169456,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5761500,
+          "price_per_sqm_rub": 169456,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "088199e79669913c": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Плэй",
+      "house": "ГП-1, ул. полевая, д. 93",
+      "section": "3",
+      "floor": "13",
+      "area_sqm": 35.76,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/578858"
+      },
+      "first_seen_date": "2026-09-22",
+      "start_price_rub": 6008000,
+      "current_price_rub": 6008000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168009,
+      "current_price_per_sqm_rub": 168009,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-22",
+          "price_rub": 6008000,
+          "price_per_sqm_rub": 168009,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "82bfe2fea695a64c": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Плэй",
+      "house": "ГП-2, ул. полевая, д. 93к1",
+      "section": "4",
+      "floor": "3",
+      "area_sqm": 60.92,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/579018"
+      },
+      "first_seen_date": "2026-04-27",
+      "start_price_rub": 8392000,
+      "current_price_rub": 8392000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 137754,
+      "current_price_per_sqm_rub": 137754,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-04-27",
+          "price_rub": 8392000,
+          "price_per_sqm_rub": 137754,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4dee26205b32375b": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Республики 205",
+      "house": "ГП-3.1, ул. республики, д. 203к3",
+      "section": "4",
+      "floor": "4",
+      "area_sqm": 21.3,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tyumen.brusnika.ru/flat/71874/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5650000,
+      "current_price_rub": 5650000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 265258,
+      "current_price_per_sqm_rub": 265258,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5650000,
+          "price_per_sqm_rub": 265258,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "fd4312d4465536ea": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Республики 205",
+      "house": "ГП-2, ул. республики, д. 203к2",
+      "section": "4",
+      "floor": "6",
+      "area_sqm": 21.4,
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/respubliki-205-13784/10367290"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5920000,
+      "current_price_rub": 5920000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 276636,
+      "current_price_per_sqm_rub": 276636,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5920000,
+          "price_per_sqm_rub": 276636,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c14b198566d7428b": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Свой",
+      "house": "ГП-1, ул. сосьвинская, д. 33к1",
+      "floor": "3",
+      "area_sqm": 35.5,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a2190048-b1a4-4abb-a153-1dececcfab0d"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5000000,
+      "current_price_rub": 5000000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 140845,
+      "current_price_per_sqm_rub": 140845,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5000000,
+          "price_per_sqm_rub": 140845,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "9b3790a742629fd0": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Свой",
+      "house": "ГП-1, ул. сосьвинская, д. 33к1",
+      "floor": "11",
+      "area_sqm": 35.7,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a2d66ec4-8192-467f-adaf-5beddd870f0a"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5000000,
+      "current_price_rub": 5000000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 140056,
+      "current_price_per_sqm_rub": 140056,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5000000,
+          "price_per_sqm_rub": 140056,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "bc51ed234fbe5de6": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-1, ул. владимира абазарова, д. 5",
+      "floor": "6",
+      "area_sqm": 33.31,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/16696"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5190000,
+      "current_price_rub": 5190000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 155809,
+      "current_price_per_sqm_rub": 155809,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5190000,
+          "price_per_sqm_rub": 155809,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cc77af2b03934428": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-1, ул. владимира абазарова, д. 5",
+      "floor": "12",
+      "area_sqm": 35.98,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/16641"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5690000,
+      "current_price_rub": 5690000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 158143,
+      "current_price_per_sqm_rub": 158143,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5690000,
+          "price_per_sqm_rub": 158143,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cfc0cd74d120e844": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Сезоны",
+      "house": "ГП-6, ул. владимира абазарова, д. 3",
+      "floor": "14",
+      "area_sqm": 59.9,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://4d.life/flats/17508"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 7650000,
+      "current_price_rub": 7650000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 127713,
+      "current_price_per_sqm_rub": 127713,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 7650000,
+          "price_per_sqm_rub": 127713,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "50a74906e16fc49d": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Симфония",
+      "house": "ГП-2, ул. холодильная, д. 31к2",
+      "section": "2",
+      "floor": "17",
+      "area_sqm": 29.2,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://arsibd.com/apartments/27809"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5300000,
+      "current_price_rub": 5300000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 181507,
+      "current_price_per_sqm_rub": 181507,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5300000,
+          "price_per_sqm_rub": 181507,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "795051daa01616c9": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Скандиа. Квартал у Леса",
+      "house": "ГП-2, ул. сергея корепанова, д. 34",
+      "section": "1",
+      "floor": "5",
+      "area_sqm": 27.49,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://scandia.life/projects/kvartal-u-lesa/flat/17133/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3916000,
+      "current_price_rub": 3916000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 142452,
+      "current_price_per_sqm_rub": 142452,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3916000,
+          "price_per_sqm_rub": 142452,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "47ce57e72506d283": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Скандиа. Квартал у Леса",
+      "house": "ГП-2, ул. сергея корепанова, д. 34",
+      "section": "5",
+      "floor": "3",
+      "area_sqm": 32.1,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://scandia.life/projects/kvartal-u-lesa/flat/17531/"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 4752000,
+      "current_price_rub": 4752000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 148037,
+      "current_price_per_sqm_rub": 148037,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 4752000,
+          "price_per_sqm_rub": 148037,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0993e9cdd8b43c23": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Сонтар",
+      "house": "Дом 1, ул. бакинских комиссаров, д. 3к2",
+      "section": "Секция 1",
+      "floor": "2",
+      "area_sqm": 54.7,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://sontar72.ru/#dp/plans?&flat_id=716093"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7300000,
+      "current_price_rub": 7300000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 133455,
+      "current_price_per_sqm_rub": 133455,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7300000,
+          "price_per_sqm_rub": 133455,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "5137ce5e137633b6": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Спутник-2",
+      "house": "ГП-1, ул. алматинская, д. 5",
+      "section": "Секция 1",
+      "floor": "18",
+      "area_sqm": 31.85,
+      "rooms_real": "1K",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://sputnik-tmn.ru/#dp/plans?flat_id=266239"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 6522000,
+      "current_price_rub": 6522000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 204772,
+      "current_price_per_sqm_rub": 204772,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 6522000,
+          "price_per_sqm_rub": 204772,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "cf46741f5f97d5e8": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "6",
+      "floor": "21",
+      "area_sqm": 29.6,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11095156"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 5692700,
+      "current_price_rub": 5692700,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 192321,
+      "current_price_per_sqm_rub": 192321,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 5692700,
+          "price_per_sqm_rub": 192321,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "81fcdf9482c6394e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "6",
+      "floor": "21",
+      "area_sqm": 29.6,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11095156"
+      },
+      "first_seen_date": "2026-08-19",
+      "start_price_rub": 5692700,
+      "current_price_rub": 5692700,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 192321,
+      "current_price_per_sqm_rub": 192321,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-19",
+          "price_rub": 5692700,
+          "price_per_sqm_rub": 192321,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "280e53df5d302fe6": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "2",
+      "floor": "5",
+      "area_sqm": 33.8,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11094737"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6538000,
+      "current_price_rub": 6538000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 193432,
+      "current_price_per_sqm_rub": 193432,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6538000,
+          "price_per_sqm_rub": 193432,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "be670d2012048e52": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Supersky",
+      "house": "ГП-1, ул. ветеранов труда, д. 36к1",
+      "section": "2",
+      "floor": "15",
+      "area_sqm": 34.3,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/11094828"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6900000,
+      "current_price_rub": 6900000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 201166,
+      "current_price_per_sqm_rub": 201166,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6900000,
+          "price_per_sqm_rub": 201166,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6da82bfb56ad9b9a": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Толк Медный",
+      "house": "ГП-1, ул. таежная, д. 6",
+      "section": "1",
+      "floor": "25",
+      "area_sqm": 38.47,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-3847-m-25-etaz-iz-25-241-kv_417391"
+      },
+      "first_seen_date": "2026-03-05",
+      "start_price_rub": 6180000,
+      "current_price_rub": 6180000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 160645,
+      "current_price_per_sqm_rub": 160645,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-03-05",
+          "price_rub": 6180000,
+          "price_per_sqm_rub": 160645,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "fbf484d1f81c74b9": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Толк Медный",
+      "house": "ГП-1, ул. таежная, д. 6",
+      "section": "1",
+      "floor": "2",
+      "area_sqm": 43.43,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-4343-m-2-etaz-iz-25-10-kv_417159"
+      },
+      "first_seen_date": "2026-10-06",
+      "start_price_rub": 5605000,
+      "current_price_rub": 5605000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 129058,
+      "current_price_per_sqm_rub": 129058,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-06",
+          "price_rub": 5605000,
+          "price_per_sqm_rub": 129058,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6b2e96b43e60d859": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Тура-2",
+      "house": "ГП-9, ул. мебельщиков, д. 5",
+      "section": "3",
+      "floor": "11",
+      "area_sqm": 37.21,
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/mkr-tura-336/10409505"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 4200000,
+      "current_price_rub": 4200000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 112873,
+      "current_price_per_sqm_rub": 112873,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 4200000,
+          "price_per_sqm_rub": 112873,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0e6382a4e1d803b5": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Умный квартал UNO",
+      "house": "ГП-1, ул. амурская, д. 41",
+      "section": "1",
+      "floor": "15",
+      "area_sqm": 40.7,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a0c983ed-68df-4f6c-9b24-dde28dcd8f18"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6221500,
+      "current_price_rub": 6221500,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 152862,
+      "current_price_per_sqm_rub": 152862,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6221500,
+          "price_per_sqm_rub": 152862,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "f05c04e26fcf3df4": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Фатера",
+      "house": "4Б, ул. полевая, д. 117к13",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 32.46,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-8840-42ba-9a98-d86847c6a0d7"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5470550,
+      "current_price_rub": 5470550,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168532,
+      "current_price_per_sqm_rub": 168532,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5470550,
+          "price_per_sqm_rub": 168532,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "c2211737aa00e1ef": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Фатера",
+      "house": "4Б, ул. полевая, д. 117к13",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 34.35,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-b2f3-444a-9106-1e16870ca631"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5785650,
+      "current_price_rub": 5785650,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 168432,
+      "current_price_per_sqm_rub": 168432,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5785650,
+          "price_per_sqm_rub": 168432,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "7fe2e56151d9fe9f": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Futuro",
+      "house": "ГП-1, ул. червишевский тракт, д. 25",
+      "section": "1",
+      "floor": "13",
+      "area_sqm": 52.8,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://newton.ru/flats/12827245"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 9590000,
+      "current_price_rub": 9590000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 181629,
+      "current_price_per_sqm_rub": 181629,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 9590000,
+          "price_per_sqm_rub": 181629,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "eda80aff0d879718": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Хито",
+      "house": "ГП-1, ул. сергея джанбровского, д. 25к1",
+      "floor": "6",
+      "area_sqm": 28.28,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a076e40a-8142-439f-9649-9c48b0fad079"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 3800000,
+      "current_price_rub": 3800000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 134371,
+      "current_price_per_sqm_rub": 134371,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 3800000,
+          "price_per_sqm_rub": 134371,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "3b6dc598adb25646": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Хито",
+      "house": "2 очередь, ул. сергея джанбровского, д. 25",
+      "floor": "3",
+      "area_sqm": 40.01,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a242687b-d180-4fd9-ab53-ee52917cd16e"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6000000,
+      "current_price_rub": 6000000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 149963,
+      "current_price_per_sqm_rub": 149963,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6000000,
+          "price_per_sqm_rub": 149963,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "6ef1cf4994898a6e": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Хито",
+      "house": "ГП-2.2, ул. сергея джанбровского, д. 25к2",
+      "floor": "9",
+      "area_sqm": 47.42,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a26bee94-5f5f-487b-a253-66584f823c48"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 6150000,
+      "current_price_rub": 6150000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 129692,
+      "current_price_per_sqm_rub": 129692,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 6150000,
+          "price_per_sqm_rub": 129692,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "a761519d19e3e259": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Хито",
+      "house": "2 очередь, ул. сергея джанбровского, д. 25",
+      "floor": "9",
+      "area_sqm": 61.64,
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://svoy-dev.ru/apartments/a2426880-1999-4198-ac6a-50370c3cf264"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 7850000,
+      "current_price_rub": 7850000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 127352,
+      "current_price_per_sqm_rub": 127352,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 7850000,
+          "price_per_sqm_rub": 127352,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "5bee8736a6fb3883": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Чемпионский",
+      "house": "ГП-4, ул. виктора тимофеева, д. 13",
+      "section": "2",
+      "floor": "15",
+      "area_sqm": 37.4,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a0404bb6-eaf8-46a8-99bd-74d6062be9ce"
+      },
+      "first_seen_date": "2026-10-15",
+      "start_price_rub": 5681000,
+      "current_price_rub": 5681000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 151898,
+      "current_price_per_sqm_rub": 151898,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-10-15",
+          "price_rub": 5681000,
+          "price_per_sqm_rub": 151898,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "527ddef67b443462": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.2",
+      "floor": "9",
+      "area_sqm": 25.4,
+      "rooms_real": "CT",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15283827&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2025-01-09",
+      "start_price_rub": 4060000,
+      "current_price_rub": 4480000,
+      "price_change_rub": 420000,
+      "price_change_percent": 10.34,
+      "start_price_per_sqm_rub": 159843,
+      "current_price_per_sqm_rub": 176378,
+      "price_per_sqm_change_rub": 16535,
+      "price_history": [
+        {
+          "effective_from": "2025-01-09",
+          "price_rub": 4060000,
+          "price_per_sqm_rub": 159843,
+          "effective_to": "2025-02-05",
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        },
+        {
+          "effective_from": "2025-02-06",
+          "price_rub": 4100000,
+          "price_per_sqm_rub": 161417,
+          "effective_to": "2025-02-27",
+          "change_from_previous_rub": 40000,
+          "change_from_previous_percent": 0.99,
+          "change_from_start_rub": 40000,
+          "change_from_start_percent": 0.99
+        },
+        {
+          "effective_from": "2025-02-28",
+          "price_rub": 4110000,
+          "price_per_sqm_rub": 161811,
+          "effective_to": "2025-03-13",
+          "change_from_previous_rub": 10000,
+          "change_from_previous_percent": 0.24,
+          "change_from_start_rub": 50000,
+          "change_from_start_percent": 1.23
+        },
+        {
+          "effective_from": "2025-08-15",
+          "price_rub": 4780000,
+          "price_per_sqm_rub": 188189,
+          "effective_to": "2025-09-02",
+          "change_from_previous_rub": 670000,
+          "change_from_previous_percent": 16.3,
+          "change_from_start_rub": 720000,
+          "change_from_start_percent": 17.73
+        },
+        {
+          "effective_from": "2025-09-03",
+          "price_rub": 5250000,
+          "price_per_sqm_rub": 206693,
+          "effective_to": "2025-09-24",
+          "change_from_previous_rub": 470000,
+          "change_from_previous_percent": 9.83,
+          "change_from_start_rub": 1190000,
+          "change_from_start_percent": 29.31
+        },
+        {
+          "effective_from": "2025-09-25",
+          "price_rub": 4800000,
+          "price_per_sqm_rub": 188976,
+          "effective_to": "2025-10-21",
+          "change_from_previous_rub": -450000,
+          "change_from_previous_percent": -8.57,
+          "change_from_start_rub": 740000,
+          "change_from_start_percent": 18.23
+        },
+        {
+          "effective_from": "2025-10-22",
+          "price_rub": 4390000,
+          "price_per_sqm_rub": 172835,
+          "effective_to": "2026-02-04",
+          "change_from_previous_rub": -410000,
+          "change_from_previous_percent": -8.54,
+          "change_from_start_rub": 330000,
+          "change_from_start_percent": 8.13
+        },
+        {
+          "effective_from": "2026-02-05",
+          "price_rub": 4136000,
+          "price_per_sqm_rub": 162835,
+          "effective_to": "2026-06-18",
+          "change_from_previous_rub": -254000,
+          "change_from_previous_percent": -5.79,
+          "change_from_start_rub": 76000,
+          "change_from_start_percent": 1.87
+        },
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 4480000,
+          "price_per_sqm_rub": 176378,
+          "change_from_previous_rub": 344000,
+          "change_from_previous_percent": 8.32,
+          "change_from_start_rub": 420000,
+          "change_from_start_percent": 10.34
+        }
+      ]
+    },
+    "ec2586366f5681d2": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.5",
+      "floor": "22",
+      "area_sqm": 40.9,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15284101&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 6460000,
+      "current_price_rub": 6460000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 157946,
+      "current_price_per_sqm_rub": 157946,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 6460000,
+          "price_per_sqm_rub": 157946,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "429079e229ca0108": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-1, ул. лесопарковая, д. 22",
+      "section": "Секция 1.2",
+      "floor": "1",
+      "area_sqm": 53.2,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15283746&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-08-04",
+      "start_price_rub": 7106000,
+      "current_price_rub": 7106000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 133571,
+      "current_price_per_sqm_rub": 133571,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-08-04",
+          "price_rub": 7106000,
+          "price_per_sqm_rub": 133571,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "269eefb9ff7d101d": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Чистые пруды",
+      "house": "ГП-2, ул. лесопарковая, д. 20",
+      "section": "1",
+      "floor": "21",
+      "area_sqm": 68.4,
+      "rooms_real": "3E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://paritet.life/?roistat_visit=267901#/catalog/projects/list?propertyId=15295879&filter=property.status:AVAILABLE"
+      },
+      "first_seen_date": "2026-06-19",
+      "start_price_rub": 9090000,
+      "current_price_rub": 9090000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 132895,
+      "current_price_per_sqm_rub": 132895,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-06-19",
+          "price_rub": 9090000,
+          "price_per_sqm_rub": 132895,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "0a863bef065a6776": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Эклипт",
+      "house": "ГП-39.3-11, ул. игоря комиссарова, д. 25",
+      "section": "1",
+      "floor": "1",
+      "area_sqm": 43.19,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-39311-kv-24"
+      },
+      "first_seen_date": "2026-09-03",
+      "start_price_rub": 6430000,
+      "current_price_rub": 6430000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 148877,
+      "current_price_per_sqm_rub": 148877,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-03",
+          "price_rub": 6430000,
+          "price_per_sqm_rub": 148877,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "e2823b7178cd2a20": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Эклипт",
+      "house": "ГП-40.3-11, ул. игоря комиссарова, д. 23",
+      "section": "1",
+      "floor": "2",
+      "area_sqm": 43.19,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Официальный",
+        "url": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-40311-kv-11"
+      },
+      "first_seen_date": "2026-09-03",
+      "start_price_rub": 6050000,
+      "current_price_rub": 6050000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 140079,
+      "current_price_per_sqm_rub": 140079,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-03",
+          "price_rub": 6050000,
+          "price_per_sqm_rub": 140079,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    },
+    "4516cc20f207e76b": {
+      "data_as_of": "2026-10-15T14:57:47+05:00",
+      "residential_complex": "Юнион",
+      "house": "ГП-2 (Дом Форум), ул. интернациональная, д. 199к10",
+      "section": "7",
+      "floor": "4",
+      "area_sqm": 37.5,
+      "rooms_real": "2E",
+      "price_source": {
+        "type": "Агрегатор",
+        "url": "https://www.etagi.com/zastr/jk/yunion-13268/3365954"
+      },
+      "first_seen_date": "2026-09-17",
+      "start_price_rub": 5340000,
+      "current_price_rub": 5340000,
+      "price_change_rub": 0,
+      "price_change_percent": 0.0,
+      "start_price_per_sqm_rub": 142400,
+      "current_price_per_sqm_rub": 142400,
+      "price_per_sqm_change_rub": 0,
+      "price_history": [
+        {
+          "effective_from": "2026-09-17",
+          "price_rub": 5340000,
+          "price_per_sqm_rub": 142400,
+          "change_from_start_rub": 0,
+          "change_from_start_percent": 0.0
+        }
+      ]
+    }
+  }
+}
