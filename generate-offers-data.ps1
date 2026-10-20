@@ -93,6 +93,7 @@ $districtLabels = @{
 
 $complexLabels = @{
     'ЖК беринг' = 'ЖК Беринг'
+    'ЖК ДОК'    = 'ЖК ДОК'
 }
 
 function ConvertTo-DisplayText {
