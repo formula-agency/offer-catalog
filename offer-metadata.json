@@ -17,7 +17,10 @@
       "sourceUrl": "https://4d.life/flats/16470/"
     },
     "Офферы Новостройки 3/ЧПВ+стандарт/Тюменская слобода/ЖК Сезоны/Обработанные/06 1-комнатная 36,0 м² — ЧПВ 79 900 ₽.png": {
-      "sourceUrl": "https://4d.life/flats/16641/"
+      "sourceUrl": "https://4d.life/flats/16641/",
+      "types": [
+        "Траншевая ипотека"
+      ]
     },
     "Офферы Новостройки 3/ЧПВ+семейка/КПД/ЖК Новатор/Обработанные/01 1-комнатная 35,54 м² — ЧПВ 700 000 ₽.png": {
       "sourceUrl": "https://мойноватор.рф/flats/1-komnatnaya-kvartira-35.54m-355"
@@ -26,16 +29,28 @@
       "sourceUrl": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/gp-6-zhn-2-komnatnaya-kvartira-79.43m-55"
     },
     "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/03 3-комнатная 68,4 м² — скидка 22%.png": {
-      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-18086261"
+      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-18086261",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/Лесобаза/ЖК Чистые пруды/Обработанные/04 3-комнатная 53,2 м² — ПВ 679 000 ₽.png": {
-      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283746"
+      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283746",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/05 Студия 25,4 м² — ПВ 20%.png": {
-      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283797"
+      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283797",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Лесобаза/ЖК Чистые пруды/Обработанные/06 2-комнатная 40,9 м² — скидка.png": {
-      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283892"
+      "sourceUrl": "https://xn--80aki0agnb.xn--p1ai/flats/flat-15283892",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Сезоны/Обработанные/01 Студия 33,31 м² — 7,77% на 7 лет.png": {
       "sourceUrl": "https://4d.life/flats/16696/"
@@ -44,7 +59,10 @@
       "sourceUrl": "https://4d.life/flats/16641/"
     },
     "Офферы Новостройки 3/Застройщик платит ипотеку за клиента/Лесобаза/ЖК Кедровый берег/Обработанные/03 2-комнатная 66,53 м² — скидка 910 000 ₽.png": {
-      "sourceUrl": "https://xn--80ahefirqxn.xn--p1ai/realty/16730651"
+      "sourceUrl": "https://xn--80ahefirqxn.xn--p1ai/realty/16730651",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Концепт в слободе/Обработанные/04 Студия 22,88 м² — 12,99% на 20 лет.png": {
       "sourceUrl": "https://xn----jtbbqbsgk1a1b.xn--p1ai/flats/kvartira-studia-22.88m-92"
@@ -74,7 +92,11 @@
       "sourceUrl": "https://macro.sbercrm.com/id/5263131/aKxqvK/"
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Заречный/ЖК Свой/Обработанные/05 Студия 35,7 м² — траншевая ипотека.png": {
-      "sourceUrl": "https://macro.sbercrm.com/id/4547704/h2mwrv/"
+      "sourceUrl": "https://macro.sbercrm.com/id/4547704/h2mwrv/",
+      "types": [
+        "Траншевая ипотека",
+        "с ремонтом"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/5 Заречный/ЖК Горизонт/Обработанные/06 1-комнатная 40,55 м² — рассрочка до 09.2027.png": {
       "sourceUrl": "https://arsibd.com/apartments/27912",
@@ -86,7 +108,10 @@
       "sourceUrl": "https://arsibd.com/apartments/27809"
     },
     "Офферы Новостройки 3/Рассрочка/Тюменская слобода/ЖК Хито/Обработанные/01 1-комнатная 47,42 м² — рассрочка до лета 2028.png": {
-      "sourceUrl": "https://macro.sbercrm.com/id/5262445/787Bqv/"
+      "sourceUrl": "https://macro.sbercrm.com/id/5262445/787Bqv/",
+      "types": [
+        "с ремонтом"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/Тюменская слобода/ЖК Хито/Обработанные/02 2-комнатная 61,64 м² — рассрочка до лета 2028.png": {
       "sourceUrl": "https://macro.sbercrm.com/id/7045488/wE8XvB/"
@@ -116,13 +141,22 @@
       ]
     },
     "Офферы Новостройки 3/с ремонтом/ДОК/ЖК Октябрьский на Туре/Обработанные/02 1-комнатная 31,8 м² — с ремонтом.png": {
-      "sourceUrl": "https://tyumen.brusnika.ru/flat/48889/"
+      "sourceUrl": "https://tyumen.brusnika.ru/flat/48889/",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/ДОК/ЖК Октябрьский на Туре/Обработанные/03 Студия 21,1 м² — с ремонтом.png": {
-      "sourceUrl": "https://tyumen.brusnika.ru/flat/46956/"
+      "sourceUrl": "https://tyumen.brusnika.ru/flat/46956/",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/КПД/ЖК Республики 205/Обработанные/04 Студия 21,4 м² — с ремонтом.png": {
-      "sourceUrl": "https://tyumen.brusnika.ru/flat/52498/"
+      "sourceUrl": "https://tyumen.brusnika.ru/flat/52498/",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Ботаника/Обработанные/05 1-комнатная 40,2 м² — ипотека 9% на 7 лет.png": {
       "sourceUrl": "https://talan.ru/tumen/apartments/2714b251-fdc0-4a8a-b0a9-3a0b3fd8b658",
@@ -193,7 +227,10 @@
       "sourceUrl": "https://delomdev.ru/kvartiry/odnokomnatnaya-32-23-kv-m-722534/"
     },
     "Офферы Новостройки 3/Застройщик платит ипотеку за клиента/5 Заречный/ЖК Окинава/Обработанные/04 1-комнатная 36,62 м² — первый год 0 ₽.png": {
-      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717689/"
+      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717689/",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/5 Заречный/ЖК Окинава/Обработанные/05 1-комнатная 37,87 м² — рассрочка до 20.02.2029.png": {
       "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717769/"
@@ -202,7 +239,10 @@
       "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/17717709/"
     },
     "Офферы Новостройки 3/с ремонтом/5 Заречный/ЖК Окинава/Обработанные/02 Студия 24,37 м² — с ремонтом.png": {
-      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15741591/"
+      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15741591/",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/ЧПВ+семейка/Московский тракт/ЖК Вида/Обработанные/03 1-комнатная 29,31 м² — ПВ 50 000 ₽.png": {
       "sourceUrl": "https://delomdev.ru/kvartiry/odnokomnatnaya-29-13-kv-m-722425/"
@@ -229,14 +269,23 @@
       "sourceUrl": "https://enco.ru/search/apartments/85475/"
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Плеханово/ЖК Юнион/Обработанные/01 1-комнатная 37,5 м² — ставка 12,5%.png": {
-      "sourceUrl": "https://strana.com/tmn/union/flats/12943782/"
+      "sourceUrl": "https://strana.com/tmn/union/flats/12943782/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/Заречный/ЖК Евроберег 2.0/Обработанные/02 1-комнатная 31,01 м² — платёж 30 000 ₽.png": {
       "sourceUrl": "https://strana.com/tmn/evropejskij_bereg_2/flats/15875410/",
-      "scoutSourceUrl": "https://strana.com/tmn/evropejskij_bereg_2/flats/RmxhdFR5cGU6MTU4NzU0MTA="
+      "scoutSourceUrl": "https://strana.com/tmn/evropejskij_bereg_2/flats/RmxhdFR5cGU6MTU4NzU0MTA=",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Дом Обороны/ЖК Сонтар/Обработанные/03 2-комнатная 54,7 м² — выгода 500 000 ₽.png": {
-      "sourceUrl": "https://sontar72.ru/#dp/plans?&flat_id=716093"
+      "sourceUrl": "https://sontar72.ru/#dp/plans?&flat_id=716093",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Рассрочка/Плеханово/ЖК Домашний/Обработанные/04 2-комнатная 35,62 м² — рассрочка на 17 месяцев.png": {
       "sourceUrl": "https://strana.com/tmn/domashnyi/flats/14791895/"
@@ -251,32 +300,59 @@
       "sourceUrl": "https://gkinko.ru/kvartiry/dvuhkomnatnaya-50-7-kv-m-7309973"
     },
     "Офферы Новостройки 3/с ремонтом/Заречный/ЖК Толк Медный/Обработанные/03 1-комнатная 38,47 м² — ремонт в подарок.png": {
-      "sourceUrl": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-3847-m-25-etaz-iz-25-241-kv_417391"
+      "sourceUrl": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-3847-m-25-etaz-iz-25-241-kv_417391",
+      "types": [
+        "Акции, скидки",
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/ПВ 0% (семейка)/Тюменская слобода/ЖК Макс/Обработанные/01 1-комнатная 37,47 м² — ПВ 0 ₽.png": {
       "sourceUrl": "https://xn--b1aai9acjidf1c.xn--p1ai/zhk/max/flats/1-komnatnaya-kvartira-37.47m-55",
-      "scoutSourceUrl": "https://xn--80auew.xn--p1ai/properties/flats/61"
+      "scoutSourceUrl": "https://xn--80auew.xn--p1ai/properties/flats/61",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/ПВ 0% (семейка)/Мыс/ЖК Спутник/Обработанные/02 1-комнатная 31,85 м² — ПВ 0 ₽.png": {
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Плеханово/Родные кварталы/Обработанные/01 3-комнатная 53,1 м² — ставка 10%.png": {
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Плеханово/Родные кварталы/Обработанные/02 2-комнатная 36,6 м² — ставка 8%.png": {
-      "sourceUrl": ""
+      "sourceUrl": "",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Застройщик платит ипотеку за клиента/Заречный/ЖК Толк Медный/Обработанные/03 1-комнатная 43,43 м² — платёж 0 ₽ до марта 2027.png": {
-      "sourceUrl": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-4343-m-2-etaz-iz-25-10-kv_417159"
+      "sourceUrl": "https://tumen.xn--j1abip.com/kartochka-kvartiry/1-komnatnaa-kvartira-4343-m-2-etaz-iz-25-10-kv_417159",
+      "types": [
+        "Акции, скидки",
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Заречный/ЖК Суперскай/Обработанные/04 Студия 29,6 м² — стоимость со скидкой 4 200 000 ₽.png": {
-      "sourceUrl": "https://newton.ru/flats/11095156"
+      "sourceUrl": "https://newton.ru/flats/11095156",
+      "types": [
+        "ЧПВ+семейка",
+        "ЧПВ+стандарт"
+      ]
     },
     "Офферы Новостройки 3/ПВ 0% (семейка)/Дом Обороны/ЖК Плей/Обработанные/01 1-комнатная 35,76 м² — ПВ 0 ₽.png": {
       "sourceUrl": "https://newton.ru/flats/578858"
     },
     "Офферы Новостройки 3/с ремонтом/Дом Обороны/ЖК Фатера/Обработанные/01 1-комнатная 32,46 м² — с ремонтом.png": {
-      "sourceUrl": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-8840-42ba-9a98-d86847c6a0d7"
+      "sourceUrl": "https://xn--80aapt2admt.xn--p1ai/catalog/apartments/a049058b-8840-42ba-9a98-d86847c6a0d7",
+      "types": [
+        "ЧПВ+семейка"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/Плеханово/ЖК Мотивы/Обработанные/02 1-комнатная 37,22 м² — скидка 1 234 000 ₽.png": {
       "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193/"
@@ -288,37 +364,61 @@
       ]
     },
     "Офферы Новостройки 3/с ремонтом/Мыс/ЖК Игрим/Обработанные/02 Студия 30,15 м² — с ремонтом, скидка 873 240 ₽.png": {
-      "sourceUrl": "https://prime-rus.ru/property/17008484/"
+      "sourceUrl": "https://prime-rus.ru/property/17008484/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/Мыс/ЖК Игрим/Обработанные/03 1-комнатная 37,96 м² — с ремонтом, скидка 1 072 730 ₽.png": {
-      "sourceUrl": "https://prime-rus.ru/property/17008426/"
+      "sourceUrl": "https://prime-rus.ru/property/17008426/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/Плеханово/ЖК Мотивы/Обработанные/01 Студия 21,91 м² — скидка и ремонт.png": {
-      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15727869/"
+      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15727869/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/Плеханово/ЖК Мотивы/Обработанные/02 1-комнатная 37,22 м² — скидка и ремонт.png": {
-      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193/"
+      "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15728193/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Акции, скидки/5 Заречный/ЖК Окинава/Обработанные/03 1-комнатная 38,08 м² — скидка 1 155 000 ₽.png": {
       "sourceUrl": "https://xn--80afahr7ap7a8g.xn--p1ai/apartments/15740997/"
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Мыс/ЖК Игрим/Обработанные/04 1-комнатная 37,96 м² — ставка 13%.png": {
-      "sourceUrl": "https://prime-rus.ru/property/17008426/"
+      "sourceUrl": "https://prime-rus.ru/property/17008426/",
+      "types": [
+        "Траншевая ипотека"
+      ]
     },
     "Офферы Новостройки 3/с ремонтом/Заречный/ЖК Набережный квартал/Обработанные/05 2-комнатная 42,54 м² — с ремонтом.png": {
       "sourceUrl": "https://xn--80aaacfrai1akonf3bh6a0l.xn--p1ai/?ysclid=mv840ycwch755432810#plan"
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Скандиа у леса/Обработанные/01 Студия 27,49 м² — ставка 12,49%.png": {
-      "sourceUrl": "https://scandia.life/projects/kvartal-u-lesa/flat/17133/"
+      "sourceUrl": "https://scandia.life/projects/kvartal-u-lesa/flat/17133/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Тюменская слобода/ЖК Скандиа у леса/Обработанные/02 1-комнатная 32,10 м² — ставка 12,49%.png": {
-      "sourceUrl": "https://scandia.life/projects/kvartal-u-lesa/flat/17531/"
+      "sourceUrl": "https://scandia.life/projects/kvartal-u-lesa/flat/17531/",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/ЧПВ+семейка/КПД/ЖК Дом на большой Спасской/Обработанные/01 2-комнатная 52,2 м² — ПВ 883 780 ₽.png": {
       "sourceUrl": "https://72dom.com/complexes/zhk-dom-na-bolshoi-spasskoi/flats/2-komnatnaya-kvartira-52.2m-korpus-14-kv-549"
     },
     "Офферы Новостройки 3/ЧПВ+семейка/Рощино/ЖК Эклипт/Обработанные/02 1-комнатная 43,19 м² — ПВ 356 000 ₽.png": {
-      "sourceUrl": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-39311-kv-24"
+      "sourceUrl": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-39311-kv-24",
+      "types": [
+        "Акции, скидки"
+      ]
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Рощино/ЖК Эклипт/Обработанные/01 2-комнатная 43,2 м² — ставка 9,7%.png": {
       "sourceUrl": "https://72dom.com/complexes/zhk-eklipt/flats/1-komnatnaya-kvartira-43.19m-korpus-40311-kv-11"
@@ -331,7 +431,10 @@
       "sourceUrl": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/gp-7-zhn-1-komnatnaya-kvartira-34.11m-56"
     },
     "Офферы Новостройки 3/Субсидия стандарт (полный ПВ)/Лесобаза/ЖК Акватория/Обработанные/02 Студия 30,55 м² — ставка 12,6%.png": {
-      "sourceUrl": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/gp-8-zhn-kvartira-studia-30.55m-187"
+      "sourceUrl": "https://xn--80aafzh2bbo7f.xn--p1ai/flats/gp-8-zhn-kvartira-studia-30.55m-187",
+      "types": [
+        "с ремонтом"
+      ]
     },
     "Офферы Новостройки 3/ПВ 0% (семейка)/Рощино/ЖК Кипрея/Обработанные/01 3-комнатная 89,1 м² — ПВ 0 ₽.png": {
       "sourceUrl": "https://kipreya.ru/kvartiry/vybrat_kvartiry/26988/"

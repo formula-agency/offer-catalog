@@ -14,6 +14,7 @@
   const NEW_BADGE_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
   const INACTIVE_STORAGE_KEY = 'formula-offer-catalog-inactive-v1';
   const TYPE_COLORS = {
+    'NEW': '#f04444',
     'ПВ 0% (семейка)': '#7b3fc4',
     'ЧПВ + семейка': '#9a4fc4',
     'ЧПВ + стандарт': '#e17622',
@@ -25,6 +26,7 @@
     'Траншевая ипотека': '#6f3fa8'
   };
   const TYPE_ORDER = [
+    'NEW',
     'ПВ 0% (семейка)',
     'ЧПВ + семейка',
     'ЧПВ + стандарт',
@@ -150,7 +152,7 @@
 
     if (!delays.length) return;
     newBadgeRefreshTimer = window.setTimeout(() => {
-      renderCards();
+      renderAll();
       if (modalOfferId) updateModal();
       scheduleNewBadgeRefresh();
     }, Math.min(...delays) + 1000);
@@ -548,7 +550,7 @@
     .sort((a, b) => a.localeCompare(b, 'ru'));
 
   const filterValues = {
-    type: [...new Set(offers.flatMap((offer) => offer.types))]
+    type: ['NEW', ...new Set(offers.flatMap((offer) => offer.types))]
       .sort((a, b) => TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b)),
     room: [...new Set(offers.map((offer) => offer.roomCode))]
       .sort((a, b) => ROOM_ORDER.indexOf(a) - ROOM_ORDER.indexOf(b)),
@@ -569,9 +571,17 @@
     return /^ЖК\s/i.test(name) ? name : `ЖК ${name}`;
   }
 
+  function offerMatchesType(offer, type) {
+    return type === 'NEW' ? isNewOffer(offer) : offer.types.includes(type);
+  }
+
+  function matchesSelectedTypes(offer, selectedTypes = state.type) {
+    return [...selectedTypes].every((type) => offerMatchesType(offer, type));
+  }
+
   function matchesFilters(offer, except) {
     if (state.search && !offer.searchText.includes(normalize(state.search))) return false;
-    if (except !== 'type' && state.type.size && !offer.types.some((type) => state.type.has(type))) return false;
+    if (except !== 'type' && state.type.size && !matchesSelectedTypes(offer)) return false;
     if (except !== 'room' && state.room.size && !state.room.has(offer.roomCode)) return false;
     if (except !== 'district' && state.district.size && !state.district.has(offer.district)) return false;
     if (except !== 'complex' && state.complex.size && !state.complex.has(offer.complex)) return false;
@@ -581,7 +591,9 @@
   function getOptionCount(filter, value) {
     const offerKey = filter === 'room' ? 'roomCode' : filter;
     return offers.reduce((count, offer) => {
-      const hasValue = filter === 'type' ? offer.types.includes(value) : offer[offerKey] === value;
+      const selectedTypes = new Set(state.type);
+      selectedTypes.add(value);
+      const hasValue = filter === 'type' ? matchesSelectedTypes(offer, selectedTypes) : offer[offerKey] === value;
       return count + (isInCurrentStatusView(offer) && matchesFilters(offer, filter) && hasValue ? 1 : 0);
     }, 0);
   }
