@@ -1,0 +1,109 @@
+{
+  "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "project": "ЖК Синтетический",
+  "district": "Тестовый район",
+  "layout": "2Е",
+  "rooms": 1,
+  "area": 42.5,
+  "price": { "value": 6500000, "qualifier": "from" },
+  "finishing": "unfinished",
+  "gifts": [],
+  "validUntil": "2026-11-06",
+  "source": {
+    "url": "https://example.test/flats/42",
+    "publishedAt": "2026-10-20"
+  },
+  "imageUrl": "https://drive.google.com/file/d/1SyntheticOfferImage000000000/view",
+  "options": [
+    {
+      "id": "family-1",
+      "program": "Семейная ипотека",
+      "childrenCount": 1,
+      "financing": "mortgage",
+      "downPaymentType": "partial",
+      "downPayment": { "value": 900000, "qualifier": "exact" },
+      "payment": { "value": 42000, "qualifier": "from" },
+      "price": null,
+      "rate": 6,
+      "paymentPeriod": "На весь срок",
+      "conditions": ["Окончательные условия подтверждаются банком"],
+      "ratePeriod": "На весь срок",
+      "promotions": [
+        {
+          "code": "rate_subsidy",
+          "label": "Субсидированная ставка",
+          "confirmed": true,
+          "validUntil": "2026-11-03"
+        }
+      ],
+      "actionValidUntil": { "partial_down_payment": "2026-11-06" },
+      "compensation": null,
+      "termYears": 30,
+      "bank": "Служебное значение",
+      "stages": null,
+      "calculation": null
+    },
+    {
+      "id": "family-3",
+      "program": "Семейная ипотека",
+      "childrenCount": 3,
+      "financing": "mortgage",
+      "downPaymentType": "partial",
+      "downPayment": { "value": 500000, "qualifier": "exact" },
+      "payment": { "value": 30000, "qualifier": "exact" },
+      "price": { "value": 6400000, "qualifier": "exact" },
+      "rate": 4.5,
+      "paymentPeriod": "Первые 24 месяца",
+      "conditions": ["После 24 месяцев платёж изменяется"],
+      "ratePeriod": "Первые 2 года",
+      "promotions": [
+        {
+          "code": "rate_subsidy",
+          "label": "Субсидированная ставка",
+          "confirmed": true,
+          "validUntil": "2026-11-03"
+        },
+        {
+          "code": "renovation_gift",
+          "label": "Ремонт в подарок",
+          "confirmed": true,
+          "validUntil": "2026-11-06"
+        }
+      ],
+      "actionValidUntil": { "partial_down_payment": "2026-11-06" },
+      "compensation": null,
+      "termYears": 30,
+      "bank": null,
+      "stages": ["Платёж 30 000 ₽ действует первые 24 месяца"],
+      "calculation": null
+    },
+    {
+      "id": "standard",
+      "program": "Новостройка",
+      "childrenCount": null,
+      "financing": "mortgage",
+      "downPaymentType": "unknown",
+      "downPayment": null,
+      "payment": { "value": 62000, "qualifier": "exact" },
+      "price": null,
+      "rate": 13.9,
+      "paymentPeriod": null,
+      "conditions": [],
+      "ratePeriod": null,
+      "promotions": [],
+      "actionValidUntil": {},
+      "compensation": null,
+      "termYears": null,
+      "bank": null,
+      "stages": null,
+      "calculation": {
+        "kind": "standard_mortgage",
+        "rulesVersion": "synthetic-1",
+        "inputs": { "note": "Не пересчитывать загрузчиком" }
+      }
+    }
+  ],
+  "schemaVersion": 2,
+  "imageRevision": "drive-version-7",
+  "sourceReview": { "hasConflict": false, "reasons": [] }
+}

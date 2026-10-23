@@ -1,0 +1,16 @@
+{
+  "name": "formula-offer-catalog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:acceptance": "node --test test/catalog-loader.acceptance.test.mjs test/catalog-filters.test.mjs",
+    "validate:examples": "node scripts/validate-examples.mjs",
+    "inspect:queue": "node scripts/inspect-queue.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "googleapis": "^188.0.0"
+  }
+}

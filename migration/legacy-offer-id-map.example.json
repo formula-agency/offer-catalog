@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "confirmedAt": null,
+  "items": [
+    {
+      "legacyCatalogId": "replace-with-current-card-id",
+      "queueOfferId": "replace-with-32-hex-id",
+      "decision": "pending",
+      "reason": "Подтвердить вручную до первого импорта; совпадение по ЖК/площади не является достаточным."
+    }
+  ]
+}

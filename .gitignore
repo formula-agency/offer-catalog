@@ -23,4 +23,9 @@ scout.env
 .env
 .env.*
 scout-sync-report.json
+
+# Локальные зависимости и состояние загрузчика очереди.
+node_modules/
+.catalog-loader/
+catalog-loader.env
 .scout-cache/

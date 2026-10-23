@@ -1,0 +1,18 @@
+{
+  "environment": "test",
+  "spreadsheetId": "set-outside-source-control",
+  "sheetName": "Очередь сайта",
+  "timezone": "Asia/Yekaterinburg",
+  "catalogBaseUrl": "https://example.test/offer-catalog/",
+  "siteRepository": ".",
+  "siteBranch": "test/catalog-queue",
+  "pollIntervalMinutes": 15,
+  "leaseMinutes": 30,
+  "heartbeatMinutes": 5,
+  "requestTimeoutSeconds": 30,
+  "automaticRetryMinutes": [1, 5, 15],
+  "publisher": {
+    "kind": "not-configured",
+    "verificationUrl": null
+  }
+}
