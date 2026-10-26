@@ -61,7 +61,93 @@
             <button class="reset-link" id="reset-filters" type="button" disabled>Сбросить</button>
           </div>
 
-          <fieldset class="filter-section">
+          <div id="queue-filter-sections" hidden>
+            <fieldset class="filter-section">
+              <legend>Программа ипотеки</legend>
+              <div class="queue-choice-list" id="program-options"></div>
+            </fieldset>
+
+            <div class="filter-section" id="family-category-filter" hidden>
+              <label class="filter-label" for="children-category">Количество детей / категория семьи</label>
+              <select class="queue-select" id="children-category">
+                <option value="any">Любая</option>
+                <option value="1">1 ребёнок</option>
+                <option value="2">2 ребёнка</option>
+                <option value="3">3 ребёнка</option>
+                <option value="4">4 ребёнка</option>
+                <option value="5">5 и более</option>
+              </select>
+            </div>
+
+            <fieldset class="filter-section">
+              <legend>Акции</legend>
+              <div class="queue-choice-list" id="promotion-options"></div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Площадь, м²</legend>
+              <div class="range-fields">
+                <label><span>от</span><input type="number" min="0" step="0.01" inputmode="decimal" data-range="area" data-side="min"></label>
+                <label><span>до</span><input type="number" min="0" step="0.01" inputmode="decimal" data-range="area" data-side="max"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Цена квартиры, ₽</legend>
+              <div class="range-fields">
+                <label><span>от</span><input type="number" min="0" step="1000" inputmode="numeric" data-range="price" data-side="min"></label>
+                <label><span>до</span><input type="number" min="0" step="1000" inputmode="numeric" data-range="price" data-side="max"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Свои средства на ПВ, ₽</legend>
+              <div class="range-fields">
+                <label><span>от</span><input type="number" min="0" step="1000" inputmode="numeric" data-range="downPayment" data-side="min"></label>
+                <label><span>до</span><input type="number" min="0" step="1000" inputmode="numeric" data-range="downPayment" data-side="max"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Ежемесячный платёж, ₽</legend>
+              <div class="range-fields">
+                <label><span>от</span><input type="number" min="0" step="100" inputmode="numeric" data-range="payment" data-side="min"></label>
+                <label><span>до</span><input type="number" min="0" step="100" inputmode="numeric" data-range="payment" data-side="max"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Ставка, %</legend>
+              <div class="range-fields">
+                <label><span>от</span><input type="number" min="0" max="100" step="0.01" inputmode="decimal" data-range="rate" data-side="min"></label>
+                <label><span>до</span><input type="number" min="0" max="100" step="0.01" inputmode="decimal" data-range="rate" data-side="max"></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-section">
+              <legend>Отделка</legend>
+              <div class="queue-choice-list" id="finishing-options"></div>
+            </fieldset>
+
+            <div class="filter-section">
+              <label class="filter-label" for="expiring-filter">Скоро закончатся</label>
+              <select class="queue-select" id="expiring-filter">
+                <option value="">Не ограничивать</option>
+                <option value="0">Сегодня</option>
+                <option value="3">В ближайшие 3 дня</option>
+                <option value="7">В ближайшие 7 дней</option>
+                <option value="14">В ближайшие 14 дней</option>
+              </select>
+            </div>
+
+            <label class="filter-section queue-switch">
+              <input type="checkbox" id="new-only-filter">
+              <span>Только новые предложения</span>
+            </label>
+            <p class="range-errors" id="range-errors" role="alert" hidden></p>
+          </div>
+
+          <fieldset class="filter-section" id="legacy-type-filter">
             <legend>Тип оффера</legend>
             <div class="type-options" id="type-options"></div>
           </fieldset>
@@ -132,6 +218,8 @@
                   <option value="district">по району</option>
                   <option value="room">по комнатности</option>
                   <option value="type">по типу оффера</option>
+                  <option value="price">по цене</option>
+                  <option value="expiry">по ближайшему окончанию акции</option>
                 </select>
               </label>
             </div>
@@ -189,6 +277,7 @@
         <h2 id="modal-title"></h2>
         <p class="modal-offer-title" id="modal-offer-title"></p>
         <p class="modal-district" id="modal-district"></p>
+        <section class="modal-purchase-options" id="modal-purchase-options" hidden></section>
         <section class="scout-details" id="modal-scout" aria-live="polite"></section>
         <button class="modal-status-button" id="modal-status-toggle" type="button"></button>
         <a class="download-button modal-download" id="modal-download" href="" download>
@@ -205,6 +294,7 @@
     <div class="noscript-message">Для работы фильтров необходимо включить JavaScript в браузере.</div>
   </noscript>
   <script src="offers-data.js?v=20261016-2"></script>
-  <script src="app.js?v=20261016-1"></script>
+  <script src="queue-offers-data.js?v=20261026-1"></script>
+  <script src="app.js?v=20261026-1"></script>
 </body>
 </html>

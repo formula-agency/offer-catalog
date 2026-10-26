@@ -135,13 +135,11 @@ export class CatalogLoader {
           throw new LoaderError('attempt_superseded', 'Во время загрузки поступила новая версия; старая попытка отменена.');
         }
 
-        const publicOffer = toPublicOffer(offer, {
-          imagePath: stagedImage.publicPath,
-          uploadedVersion: claimed.payloadVersion
-        });
+        const publicOffer = toPublicOffer(offer, { imagePath: stagedImage.publicPath });
         return this.publisher.publish({
           offer: publicOffer,
           image: stagedImage,
+          uploadedVersion: claimed.payloadVersion,
           attemptId,
           reloadRequestId: pendingReload(claimed) ? claimed.reloadRequestId : null,
           publishedAt: this.now().toISOString(),
@@ -311,7 +309,7 @@ export class MemoryCatalogPublisher {
 
   async getReceipt(offerId) { return structuredClone(this.receipts.get(offerId) ?? null); }
 
-  async publish({ offer, attemptId, reloadRequestId, publishedAt, catalogUrl }) {
+  async publish({ offer, uploadedVersion, attemptId, reloadRequestId, publishedAt, catalogUrl }) {
     if (this.failNextPublish) {
       this.failNextPublish = false;
       throw new LoaderError('publish_failed', 'Тестовый сбой публикации.', { retryable: true });
@@ -320,14 +318,15 @@ export class MemoryCatalogPublisher {
     const nextReceipts = new Map(this.receipts);
     const receipt = {
       offerId: offer.id,
-      uploadedVersion: offer.uploadedVersion,
+      uploadedVersion,
       uploadAttemptId: attemptId,
       completedReloadRequestId: reloadRequestId,
       publishedAt,
       catalogUrl,
       deploymentId: randomUUID()
     };
-    nextOffers.set(offer.id, structuredClone(offer));
+    const previousOffer = this.offers.get(offer.id);
+    nextOffers.set(offer.id, structuredClone({ ...offer, addedAt: previousOffer?.addedAt ?? publishedAt }));
     nextReceipts.set(offer.id, receipt);
     this.offers = nextOffers;
     this.receipts = nextReceipts;

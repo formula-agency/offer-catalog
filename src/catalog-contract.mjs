@@ -211,7 +211,7 @@ function uniqueStrings(values) {
   return [...new Set(values.filter((value) => typeof value === 'string' && value.length > 0))];
 }
 
-export function toPublicOffer(input, { imagePath, uploadedVersion }) {
+export function toPublicOffer(input, { imagePath }) {
   const offer = normalizeOfferPayload(input);
   if (!imagePath) {
     throw new CatalogContractError('missing_image', 'Для публичной записи требуется сохранённое изображение оффера.');
@@ -231,7 +231,6 @@ export function toPublicOffer(input, { imagePath, uploadedVersion }) {
     publishedAt: offer.source.publishedAt,
     imagePath,
     imageLabel: 'Изображение оффера',
-    uploadedVersion,
     options: offer.options.map((option) => ({
       id: option.id,
       program: option.program,

@@ -55,6 +55,7 @@ SCOUT_TOKEN=полученный_токен
 ```powershell
 npm install
 npm test
+npm run test:e2e
 npm run validate:examples
 ```
 

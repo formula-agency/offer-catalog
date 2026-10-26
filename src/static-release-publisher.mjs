@@ -41,7 +41,7 @@ export class StaticReleasePublisher {
     return registry.offers?.[offerId] ?? null;
   }
 
-  async publish({ offer, image, attemptId, reloadRequestId, publishedAt, catalogUrl }) {
+  async publish({ offer, image, uploadedVersion, attemptId, reloadRequestId, publishedAt, catalogUrl }) {
     const current = await readJson(this.currentPath, null);
     let catalog = { schemaVersion: 1, offers: [] };
     let registry = { schemaVersion: 1, offers: {} };
@@ -55,15 +55,16 @@ export class StaticReleasePublisher {
     const releaseDirectory = path.join(this.releasesDirectory, deploymentId);
     const receipt = {
       offerId: offer.id,
-      uploadedVersion: offer.uploadedVersion,
+      uploadedVersion,
       uploadAttemptId: attemptId,
       completedReloadRequestId: reloadRequestId,
       publishedAt,
       catalogUrl,
       deploymentId
     };
+    const previousOffer = catalog.offers.find((item) => item.id === offer.id);
     const nextOffers = catalog.offers.filter((item) => item.id !== offer.id);
-    nextOffers.push(offer);
+    nextOffers.push({ ...offer, addedAt: previousOffer?.addedAt ?? publishedAt });
     const nextCatalog = { schemaVersion: 1, generatedAt: publishedAt, offers: nextOffers };
     const nextRegistry = {
       schemaVersion: 1,

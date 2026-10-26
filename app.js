@@ -1,6 +1,17 @@
 (function () {
   'use strict';
 
+  if (window.QUEUE_OFFERS_CATALOG && Array.isArray(window.QUEUE_OFFERS_CATALOG.offers) && window.QUEUE_OFFERS_CATALOG.offers.length) {
+    import('./src/queue-catalog-app.mjs')
+      .then(({ initializeQueueCatalog }) => initializeQueueCatalog(window.QUEUE_OFFERS_CATALOG))
+      .catch((error) => {
+        console.error(error);
+        document.getElementById('offers-grid').innerHTML = '<p class="data-error">Не удалось открыть каталог очереди.</p>';
+        document.getElementById('results-count').textContent = 'Каталог недоступен';
+      });
+    return;
+  }
+
   const catalog = window.OFFERS_CATALOG;
   const grid = document.getElementById('offers-grid');
 

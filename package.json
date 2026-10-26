@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
+    "test": "node --test test/catalog-contract.test.mjs test/catalog-filters.test.mjs test/catalog-loader.acceptance.test.mjs test/repository-catalog-publisher.test.mjs test/sender-contract.test.mjs test/static-release-publisher.test.mjs",
     "test:acceptance": "node --test test/catalog-loader.acceptance.test.mjs test/catalog-filters.test.mjs",
+    "test:e2e": "playwright test",
     "validate:examples": "node scripts/validate-examples.mjs",
     "inspect:queue": "node scripts/inspect-queue.mjs"
   },
@@ -12,5 +13,8 @@
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "googleapis": "^188.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
   }
 }

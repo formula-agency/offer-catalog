@@ -29,3 +29,6 @@ node_modules/
 .catalog-loader/
 catalog-loader.env
 .scout-cache/
+test-results/
+playwright-report/
+blob-report/

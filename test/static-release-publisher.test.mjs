@@ -15,7 +15,8 @@ test('failed release verification leaves the previous pointer and receipt active
     verifyRelease: async () => allow
   });
   const base = {
-    offer: { id: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', uploadedVersion: 'v1', project: 'A' },
+    offer: { id: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', project: 'A' },
+    uploadedVersion: 'v1',
     image: { stagedPath, publicPath: 'media/queue/a/image.png' },
     attemptId: 'attempt-1',
     reloadRequestId: null,
@@ -26,7 +27,7 @@ test('failed release verification leaves the previous pointer and receipt active
   const pointerBefore = await readFile(path.join(rootDirectory, '.catalog-loader', 'current.json'), 'utf8');
   allow = false;
   await assert.rejects(
-    publisher.publish({ ...base, offer: { ...base.offer, uploadedVersion: 'v2', project: 'B' }, attemptId: 'attempt-2' }),
+    publisher.publish({ ...base, offer: { ...base.offer, project: 'B' }, uploadedVersion: 'v2', attemptId: 'attempt-2' }),
     (error) => error.code === 'publish_verification_failed'
   );
   const pointerAfter = await readFile(path.join(rootDirectory, '.catalog-loader', 'current.json'), 'utf8');

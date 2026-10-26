@@ -53,6 +53,7 @@ test('public projection excludes service fields and calculation details', () => 
   const output = toPublicOffer(fixture, { imagePath: 'media/a.png', uploadedVersion: version });
   assert.equal(output.source, undefined);
   assert.equal(output.sourceReview, undefined);
+  assert.equal(output.uploadedVersion, undefined);
   assert.equal(output.options[0].bank, undefined);
   assert.equal(output.options[2].calculation, undefined);
   assert.deepEqual(output.options[2].origin, { calculated: true, label: 'Расчётные условия' });
