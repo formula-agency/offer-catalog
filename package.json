@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test test/catalog-contract.test.mjs test/catalog-filters.test.mjs test/catalog-loader.acceptance.test.mjs test/repository-catalog-publisher.test.mjs test/sender-contract.test.mjs test/static-release-publisher.test.mjs",
+    "test": "node --test test/catalog-contract.test.mjs test/catalog-filters.test.mjs test/catalog-loader.acceptance.test.mjs test/google-drive-image-store.test.mjs test/repository-catalog-publisher.test.mjs test/sender-contract.test.mjs test/static-release-publisher.test.mjs",
     "test:acceptance": "node --test test/catalog-loader.acceptance.test.mjs test/catalog-filters.test.mjs",
     "test:e2e": "playwright test",
     "validate:examples": "node scripts/validate-examples.mjs",

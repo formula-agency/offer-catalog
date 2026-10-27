@@ -16,6 +16,29 @@ export function extractDriveFileId(value) {
   return match?.[1] ?? (/^[-\w]{10,}$/.test(String(value)) ? String(value) : null);
 }
 
+export function driveImageErrorInfo(error) {
+  const status = error?.response?.status ?? null;
+  if (status === 401 || status === 403) {
+    return {
+      code: 'image_access_denied',
+      message: 'Нет доступа к файлу изображения в Google Drive.',
+      retryable: false
+    };
+  }
+  if (status === 404) {
+    return {
+      code: 'image_not_found',
+      message: 'Файл изображения не найден или сервисному аккаунту не выдан доступ.',
+      retryable: false
+    };
+  }
+  return {
+    code: 'image_download_failed',
+    message: 'Не удалось получить изображение из Google Drive.',
+    retryable: status == null || status >= 500
+  };
+}
+
 export class GoogleDriveImageStore {
   constructor({ auth, stagingDirectory, maxBytes = 20 * 1024 * 1024 }) {
     this.drive = google.drive({ version: 'v3', auth });
@@ -32,9 +55,8 @@ export class GoogleDriveImageStore {
       metadata = await this.drive.files.get({ fileId, fields: 'id,name,mimeType,size,md5Checksum,version' });
       response = await this.drive.files.get({ fileId, alt: 'media' }, { responseType: 'arraybuffer', timeout: 30_000 });
     } catch (error) {
-      const status = error?.response?.status;
-      const code = status === 401 || status === 403 ? 'image_access_denied' : 'image_download_failed';
-      throw new LoaderError(code, 'Не удалось получить изображение из Google Drive.', { retryable: status >= 500, cause: error });
+      const info = driveImageErrorInfo(error);
+      throw new LoaderError(info.code, info.message, { retryable: info.retryable, cause: error });
     }
 
     const contentType = metadata.data.mimeType ?? response.headers['content-type'];
