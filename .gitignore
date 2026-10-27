@@ -32,3 +32,6 @@ catalog-loader.env
 test-results/
 playwright-report/
 blob-report/
+
+# Локальные ключи сервисных аккаунтов Google.
+Credentials/
