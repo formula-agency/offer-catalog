@@ -104,6 +104,25 @@ test('a new version arriving during image preparation is not lost or overwritten
   assert.equal(current.payloadVersion, computePayloadVersion(changed));
 });
 
+test('new version arriving after publication never receives the old receipt', async () => {
+  const { queue, imageStore } = harness();
+  const publisher = new MemoryCatalogPublisher();
+  const originalPublish = publisher.publish.bind(publisher);
+  const changed = { ...structuredClone(fixture), project: 'ЖК После публикации' };
+  publisher.publish = async (request) => {
+    const receipt = await originalPublish(request);
+    queue.resend(fixture.id, changed);
+    return receipt;
+  };
+  const loader = new CatalogLoader({ queue, publisher, imageStore, attemptId: () => 'late-version-attempt' });
+  const [result] = await loader.runOnce();
+  assert.equal(result.outcome, 'superseded_after_publish');
+  const current = await queue.getRow(fixture.id);
+  assert.equal(current.status, 'ready');
+  assert.equal(current.payloadVersion, computePayloadVersion(changed));
+  assert.notEqual(current.uploadedVersion, current.payloadVersion);
+});
+
 test('status write failure after publication is reconciled without republishing', async () => {
   const { queue, publisher, loader } = harness();
   queue.failNextComplete = true;
@@ -155,6 +174,45 @@ test('parallel loader starts claim one version only once', async () => {
   await Promise.all([makeLoader('parallel-a').runOnce(), makeLoader('parallel-b').runOnce()]);
   assert.equal(publisher.publishCount, 1);
   assert.equal((await queue.getRow(fixture.id)).status, 'uploaded');
+});
+
+test('heartbeat renews a long attempt and a lost lease blocks publication', async () => {
+  const { queue, publisher } = harness();
+  const imageStore = new MemoryImageStore();
+  const originalStage = imageStore.stage.bind(imageStore);
+  imageStore.stage = async (request) => {
+    const image = await originalStage(request);
+    await new Promise((resolve) => setTimeout(resolve, 12));
+    return image;
+  };
+  let heartbeats = 0;
+  const originalHeartbeat = queue.heartbeat.bind(queue);
+  queue.heartbeat = async (request) => {
+    heartbeats += 1;
+    return originalHeartbeat(request);
+  };
+  const loader = new CatalogLoader({ queue, publisher, imageStore, attemptId: () => 'heartbeat-attempt', heartbeatMilliseconds: 2 });
+  const [result] = await loader.runOnce();
+  assert.equal(result.outcome, 'published');
+  assert.ok(heartbeats >= 2);
+
+  const second = { ...structuredClone(fixture), id: 'abababababababababababababababab' };
+  const lostQueue = new MemoryQueueStore([rowFor(second)]);
+  lostQueue.heartbeat = async () => false;
+  const lostPublisher = new MemoryCatalogPublisher();
+  const lostLoader = new CatalogLoader({ queue: lostQueue, publisher: lostPublisher, imageStore: new MemoryImageStore(), attemptId: () => 'lost-attempt', heartbeatMilliseconds: 1 });
+  const [lost] = await lostLoader.runOnce();
+  assert.equal(lost.code, 'attempt_superseded');
+  assert.equal(lostPublisher.publishCount, 0);
+
+  const offlineQueue = new MemoryQueueStore([rowFor({ ...structuredClone(fixture), id: 'cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd' })]);
+  offlineQueue.heartbeat = async () => { throw new Error('offline'); };
+  const offlinePublisher = new MemoryCatalogPublisher();
+  const offlineLoader = new CatalogLoader({ queue: offlineQueue, publisher: offlinePublisher, imageStore: new MemoryImageStore(), attemptId: () => 'offline-attempt', heartbeatMilliseconds: 1 });
+  const [offline] = await offlineLoader.runOnce();
+  assert.equal(offline.code, 'lease_renewal_failed');
+  assert.equal(offline.retryable, true);
+  assert.equal(offlinePublisher.publishCount, 0);
 });
 
 test('A to B to A cannot let the old A attempt finish a newer task', async () => {

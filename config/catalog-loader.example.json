@@ -1,7 +1,10 @@
 {
   "environment": "test",
-  "spreadsheetId": "set-outside-source-control",
-  "sheetName": "Очередь сайта",
+  "queue": {
+    "kind": "pre-catalog-http",
+    "baseUrl": "https://catalog-formula.example.test",
+    "tokenEnvironmentVariable": "CATALOG_LOADER_TOKEN"
+  },
   "timezone": "Asia/Yekaterinburg",
   "catalogBaseUrl": "https://example.test/offer-catalog/",
   "siteRepository": ".",
@@ -11,8 +14,5 @@
   "heartbeatMinutes": 5,
   "requestTimeoutSeconds": 30,
   "automaticRetryMinutes": [1, 5, 15],
-  "publisher": {
-    "kind": "not-configured",
-    "verificationUrl": null
-  }
+  "publisher": { "kind": "static-local-test" }
 }

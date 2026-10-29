@@ -46,6 +46,7 @@ export class CatalogLoader {
     now = () => new Date(),
     attemptId = () => randomUUID(),
     leaseMilliseconds = 30 * 60 * 1000,
+    heartbeatMilliseconds = 5 * 60 * 1000,
     catalogBaseUrl = 'http://localhost/catalog/'
   }) {
     this.queue = queue;
@@ -55,6 +56,7 @@ export class CatalogLoader {
     this.now = now;
     this.attemptId = attemptId;
     this.leaseMilliseconds = leaseMilliseconds;
+    this.heartbeatMilliseconds = heartbeatMilliseconds;
     this.catalogBaseUrl = catalogBaseUrl;
   }
 
@@ -87,7 +89,7 @@ export class CatalogLoader {
 
     if (receiptMatches) {
       await this.queue.reconcilePublished({ row: initialRow, receipt: existingReceipt });
-      return { offerId: initialRow.offerId, outcome: 'reconciled' };
+      return { offerId: initialRow.offerId, payloadVersion: initialRow.payloadVersion, reloadRequestId: initialRow.reloadRequestId ?? null, outcome: 'reconciled' };
     }
 
     if (initialRow.status !== 'ready') {
@@ -106,6 +108,32 @@ export class CatalogLoader {
     if (!claimed) return { offerId: initialRow.offerId, outcome: 'lost_claim' };
 
     let stagedImage = null;
+    let heartbeatTimer = null;
+    let leaseLost = false;
+    let heartbeatPending = Promise.resolve();
+    const renewLease = async ({ strict = false } = {}) => {
+      try {
+        const applied = await this.queue.heartbeat?.({
+          offerId: claimed.offerId,
+          payloadVersion: claimed.payloadVersion,
+          attemptId,
+          heartbeatAt: this.now().toISOString()
+        });
+        if (applied === false) leaseLost = true;
+      } catch (error) {
+        if (strict) {
+          throw new LoaderError('lease_renewal_failed', 'Не удалось подтвердить аренду попытки перед публикацией.', { retryable: true, cause: error });
+        }
+        // A periodic heartbeat may recover on its next tick. Publication still
+        // requires one successful synchronous renewal immediately beforehand.
+      }
+    };
+    if (this.queue.heartbeat && this.heartbeatMilliseconds > 0) {
+      heartbeatTimer = setInterval(() => {
+        heartbeatPending = heartbeatPending.then(renewLease);
+      }, this.heartbeatMilliseconds);
+      heartbeatTimer.unref?.();
+    }
     try {
       const offer = normalizeOfferPayload(claimed.payloadJson);
       if (claimed.offerId !== offer.id) {
@@ -125,6 +153,12 @@ export class CatalogLoader {
         imageRevision: offer.imageRevision,
         attemptId
       });
+
+      await heartbeatPending;
+      await renewLease({ strict: true });
+      if (leaseLost) {
+        throw new LoaderError('attempt_superseded', 'Аренда попытки утрачена до публикации; снимок не опубликован.');
+      }
 
       const receipt = await this.publicationLock.runExclusive(async () => {
         const current = await this.queue.getRow(offer.id);
@@ -147,24 +181,35 @@ export class CatalogLoader {
         });
       });
 
-      await this.queue.complete({
+      const completed = await this.queue.complete({
         offerId: offer.id,
         payloadVersion: claimed.payloadVersion,
         attemptId,
         receipt
       });
       await this.imageStore.commit?.(stagedImage);
-      return { offerId: offer.id, outcome: 'published', receipt };
+      if (completed === false) {
+        return { offerId: offer.id, payloadVersion: claimed.payloadVersion, reloadRequestId: claimed.reloadRequestId ?? null, outcome: 'superseded_after_publish', receipt };
+      }
+      return { offerId: offer.id, payloadVersion: claimed.payloadVersion, reloadRequestId: claimed.reloadRequestId ?? null, outcome: 'published', receipt };
     } catch (error) {
       await this.imageStore.discard?.(stagedImage);
       const info = errorInfo(error);
-      await this.queue.fail({
-        offerId: claimed.offerId,
-        payloadVersion: claimed.payloadVersion,
-        attemptId,
-        error: info
-      });
-      return { offerId: claimed.offerId, outcome: 'error', ...info };
+      let statusWriteFailed = false;
+      try {
+        await this.queue.fail({
+          offerId: claimed.offerId,
+          payloadVersion: claimed.payloadVersion,
+          attemptId,
+          error: info
+        });
+      } catch {
+        statusWriteFailed = true;
+      }
+      return { offerId: claimed.offerId, payloadVersion: claimed.payloadVersion, reloadRequestId: claimed.reloadRequestId ?? null, outcome: 'error', statusWriteFailed, ...info };
+    } finally {
+      if (heartbeatTimer) clearInterval(heartbeatTimer);
+      await heartbeatPending;
     }
   }
 }
@@ -204,6 +249,23 @@ export class MemoryQueueStore {
     row.uploadAttemptId = null;
     row.uploadStartedAt = null;
     row.completedReloadRequestId = receipt.completedReloadRequestId ?? row.completedReloadRequestId ?? null;
+    return true;
+  }
+
+  async heartbeat({ offerId, payloadVersion, attemptId, heartbeatAt }) {
+    const row = this.rows.find((candidate) => candidate.offerId === offerId);
+    if (!row || row.status !== 'uploading' || row.payloadVersion !== payloadVersion || row.uploadAttemptId !== attemptId) return false;
+    row.uploadStartedAt = heartbeatAt;
+    return true;
+  }
+
+  async retry({ offerId, payloadVersion, reloadRequestId }) {
+    const row = this.rows.find((candidate) => candidate.offerId === offerId);
+    if (!row || row.status !== 'error' || row.payloadVersion !== payloadVersion || (row.reloadRequestId ?? null) !== (reloadRequestId ?? null)) return false;
+    row.status = 'ready';
+    row.uploadError = null;
+    row.uploadAttemptId = null;
+    row.uploadStartedAt = null;
     return true;
   }
 
