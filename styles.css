@@ -261,6 +261,16 @@ h1 {
   box-shadow: var(--shadow-sm);
 }
 
+@media (min-width: 781px) {
+  .is-direct-catalog .filters {
+    max-height: var(--filter-available-height, calc(100dvh - 40px));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+}
+
 .filters-heading,
 .filters-mobile-head {
   display: flex;
@@ -1933,3 +1943,89 @@ h1 {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Structured direct-import offers use the existing catalog shell. */
+.direct-filters h3 { margin: 0 0 14px; font-size: 14px; }
+.is-direct-catalog .modal-dialog { width:min(1180px,calc(100vw - 32px));height:calc(100dvh - 40px);max-height:940px;grid-template-columns:minmax(0,1fr) minmax(390px,460px);grid-template-rows:minmax(0,1fr); }
+.is-direct-catalog .modal-preview { height:100%;min-height:0;padding:24px 45px; }
+.is-direct-catalog .modal-preview img { width:100%;height:100%;min-height:0;max-height:100%;object-fit:contain;box-shadow:none; }
+.is-direct-catalog .modal-details { padding:56px 26px 24px;max-height:none;min-height:0; }
+.is-direct-catalog .modal-details h2 { font-size:25px;margin:12px 0 6px; }
+.is-direct-catalog .modal-offer-title { margin:0 0 5px;font-size:14px; }
+.is-direct-catalog .modal-district { margin:0 0 18px;font-size:12px; }
+.is-direct-catalog .modal-badges .room-badge { display:none; }
+.purchase-summary { display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#f6f2fb;border:1px solid #eee7f5;border-radius:18px;padding:18px;margin:0 0 10px; }
+.purchase-metric { display:grid;gap:6px;min-width:0; }
+.purchase-metric:first-child { grid-column:1/-1;padding-bottom:12px;border-bottom:1px solid #e6ddef; }
+.purchase-metric span { color:#81708d;font-size:12px; }
+.purchase-metric strong { font-size:19px;color:#29164e;overflow-wrap:anywhere; }
+.purchase-metric:first-child strong { font-size:30px;letter-spacing:-1px; }
+.calculation-note,.payment-period-note { font-size:12px;line-height:1.5;color:#74627f;margin:8px 0 18px; }
+.payment-period-note { color:#65477b;background:#f5effa;padding:10px;border-radius:10px; }
+.purchase-scenarios h3 { font-size:14px;margin:20px 0 10px; }
+.scenario-choices { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px; }
+.scenario-programs { display:flex;gap:4px;padding:4px;background:#f4f0f8;border-radius:12px;margin:0 0 12px; }
+.scenario-program { flex:1;border:0;padding:10px 6px;border-radius:9px;background:transparent;font:inherit;font-size:11px;font-weight:600;color:#83718e;cursor:pointer; }
+.scenario-program[aria-pressed="true"] { color:#5e3487;background:white;box-shadow:0 2px 8px #38204c12; }
+.scenario-program:disabled { opacity:.35;cursor:default; }
+.scenario-choice { display:grid;gap:4px;text-align:left;padding:11px 12px;border:1px solid #e7e0ee;border-radius:12px;background:white;color:#493456;cursor:pointer;font:inherit; }
+.scenario-choice strong { font-size:12px; }.scenario-choice span,.scenario-choice small { font-size:11px; }
+.scenario-choice[aria-pressed="true"] { border-color:#7e50ac;background:#f2eafa;box-shadow:0 0 0 1px #7e50ac; }
+.scenario-choice:disabled { opacity:.4;cursor:default; }
+.scenario-choice:focus-visible,.card-action:focus-visible { outline:3px solid #ffad70;outline-offset:3px; }
+.card-disclosure { border-top:1px solid #eee6f3;padding:14px 0; }
+.card-disclosure summary { cursor:pointer;font-size:13px;font-weight:600;color:#443052; }
+.comparison-caption { font-size:11px;line-height:1.6;color:#83728e;margin:12px 0; }
+.mortgage-comparison { width:100%;border-collapse:collapse;font-size:11px;margin:14px 0;table-layout:fixed; }
+.mortgage-comparison th,.mortgage-comparison td { padding:9px 5px;text-align:right;border-bottom:1px solid #eee7f4;overflow-wrap:anywhere; }
+.mortgage-comparison th:first-child { text-align:left;font-weight:400;color:#82718d;width:27%; }
+.mortgage-comparison thead th { color:#644c75;font-size:10px; }
+.mortgage-comparison td:nth-child(2) { color:#633b91;font-weight:700;background:#f7f2fb; }
+.card-actions { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px; }
+.card-action { padding:13px 9px;border:0;border-radius:12px;font:inherit;font-weight:600;font-size:12px;cursor:pointer; }
+.card-action.compare { background:#ece4f5;color:#603b85; }.card-action.selection { background:#f08031;color:#fff; }
+@media(max-width:800px) {
+ .is-direct-catalog .modal-dialog { display:block;width:calc(100vw - 20px);height:calc(100dvh - 20px);max-height:none;overflow-y:auto; }
+ .is-direct-catalog .modal-preview { height:48dvh;min-height:220px;padding:18px 42px; }
+ .is-direct-catalog .modal-details { overflow:visible;padding:22px; }
+ .purchase-metric:first-child strong { font-size:28px; }
+}
+.direct-advanced summary { cursor:pointer; font-size:13px; font-weight:600; padding:10px 0 16px; }
+.direct-filter, .direct-option-label { display: grid; gap: 7px; margin-bottom: 14px; font-size: 13px; }
+.direct-filter select, .direct-option-label select, .direct-range input { width: 100%; min-width: 0; min-height: 42px; border: 1px solid #ddd5e8; border-radius: 10px; background: white; padding: 9px; color: #271755; font: inherit; }
+.direct-range { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; margin: 0 0 14px; border: 0; }
+.direct-range legend { margin-bottom: 7px; font-size: 13px; }
+.direct-snapshot-note { padding: 12px 16px; background: #f0ebf8; border-radius: 12px; color: #5e4d75; font-size: 13px; line-height: 1.5; }
+.direct-card-details { margin: 12px 0; font-size: 12px; }
+.direct-card-details > div { display: flex; justify-content: space-between; gap: 8px; margin: 7px 0; }
+.direct-card-details strong { text-align: right; }
+.direct-age { color: #796887; font-size: 11px; line-height: 1.5; }
+.direct-facts { margin: 16px 0; }
+.direct-facts > div { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #eee8f3; font-size: 13px; }
+.direct-facts dt { color: #796887; }
+.direct-facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.direct-status { color: #8d481f; padding: 10px 12px; background: #fff4e9; border-radius: 10px; font-size: 13px; }
+.direct-conditions { padding-left: 20px; font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.direct-modal-options { min-width: 0; }
+.direct-export-result { display: block; margin: 14px 0; color: #4c2b91; }
+.direct-option-label select { white-space: normal; }
+.download-button[role="button"] { cursor: pointer; }
+.is-direct-catalog [hidden] { display:none !important; }
+.is-direct-catalog .status-toggle-button,.is-direct-catalog #modal-status-toggle { display:none; }
+.promotions-panel { margin-bottom:24px; }
+.period-heading { margin:0 0 12px;font-size:18px;color:#271755; }
+.direct-periods .period-heading { font-size:14px; }
+.period-chips { display:grid;gap:7px; }
+.period-chips .promotion-chip { text-align:left;border-radius:12px;padding:11px 12px;font-size:12px; }
+.promotions-heading { display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:12px; }
+.promotions-heading h2 { margin:0;font-size:18px;color:#271755; }
+.promotions-heading span { font-size:12px;color:#82768d; }
+.promotion-chips { display:flex;gap:8px;flex-wrap:wrap; }
+.promotion-chip { padding:11px 15px;border:1px solid #e2dbe9;border-radius:999px;background:#fff;color:#655572;font:inherit;font-size:13px;cursor:pointer; }
+.promotion-chip:hover { border-color:#aa91c4;background:#faf7ff; }
+.promotion-chip:disabled { opacity:.5;cursor:default; }
+.promotion-chip[aria-pressed="true"] { background:#271755;color:#fff;border-color:#271755; }
+.promotion-chip:focus-visible { outline:3px solid #ffac76;outline-offset:3px; }
+.direct-image-filter { display:flex;align-items:center;gap:8px;font-size:13px; }
+@media (max-width:600px) { .promotion-chips { gap:6px; } .promotion-chip { padding:9px 12px; } }
+@media (max-width: 600px) { .direct-card-details { font-size: 11px; } .direct-card-details > div { flex-direction: column; gap: 2px; } .direct-card-details strong { text-align: left; } }

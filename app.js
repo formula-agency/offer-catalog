@@ -1,11 +1,12 @@
 (function () {
   'use strict';
 
-  const catalog = window.OFFERS_CATALOG;
+  const catalog = window.DIRECT_OFFERS_CATALOG || window.OFFERS_CATALOG;
+  const direct = catalog?.mode === 'direct' ? window.DirectCatalogUI : null;
   const grid = document.getElementById('offers-grid');
 
   if (!catalog || !Array.isArray(catalog.offers)) {
-    grid.innerHTML = '<p class="data-error">Не удалось загрузить данные каталога. Запустите файл «Обновить каталог.cmd» и обновите страницу.</p>';
+    grid.innerHTML = '<p class="data-error">Не удалось загрузить данные каталога. Запустите файл «Обновить локальный каталог.cmd» и обновите страницу.</p>';
     document.getElementById('results-count').textContent = 'Каталог недоступен';
     return;
   }
@@ -25,7 +26,7 @@
     'Застройщик платит ипотеку за клиента': '#81489b',
     'Траншевая ипотека': '#6f3fa8'
   };
-  const TYPE_ORDER = [
+  const TYPE_ORDER = direct ? window.DirectCatalog.TYPE_ORDER : [
     'NEW',
     'ПВ 0% (семейка)',
     'ЧПВ + семейка',
@@ -53,7 +54,7 @@
     room: new Set(),
     district: new Set(),
     complex: new Set(),
-    sort: 'complex',
+    sort: direct ? 'recent' : 'complex',
     statusView: 'active'
   };
 
@@ -110,6 +111,7 @@
     .trim();
 
   const offers = catalog.offers.map((offer) => {
+    if(direct)offer=window.DirectCatalog.enrich(offer,catalog.mortgageTerms);
     const types = Array.isArray(offer.types) && offer.types.length
       ? [...new Set(offer.types)]
       : [offer.type];
@@ -539,6 +541,7 @@
   }
 
   function isInactive(offer) {
+    if(direct)return false;
     return inactiveOfferIds.has(offer.id);
   }
 
@@ -553,9 +556,10 @@
     type: ['NEW', ...new Set(offers.flatMap((offer) => offer.types))]
       .sort((a, b) => TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b)),
     room: [...new Set(offers.map((offer) => offer.roomCode))]
+      .filter(value=>!direct || value!=='other')
       .sort((a, b) => ROOM_ORDER.indexOf(a) - ROOM_ORDER.indexOf(b)),
     district: uniqueSorted('district'),
-    complex: uniqueSorted('complex')
+    complex: uniqueSorted('complex').filter(value=>!direct || value!=='ЖК не определён')
   };
 
   function plural(number, forms) {
@@ -568,6 +572,7 @@
   }
 
   function complexTitle(name) {
+    if(direct && name==='ЖК не определён')return 'Квартира в новостройке';
     return /^ЖК\s/i.test(name) ? name : `ЖК ${name}`;
   }
 
@@ -575,13 +580,15 @@
     return type === 'NEW' ? isNewOffer(offer) : offer.types.includes(type);
   }
 
-  function matchesSelectedTypes(offer, selectedTypes = state.type) {
+  function matchesSelectedTypes(offer, selectedTypes = state.type, directFilters = direct?.currentFilters()) {
+    if (direct) return (!selectedTypes.has('NEW') || isNewOffer(offer)) &&
+      window.DirectCatalog.matchingOptions(offer, {...directFilters, types:selectedTypes}).length > 0;
     return [...selectedTypes].every((type) => offerMatchesType(offer, type));
   }
 
-  function matchesFilters(offer, except) {
+  function matchesFilters(offer, except, directFilters) {
     if (state.search && !offer.searchText.includes(normalize(state.search))) return false;
-    if (except !== 'type' && state.type.size && !matchesSelectedTypes(offer)) return false;
+    if (except !== 'type' && (direct || state.type.size) && !matchesSelectedTypes(offer,state.type,directFilters)) return false;
     if (except !== 'room' && state.room.size && !state.room.has(offer.roomCode)) return false;
     if (except !== 'district' && state.district.size && !state.district.has(offer.district)) return false;
     if (except !== 'complex' && state.complex.size && !state.complex.has(offer.complex)) return false;
@@ -591,10 +598,9 @@
   function getOptionCount(filter, value) {
     const offerKey = filter === 'room' ? 'roomCode' : filter;
     return offers.reduce((count, offer) => {
-      const selectedTypes = new Set(state.type);
-      selectedTypes.add(value);
-      const hasValue = filter === 'type' ? matchesSelectedTypes(offer, selectedTypes) : offer[offerKey] === value;
-      return count + (isInCurrentStatusView(offer) && matchesFilters(offer, filter) && hasValue ? 1 : 0);
+      let hasValue = offer[offerKey] === value;
+      if(filter==='type') {const selectedTypes=new Set(state.type);selectedTypes.add(value);hasValue=matchesSelectedTypes(offer,selectedTypes);}
+      return count + (hasValue && isInCurrentStatusView(offer) && matchesFilters(offer, filter) ? 1 : 0);
     }, 0);
   }
 
@@ -602,6 +608,11 @@
     const roomRank = (offer) => ROOM_ORDER.indexOf(offer.roomCode);
     return [...items].sort((a, b) => {
       let result = 0;
+      if(state.sort==='recent')result=(b.publishedAt || '').localeCompare(a.publishedAt || '');
+      if(direct && ['payment','down','area'].includes(state.sort)) {
+        const amount=o=>state.sort==='area'?o.areaSqm:(state.sort==='payment'?direct.option(o)?.payment?.value:direct.option(o)?.downPayment?.value);
+        result=(amount(a) ?? Infinity)-(amount(b) ?? Infinity);
+      }
       if (state.sort === 'district') result = a.district.localeCompare(b.district, 'ru');
       if (state.sort === 'room') result = roomRank(a) - roomRank(b);
       if (state.sort === 'type') result = TYPE_ORDER.indexOf(a.type) - TYPE_ORDER.indexOf(b.type);
@@ -718,6 +729,7 @@
   }
 
   function createOfferCard(offer, index) {
+    const viewTitle = direct ? window.DirectCatalog.description(offer, direct.option(offer)) : offer.title;
     const card = document.createElement('article');
     card.className = 'offer-card';
     card.dataset.offerId = offer.id;
@@ -728,11 +740,11 @@
     preview.type = 'button';
     preview.className = 'offer-preview';
     preview.dataset.openOffer = offer.id;
-    preview.setAttribute('aria-label', `Открыть оффер: ${complexTitle(offer.complex)}, ${offer.title}`);
+    preview.setAttribute('aria-label', `Открыть оффер: ${complexTitle(offer.complex)}, ${viewTitle}`);
 
     const image = document.createElement('img');
-    image.src = offer.path;
-    image.alt = `${complexTitle(offer.complex)} — ${offer.room}, ${offer.title}`;
+    image.src = direct ? direct.imagePath(offer) : offer.path;
+    image.alt = `${complexTitle(offer.complex)} — ${offer.room}, ${viewTitle}`;
     image.loading = index < 8 ? 'eager' : 'lazy';
     if (index < 4) image.fetchPriority = 'high';
     image.decoding = 'async';
@@ -745,7 +757,7 @@
     const badge = document.createElement('span');
     badge.className = 'type-badge';
     const visibleType = TYPE_ORDER.find((type) => state.type.has(type) && offer.types.includes(type)) || offer.type;
-    badge.textContent = visibleType;
+    badge.textContent = direct && visibleType==='Другие условия'?'Квартира':visibleType;
     badge.style.setProperty('--type-color', TYPE_COLORS[visibleType] || '#4c2b91');
 
     const newBadge = document.createElement('span');
@@ -772,7 +784,7 @@
     const district = document.createElement('span');
     district.className = 'card-district';
     district.title = offer.district;
-    district.textContent = offer.district;
+    district.textContent = direct && offer.district==='Район не указан'?'':offer.district;
     meta.append(room, district);
 
     const heading = document.createElement('h2');
@@ -780,7 +792,7 @@
     heading.title = complexTitle(offer.complex);
     const offerName = document.createElement('p');
     offerName.className = 'offer-name';
-    offerName.textContent = offer.title;
+    offerName.textContent = viewTitle;
 
     const download = document.createElement('a');
     download.className = 'download-button';
@@ -788,7 +800,15 @@
     download.download = offer.fileName;
     download.append(svg('M12 3v12m0 0 4-4m-4 4-4-4M5 20h14'));
     download.append(document.createTextNode('Скачать оффер'));
-    download.setAttribute('aria-label', `Скачать оффер ${complexTitle(offer.complex)}: ${offer.title}`);
+    download.setAttribute('aria-label', `Скачать оффер ${complexTitle(offer.complex)}: ${viewTitle}`);
+    if (direct) {
+      download.removeAttribute('href'); download.removeAttribute('download');
+      download.setAttribute('role', 'button'); download.tabIndex = 0;
+      download.textContent='Подробнее';download.setAttribute('aria-label',`Условия покупки ${complexTitle(offer.complex)}: ${viewTitle}`);
+      const exportCard = event => { event.preventDefault(); openModal(offer.id, download); };
+      download.addEventListener('click', exportCard);
+      download.addEventListener('keydown', event => { if (['Enter', ' '].includes(event.key)) exportCard(event); });
+    }
 
     const statusToggle = document.createElement('button');
     statusToggle.type = 'button';
@@ -805,6 +825,7 @@
     actions.append(download, statusToggle);
 
     body.append(meta, heading, offerName);
+    if (direct) body.append(direct.cardDetails(offer));
     body.append(actions);
     card.append(preview, body);
     return card;
@@ -826,6 +847,7 @@
 
   function renderActiveFilters() {
     elements.activeFilters.replaceChildren();
+    direct?.renderActiveFilters(elements.activeFilters,()=>{visibleCount=PAGE_SIZE;renderAll();});
     const groups = [
       ['type', state.type, (value) => value],
       ['room', state.room, (value) => offers.find((offer) => offer.roomCode === value)?.room || value],
@@ -851,7 +873,7 @@
   }
 
   function selectedFilterCount() {
-    return state.type.size + state.room.size + state.district.size + state.complex.size;
+    return state.type.size + state.room.size + state.district.size + state.complex.size + (direct?.activeCount() || 0);
   }
 
   function hasAnyFilters() {
@@ -900,7 +922,8 @@
 
   function renderAll() {
     filteredOffers = sortOffers(offers.filter((offer) => isInCurrentStatusView(offer) && matchesFilters(offer)));
-    renderTypeOptions();
+    direct?.refreshFilters(filters=>offers.reduce((n,offer)=>n+(isInCurrentStatusView(offer)&&matchesFilters(offer,undefined,filters)?1:0),0));
+    if(!direct)renderTypeOptions();
     renderRoomOptions();
     renderDropdown('district');
     renderDropdown('complex');
@@ -937,6 +960,7 @@
   }
 
   function resetFilters() {
+    direct?.reset();
     state.search = '';
     state.type.clear();
     state.room.clear();
@@ -979,7 +1003,7 @@
     const offer = filteredOffers.find((item) => item.id === modalOfferId);
     if (!offer) return;
 
-    elements.modalImage.src = offer.path;
+    elements.modalImage.src = direct ? direct.imagePath(offer) : offer.path;
     elements.modalImage.alt = `${complexTitle(offer.complex)} — ${offer.room}, ${offer.title}`;
     const visibleType = TYPE_ORDER.find((type) => state.type.has(type) && offer.types.includes(type)) || offer.type;
     elements.modalType.textContent = visibleType;
@@ -995,6 +1019,7 @@
     elements.modalStatusToggle.dataset.toggleOfferStatus = offer.id;
     elements.modalDownload.href = offer.path;
     elements.modalDownload.download = offer.fileName;
+    if (direct) direct.renderModal(offer, updateModal);
 
     const disableNavigation = filteredOffers.length < 2;
     elements.modalPrev.hidden = disableNavigation;
@@ -1144,9 +1169,9 @@
   });
 
   function renderCatalogMeta() {
-    const activeOffers = offers.filter((offer) => !isInactive(offer));
+    const activeOffers = offers.filter((offer) => !isInactive(offer) && (!direct || window.DirectCatalog.matchesPeriod(offer,'twoMonths',direct.currentFilters().asOf)));
     const total = activeOffers.length;
-    const complexes = new Set(activeOffers.map((offer) => offer.complex)).size;
+    const complexes = new Set(activeOffers.filter(offer=>!direct || offer.complex!=='ЖК не определён').map((offer) => offer.complex)).size;
     document.getElementById('offers-total').textContent = total;
     document.getElementById('complexes-total').textContent = complexes;
     if (catalog.updatedAt) {
@@ -1158,6 +1183,7 @@
     }
   }
 
+  if (direct) direct.attachControls(() => { visibleCount = PAGE_SIZE; renderAll(); if (modalOfferId) updateModal(); }, () => state.type);
   renderAll();
   scheduleNewBadgeRefresh();
 }());

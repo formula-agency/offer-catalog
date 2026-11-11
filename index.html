@@ -128,6 +128,10 @@
               <label class="sort-control">
                 <span>Сортировка:</span>
                 <select id="sort-select" aria-label="Сортировка офферов">
+                  <option value="recent">сначала новые</option>
+                  <option value="payment">по платежу</option>
+                  <option value="down">по взносу</option>
+                  <option value="area">по площади</option>
                   <option value="complex">по ЖК</option>
                   <option value="district">по району</option>
                   <option value="room">по комнатности</option>
@@ -204,7 +208,11 @@
   <noscript>
     <div class="noscript-message">Для работы фильтров необходимо включить JavaScript в браузере.</div>
   </noscript>
-  <script src="offers-data.js?v=20261016-2"></script>
+  <script src="direct-offers-data.js"></script>
+  <script src="direct-restyled-data.js"></script>
+  <script src="direct-catalog-core.js"></script>
+  <script src="direct-card-template.js"></script>
+  <script src="direct-catalog-ui.js"></script>
   <script src="app.js?v=20261016-1"></script>
 </body>
 </html>
