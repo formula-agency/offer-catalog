@@ -276,6 +276,7 @@
   function renderModal(offer,onChange) {
     const panel=document.getElementById('direct-modal-options');
     const scoutOpen=panel.dataset.offerId===offer.id && panel.querySelector('.scout-comparison')?.open;
+    const baseOpen=panel.dataset.offerId===offer.id && panel.querySelector('.comparison-block')?.open;
     panel.replaceChildren();
     const p=option(offer);if(!p)return;
     panel.dataset.offerId=offer.id;panel.dataset.optionId=p.id;
@@ -286,6 +287,8 @@
     if(p.stages?.length) {const stages=el('p',p.stages.join(' · '),'payment-period-note');panel.append(stages);}
     document.getElementById('modal-district').hidden=true;
     choose(offer,panel,onChange);
+    renderComparison(offer,p,panel,onChange);
+    if(baseOpen)panel.querySelector('.comparison-block').open=true;
     renderScoutComparison(offer,p,panel);
     if(scoutOpen)panel.querySelector('.scout-comparison').open=true;
     const extra=el('details',null,'card-disclosure');extra.append(el('summary','Дополнительная информация'));
