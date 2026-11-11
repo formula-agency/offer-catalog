@@ -5,6 +5,7 @@
   const filters = {};
   const selected = new Map();
   const comparisonChildren=new Map();
+  const scoutSelected=new Map();
   let readTypes = () => new Set();
   const dateFormatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Yekaterinburg',year:'numeric',month:'2-digit',day:'2-digit'});
   const today = () => dateFormatter.format(new Date());
@@ -231,8 +232,51 @@
     } else block.append(el('p',!(p.price || offer.price)?.value?'В исходном оффере нет цены квартиры. Без неё нельзя рассчитать полные базовые условия.':'Для выбранной программы и срока подтверждённого базового расчёта нет.','comparison-caption'));
     panel.append(block);
   }
+  function renderScoutComparison(offer,p,panel) {
+    const S=window.DirectScout,snapshot=window.DIRECT_SCOUT_INVENTORY;
+    const block=el('details',null,'card-disclosure scout-comparison');
+    const result=S?.similar(offer,snapshot,today()) || {status:'unavailable',rows:[]};
+    block.append(el('summary',`Сравнить с квартирами в этом ЖК${result.rows.length?` · ${result.rows.length}`:''}`));
+    panel.append(block);
+    if(result.status!=='ready') {
+      const message={unavailable:'Данные Scout сейчас недоступны.',unmatched:'Этот ЖК пока не сопоставлен с официальной экспозицией Scout.',no_area:'В оффере не указана площадь для подбора аналогов.',empty:'В официальной экспозиции Scout нет квартир этого ЖК с площадью в пределах ±3 м².'}[result.status];
+      block.append(el('p',message,'comparison-caption'));return;
+    }
+    const date=value=>value?value.slice(0,10).split('-').reverse().join('.'):null;
+    block.append(el('p',`${result.project} · площадь ${(offer.areaSqm-3).toLocaleString('ru-RU')}–${(offer.areaSqm+3).toLocaleString('ru-RU')} м². Scout · официальные источники застройщиков · получено ${date(snapshot.fetchedAt)}.`,'comparison-caption'));
+    const label=el('label',null,'direct-filter'),select=el('select');
+    label.append(el('span','Квартира для сравнения'));select.setAttribute('aria-label','Квартира Scout для сравнения');
+    for(const row of result.rows){
+      const caption=[`${row.area.toLocaleString('ru-RU')} м²`,row.rooms?`${row.rooms} комн.`:null,D.money({value:row.price}),row.floor?`этаж ${row.floor}`:null,row.number?`№ ${row.number}`:null,row.house].filter(Boolean).join(' · ');
+      const node=el('option',caption);node.value=row.id;select.append(node);
+    }
+    select.value=result.rows.some(r=>r.id===scoutSelected.get(offer.id))?scoutSelected.get(offer.id):result.rows[0].id;
+    label.append(select);block.append(label);
+    const content=el('div');block.append(content);
+    const draw=()=>{
+      const row=result.rows.find(r=>r.id===select.value);scoutSelected.set(offer.id,row.id);content.replaceChildren();
+      const {base:b,delta}=S.scenario(D,offer,p,row,window.DIRECT_OFFERS_CATALOG.mortgageTerms);
+      if(delta!=null)content.append(el('p',delta===0?'Цена совпадает с оффером.':`Квартира Scout ${delta>0?'дороже':'дешевле'} оффера на ${D.money({value:Math.abs(delta)})}.`,'scout-price-delta'));
+      const table=el('table',null,'mortgage-comparison'),head=el('thead'),header=el('tr');
+      for(const title of ['','Этот оффер','Квартира Scout'])header.append(el('th',title));head.append(header);table.append(head);
+      const body=el('tbody');
+      for(const [name,a,v] of [['Площадь',`${offer.areaSqm.toLocaleString('ru-RU')} м²`,`${row.area.toLocaleString('ru-RU')} м²`],['Цена',D.money(p.price || offer.price),D.money({value:row.price})],['Платёж / мес.',D.money(p.payment),b?D.money(b.payment):'Нет расчёта'],['ПВ клиента',D.money(p.downPayment),b?D.money(b.downPayment):'Нет расчёта'],['Ставка',p.rate!=null?`${p.rate}%`:'Не указана',b?`${b.rate}%`:'Нет расчёта'],['Срок кредита',p.termYears?`${p.termYears} лет`:'Не указан',b?`${b.termYears} лет`:'Нет расчёта']]){
+        const tr=el('tr');tr.append(el('th',name),el('td',a),el('td',v));body.append(tr);
+      }
+      table.append(body);content.append(table);
+      if(b){
+        content.append(el('p',`${b.program}${b.childrenCount?` · ${b.childrenCount===5?'5+':b.childrenCount} ${b.childrenCount===1?'ребёнок':'детей'}`:''} · Сбер. Тот же ПВ клиента. ${b.paymentPeriod}. Расчёт на ${date(window.DIRECT_OFFERS_CATALOG.mortgageTerms.generatedAt)}; акционные условия оффера на соседнюю квартиру не переносятся.`,'comparison-caption'));
+        if(b.calculation.outsideBaseLimits)content.append(el('p','При выбранном ПВ расчёт выходит за базовые ограничения банка. Доступность этих условий требует уточнения.','comparison-caption'));
+      }else content.append(el('p','Для этой квартиры при выбранной программе и ПВ полный расчёт недоступен.','comparison-caption'));
+      content.append(el('p',`Цена в Scout обновлена: ${date(row.updatedAt) || 'дата не указана'}.`,'comparison-caption'));
+      const url=S.safeUrl(row.url);if(url){const a=el('a','Открыть квартиру у застройщика','scout-source-link');a.href=url;a.target='_blank';a.rel='noopener noreferrer';content.append(a);}
+    };
+    select.addEventListener('change',draw);draw();
+  }
   function renderModal(offer,onChange) {
-    const panel=document.getElementById('direct-modal-options');panel.replaceChildren();
+    const panel=document.getElementById('direct-modal-options');
+    const scoutOpen=panel.dataset.offerId===offer.id && panel.querySelector('.scout-comparison')?.open;
+    panel.replaceChildren();
     const p=option(offer);if(!p)return;
     panel.dataset.offerId=offer.id;panel.dataset.optionId=p.id;
     const model=D.model(offer,p,today());
@@ -242,7 +286,8 @@
     if(p.stages?.length) {const stages=el('p',p.stages.join(' · '),'payment-period-note');panel.append(stages);}
     document.getElementById('modal-district').hidden=true;
     choose(offer,panel,onChange);
-    renderComparison(offer,p,panel,onChange);
+    renderScoutComparison(offer,p,panel);
+    if(scoutOpen)panel.querySelector('.scout-comparison').open=true;
     const extra=el('details',null,'card-disclosure');extra.append(el('summary','Дополнительная информация'));
     const facts=el('dl',null,'direct-facts');
     const sourceLinks=[...new Set((offer.sourceLinks || []).map(D.sourceMessageUrl).filter(Boolean))];

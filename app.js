@@ -967,7 +967,7 @@
     state.district.clear();
     state.complex.clear();
     visibleCount = PAGE_SIZE;
-    elements.search.value = '';
+    if(elements.search)elements.search.value = '';
     document.querySelectorAll('.dropdown-search input').forEach((input) => { input.value = ''; });
     renderAll();
   }
@@ -1088,7 +1088,7 @@
     searchInput.addEventListener('input', () => renderDropdown(filter));
   });
 
-  elements.search.addEventListener('input', () => {
+  elements.search?.addEventListener('input', () => {
     state.search = elements.search.value;
     visibleCount = PAGE_SIZE;
     renderAll();
@@ -1151,7 +1151,7 @@
 
   document.addEventListener('click', () => closeDropdowns());
   document.addEventListener('keydown', (event) => {
-    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+    if (elements.search && (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
       event.preventDefault();
       elements.search.focus();
       elements.search.select();

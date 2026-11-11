@@ -1976,6 +1976,9 @@ h1 {
 .card-disclosure { border-top:1px solid #eee6f3;padding:14px 0; }
 .card-disclosure summary { cursor:pointer;font-size:13px;font-weight:600;color:#443052; }
 .comparison-caption { font-size:11px;line-height:1.6;color:#83728e;margin:12px 0; }
+.scout-comparison .direct-filter { margin-top:12px; }
+.scout-comparison select { max-width:100%;text-overflow:ellipsis; }
+.scout-price-delta { font-size:13px;font-weight:700;color:#603b85;line-height:1.5; }
 .mortgage-comparison { width:100%;border-collapse:collapse;font-size:11px;margin:14px 0;table-layout:fixed; }
 .mortgage-comparison th,.mortgage-comparison td { padding:9px 5px;text-align:right;border-bottom:1px solid #eee7f4;overflow-wrap:anywhere; }
 .mortgage-comparison th:first-child { text-align:left;font-weight:400;color:#82718d;width:27%; }
@@ -1995,6 +1998,14 @@ h1 {
 .direct-filter select, .direct-option-label select, .direct-range input { width: 100%; min-width: 0; min-height: 42px; border: 1px solid #ddd5e8; border-radius: 10px; background: white; padding: 9px; color: #271755; font: inherit; }
 .direct-range { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; margin: 0 0 14px; border: 0; }
 .direct-range legend { margin-bottom: 7px; font-size: 13px; }
+.is-direct-catalog .filters .filter-section h3,
+.is-direct-catalog .filters .filter-section legend,
+.is-direct-catalog .filters .filter-label,
+.is-direct-catalog .filters .direct-advanced > summary {
+  font-size:13px;font-weight:700;line-height:1.4;letter-spacing:0;text-transform:none;color:#4e4859;
+}
+.is-direct-catalog .catalog-searchbar { justify-content:flex-end; }
+@media(min-width:801px) { .is-direct-catalog .catalog-searchbar { display:none; } }
 .direct-snapshot-note { padding: 12px 16px; background: #f0ebf8; border-radius: 12px; color: #5e4d75; font-size: 13px; line-height: 1.5; }
 .direct-card-details { margin: 12px 0; font-size: 12px; }
 .direct-card-details > div { display: flex; justify-content: space-between; gap: 8px; margin: 7px 0; }
