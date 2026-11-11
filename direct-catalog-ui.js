@@ -118,7 +118,7 @@
     fitSidebar();
     let visibleDate=today();
     setInterval(()=>{const next=today();if(next!==visibleDate){visibleDate=next;onChange();}},60000);
-    let revision=window.DIRECT_OFFERS_CATALOG.revision;
+    let revision=document.documentElement.dataset.catalogRevision || window.DIRECT_OFFERS_CATALOG.revision;
     if(!window.DIRECT_EMBEDDED_MEDIA && location.protocol!=='file:')setInterval(async()=>{try{const response=await fetch('catalog-meta.json',{cache:'no-store'});if(!response.ok)return;const next=await response.json();if(revision && next.revision!==revision && document.getElementById('offer-modal').hidden)location.reload();else if(!revision)revision=next.revision;}catch{}},60000);
     const panel=el('section',null,'direct-modal-options');panel.id='direct-modal-options';
     document.getElementById('modal-scout').before(panel);
