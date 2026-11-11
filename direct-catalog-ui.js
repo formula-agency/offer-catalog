@@ -6,6 +6,7 @@
   const selected = new Map();
   const comparisonChildren=new Map();
   const scoutSelected=new Map();
+  const comparisonModes=new Map();
   let readTypes = () => new Set();
   const dateFormatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Yekaterinburg',year:'numeric',month:'2-digit',day:'2-digit'});
   const today = () => dateFormatter.format(new Date());
@@ -209,13 +210,13 @@
     return [...(p.conditions || []),...(p.stages || []),...(offer.gifts || [])].map(text=>text.replace(/^\s*изображени[ея]\s*\d+\s*[:.—]\s*/iu,'')).filter(text=>!/^\s*(?:изображени[ея]|планировк|жк\s+явно|текст\s+подтверждает|источник|распозна|зач[её]ркнутая\s+цена)/iu.test(text));
   }
   function renderComparison(offer,p,panel,onChange) {
-    const block=el('details',null,'card-disclosure comparison-block');block.append(el('summary','Сравнить с базовыми условиями'));
+    const block=el('section',null,'comparison-block');block.setAttribute('aria-label','Базовые условия этой квартиры');
     const key=offer.id+'/'+p.id;
     const result=D.comparison(offer,p,window.DIRECT_OFFERS_CATALOG.mortgageTerms,comparisonChildren.get(key));
     if(result.needsChildren) {
       const label=el('label','Количество детей для сравнения','direct-filter'),select=el('select');select.setAttribute('aria-label','Количество детей для сравнения');
       for(const [v,t] of [['','Выберите'],['1','1 ребёнок'],['2','2 детей'],['3','3 детей'],['4','4 детей'],['5','5 и более детей']]) {const node=el('option',t);node.value=v;select.append(node);}
-      select.addEventListener('change',()=>{comparisonChildren.set(key,Number(select.value));onChange();document.querySelector('.comparison-block').open=true;});label.append(select);block.append(label);
+      select.addEventListener('change',()=>{comparisonChildren.set(key,Number(select.value));onChange();document.querySelector('.comparison-switcher').open=true;});label.append(select);block.append(label);
     } else if(result.base) {
       const b=result.base;
       block.append(el('p',result.beforeDiscount?'Та же квартира до скидки, та же программа.':'Та же квартира по текущей цене, без акционных условий.','comparison-caption'));
@@ -234,16 +235,15 @@
   }
   function renderScoutComparison(offer,p,panel) {
     const S=window.DirectScout,snapshot=window.DIRECT_SCOUT_INVENTORY;
-    const block=el('details',null,'card-disclosure scout-comparison');
+    const block=el('section',null,'scout-comparison');block.setAttribute('aria-label','Аналоги в этом ЖК');
     const result=S?.similar(offer,snapshot,today()) || {status:'unavailable',rows:[]};
-    block.append(el('summary',`Сравнить с квартирами в этом ЖК${result.rows.length?` · ${result.rows.length}`:''}`));
     panel.append(block);
     if(result.status!=='ready') {
       const message={unavailable:'Данные Scout сейчас недоступны.',unmatched:'Этот ЖК пока не сопоставлен с официальной экспозицией Scout.',no_area:'В оффере не указана площадь для подбора аналогов.',empty:'В официальной экспозиции Scout нет квартир этого ЖК с площадью в пределах ±3 м².'}[result.status];
       block.append(el('p',message,'comparison-caption'));return;
     }
     const date=value=>value?value.slice(0,10).split('-').reverse().join('.'):null;
-    block.append(el('p',`${result.project} · площадь ${(offer.areaSqm-3).toLocaleString('ru-RU')}–${(offer.areaSqm+3).toLocaleString('ru-RU')} м². Scout · официальные источники застройщиков · получено ${date(snapshot.fetchedAt)}.`,'comparison-caption'));
+    block.append(el('p',`${result.project} · найдено ${result.rows.length} · площадь ${(offer.areaSqm-3).toLocaleString('ru-RU')}–${(offer.areaSqm+3).toLocaleString('ru-RU')} м². Scout · официальные источники застройщиков · получено ${date(snapshot.fetchedAt)}.`,'comparison-caption'));
     const label=el('label',null,'direct-filter'),select=el('select');
     label.append(el('span','Квартира для сравнения'));select.setAttribute('aria-label','Квартира Scout для сравнения');
     for(const row of result.rows){
@@ -273,10 +273,26 @@
     };
     select.addEventListener('change',draw);draw();
   }
+  function renderComparisons(offer,p,panel,onChange,open) {
+    const block=el('details',null,'card-disclosure comparison-switcher');block.open=!!open;
+    block.append(el('summary','Сравнение'));
+    const modes=el('div',null,'scenario-programs comparison-modes');modes.setAttribute('role','group');modes.setAttribute('aria-label','Вид сравнения');
+    const content=el('div');block.append(modes,content);panel.append(block);
+    renderComparison(offer,p,content,onChange);renderScoutComparison(offer,p,content);
+    const views={base:content.querySelector('.comparison-block'),scout:content.querySelector('.scout-comparison')};
+    const buttons={};
+    const selectMode=mode=>{
+      comparisonModes.set(offer.id,mode);
+      for(const key of Object.keys(views)){views[key].hidden=key!==mode;buttons[key].setAttribute('aria-pressed',String(key===mode));}
+    };
+    for(const [key,label] of [['base','Базовые условия'],['scout','Аналоги в ЖК']]) {
+      const button=el('button',label,'scenario-program');button.type='button';button.addEventListener('click',()=>selectMode(key));buttons[key]=button;modes.append(button);
+    }
+    selectMode(comparisonModes.get(offer.id) || 'base');
+  }
   function renderModal(offer,onChange) {
     const panel=document.getElementById('direct-modal-options');
-    const scoutOpen=panel.dataset.offerId===offer.id && panel.querySelector('.scout-comparison')?.open;
-    const baseOpen=panel.dataset.offerId===offer.id && panel.querySelector('.comparison-block')?.open;
+    const comparisonOpen=panel.dataset.offerId===offer.id && panel.querySelector('.comparison-switcher')?.open;
     panel.replaceChildren();
     const p=option(offer);if(!p)return;
     panel.dataset.offerId=offer.id;panel.dataset.optionId=p.id;
@@ -287,10 +303,7 @@
     if(p.stages?.length) {const stages=el('p',p.stages.join(' · '),'payment-period-note');panel.append(stages);}
     document.getElementById('modal-district').hidden=true;
     choose(offer,panel,onChange);
-    renderComparison(offer,p,panel,onChange);
-    if(baseOpen)panel.querySelector('.comparison-block').open=true;
-    renderScoutComparison(offer,p,panel);
-    if(scoutOpen)panel.querySelector('.scout-comparison').open=true;
+    renderComparisons(offer,p,panel,onChange,comparisonOpen);
     const extra=el('details',null,'card-disclosure');extra.append(el('summary','Дополнительная информация'));
     const facts=el('dl',null,'direct-facts');
     const sourceLinks=[...new Set((offer.sourceLinks || []).map(D.sourceMessageUrl).filter(Boolean))];

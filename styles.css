@@ -1976,6 +1976,7 @@ h1 {
 .card-disclosure { border-top:1px solid #eee6f3;padding:14px 0; }
 .card-disclosure summary { cursor:pointer;font-size:13px;font-weight:600;color:#443052; }
 .comparison-caption { font-size:11px;line-height:1.6;color:#83728e;margin:12px 0; }
+.comparison-modes { margin-top:14px; }
 .scout-comparison .direct-filter { margin-top:12px; }
 .scout-comparison select { max-width:100%;text-overflow:ellipsis; }
 .scout-price-delta { font-size:13px;font-weight:700;color:#603b85;line-height:1.5; }
